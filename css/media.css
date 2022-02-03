@@ -1,0 +1,332 @@
+@media only screen and (min-width:320px) and (max-width: 767px) {
+.wrapper {
+	width:90%;
+	margin:0px 5%;
+}
+
+.header .header-col {
+    display: grid;
+    grid-template-columns:auto;
+	text-align:center !important;
+}
+
+.text-right {
+    text-align: center;
+}
+
+.banner {
+    display: grid;
+    grid-template-columns: auto;
+    padding-top: 55px;
+}
+
+.banner img {
+	width:100%;
+}
+
+h2 {
+    font-size: 55px;
+    color: #fff;
+    line-height: 60px;
+}
+
+.images {
+    padding-top: 21px;
+    margin-bottom: -92px;
+}
+
+br {
+	display:none!important;
+}
+
+.about-us {
+    display: grid;
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom:50px;
+}
+
+.about-us .about-us-col {
+    display: grid;
+    grid-template-columns:auto;
+}
+
+.about-us .col-2 {
+    width:100%;
+	padding-right:0px;
+}
+
+.praesent {
+    display: grid;
+    background-color: #3b1892;
+    width: 100%;
+    padding:50px 0px;
+}
+
+.praesent-box {
+    display: grid;
+    grid-template-columns:auto auto;
+    grid-gap: 20px;
+    margin-top: 50px;
+}
+
+.praesent-box .grid-item {
+	width:auto;
+}
+
+.praesent-box .grid-item a {
+	display:inline-block;
+	width:100%;
+}
+
+.vestibulum {
+    width: 100%;
+    padding:50px 0px;
+}
+
+.vestibulum h3 {
+	margin-top:0px;
+}
+
+h3 {
+	font-size: 40px !important;
+	line-height: 47px!important;
+}
+
+.banner p,.auctor p,.praesent p {
+    padding: 0px 15px;
+}
+
+.vestibulum-col {
+    display: grid;
+    grid-template-columns:auto;
+}
+
+.vestibulum-col img {
+	width:100%;
+}
+
+.auctor-box {
+      display: grid;
+    grid-template-columns:auto auto;
+}
+
+.auctor-box .grid-item {
+	width:auto;
+}
+
+.get-in-touch .grid-container {
+    display: grid;
+    grid-template-columns:auto;
+}
+
+.get-in-touch .itemnew {
+    grid-column: 1 / span 1;
+}
+
+.get-in-touch .formgroup {
+    display: grid;
+    grid-template-columns:auto;
+}
+
+.get-in-touch .formgroup .col {
+	width:auto;
+}
+
+.visible-xs {
+	display:block;
+}
+
+.hidden-xs {
+	display:none;
+}
+
+.get-in-touch {
+	padding-top:0px;
+}
+ 
+
+.get-in-touch img {
+	width:100%;
+}
+
+.footer .grid-container {
+   display: grid;
+    grid-template-columns:auto;
+}
+
+.footer .col {
+    width: auto;
+}
+
+.footer p,.footer .col {
+	text-align:center !important;
+}
+
+.footer ul {
+	padding-left:0px;
+}
+
+.text-left {
+    text-align: center !important;
+}
+
+}
+
+
+@media only screen and (min-width:768px) and (max-width:979px) {
+.wrapper {
+	width:96%;
+	margin:0px 2%;
+}
+
+.images img {
+	width:100%;
+}
+
+h2 {
+    font-size: 56px;
+    line-height: 65px;
+}
+
+.banner p,.auctor p,.praesent p {
+    padding: 0px 15px;
+}
+
+.about-us .col-2 {
+	width:350px;
+	padding-right:20px;
+}
+
+h3 {
+	font-size: 36px !important;
+	line-height: 44px!important;
+}
+
+br {
+	display:none!important;
+}
+
+.praesent-box {
+    grid-template-columns: auto auto auto auto;
+}
+
+.praesent-box .grid-item {
+	width:auto;
+}
+
+.vestibulum-col img {
+	width:100%;
+}
+
+.vestibulum h3 {
+	margin-top:0px;
+}
+
+.auctor-box {
+   grid-template-columns: auto auto auto auto;
+}
+
+.auctor-box .grid-item {
+	width:auto;
+}
+
+.get-in-touch .itemnew {
+    grid-column: 1 / span 1;
+}
+
+.footer .col {
+	width:auto;
+}
+
+.hidden-sm {
+	display:none;
+}
+
+.get-in-touch {
+	padding-bottom:25px;
+}
+
+.footer ul {
+	padding-left:0px;
+}
+
+.footer ul li .fa {
+	width:32px;
+	height:32px;
+	line-height:32px;
+}
+
+.footer p {
+	margin-top:20px;
+    font-size: 14px;
+	display:inline-block;
+}
+
+.get-in-touch .formgroup .col {
+    width: 354px;
+}
+
+}
+
+@media only screen and (min-width:980px) and (max-width:1169px) {
+
+.wrapper {
+	width:96%;
+	margin:0px 2%;
+}
+
+.banner img {
+    width:100%;
+}
+
+.about-us .col-2 {
+    width: 460px;
+}
+
+h3 {
+	font-size: 36px !important;
+	line-height: 44px!important;
+}
+
+br {
+	display:none!important;
+}
+
+.praesent-box {
+    grid-template-columns: auto auto auto auto;
+}
+
+.praesent-box .grid-item {
+	width:auto;
+}
+
+.vestibulum-col img {
+	width:100%;
+}
+
+.vestibulum h3 {
+	margin-top:0px;
+}
+
+.auctor-box {
+   grid-template-columns: auto auto auto auto;
+}
+
+.auctor-box .grid-item {
+	width:auto;
+}
+
+.praesent-box .grid-item a {
+	width:100%;
+}
+
+.get-in-touch .formgroup .col {
+	width:auto;
+}
+.footer .col {
+	width:auto;
+}
+
+
+}
