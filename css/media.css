@@ -25,9 +25,9 @@
 }
 
 h2 {
-    font-size: 55px;
-    color: #fff;
-    line-height: 60px;
+	font-size: 40px;
+	color: #fff;
+	line-height: 54px;
 }
 
 .images {
@@ -171,6 +171,18 @@ h3 {
     text-align: center !important;
 }
 
+.logo img {
+	height:50px;
+}
+
+.footer img {
+	height:50px;
+}
+
+.auctor-box .grid-item {
+    padding: 10px;
+}
+
 }
 
 
@@ -267,6 +279,10 @@ br {
     width: 354px;
 }
 
+.header .header-col {
+	padding:0px 20px;
+}
+
 }
 
 @media only screen and (min-width:980px) and (max-width:1169px) {
@@ -274,6 +290,10 @@ br {
 .wrapper {
 	width:96%;
 	margin:0px 2%;
+}
+
+.header .header-col {
+	padding:0px 20px;
 }
 
 .banner img {
