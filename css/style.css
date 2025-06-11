@@ -1,4 +1,3 @@
-
 body {
 	background:#fff;
 	padding:0px;
@@ -473,4 +472,9 @@ p.title-head-p {
 
 .visible-xs {
 	display:none;
+}
+
+.grid-container.header {
+  background-color: #ffffff; /* Or your desired color */
+  transition: background-color 0.3s ease;
 }
