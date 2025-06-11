@@ -284,6 +284,36 @@
 	  // Initialize GSAP ScrollTrigger
 	  gsap.registerPlugin(ScrollTrigger);
 	  
+	  // Banner section animations
+	  gsap.from('.banner', {
+	    duration: 1.5,
+	    backgroundColor: 'rgba(0,0,0,0)',
+	    ease: 'power2.inOut'
+	  });
+
+	  gsap.from('.banner h2', {
+	    y: 100,
+	    opacity: 0,
+	    duration: 1.2,
+	    ease: 'power2.out'
+	  });
+
+	  gsap.from('.banner p', {
+	    y: 50,
+	    opacity: 0,
+	    duration: 1,
+	    delay: 0.3,
+	    ease: 'power2.out'
+	  });
+
+	  gsap.from('.banner .images', {
+	    y: 30,
+	    opacity: 0,
+	    duration: 1,
+	    delay: 0.6,
+	    ease: 'power2.out'
+	  });
+	  
 	  // Header animations
 	  gsap.from('.grid-container.header', {
 	    duration: 1.5,
