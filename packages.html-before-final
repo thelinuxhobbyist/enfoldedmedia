@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packages | Enfolded Media</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <nav><a href="index.html">Home</a></nav>
+  </header>
+  <main>
+    <h1>Our Packages</h1>
+    <div id="packages-container" class="packages">
+      <!-- Packages will be dynamically rendered here -->
+    </div>
+  </main>
+  <footer>© 2025 Enfolded Media</footer>
+  <script src="js/packages.js"></script>
+  <script src="js/render.js"></script>
+</body>
+</html>
+

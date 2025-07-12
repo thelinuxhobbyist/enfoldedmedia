@@ -478,3 +478,142 @@ p.title-head-p {
   background-color: #ffffff; /* Or your desired color */
   transition: background-color 0.3s ease;
 }
+
+.event-header {
+  font-size: 50px;
+  font-family: 'HelveticaNeueLTStdBdCn', sans-serif;
+  color: transparent;
+  background: linear-gradient(90deg, #e43a45, #7d2e93);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.details-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  margin: 50px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.package-description {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.package-price {
+  padding-left: 20px;
+  border-left: 1px solid #ddd;
+  width: 250px;
+}
+
+.package-price h2 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #e43a45;
+}
+
+.buy-now-btn {
+  display: block;
+  background: linear-gradient(90deg, #e43a45, #7d2e93);
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.buy-now-btn:hover {
+  background: linear-gradient(90deg, #7d2e93, #e43a45);
+}
+
+
+/* Global Body Styling for All Pages */
+body {
+  background: #fff;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Header Layout - Global (Used for homepage, etc.) */
+.header {
+  padding: 20px 0px;
+  display: grid;
+}
+
+.header a {
+  color: #000000;
+  font-family: 'HelveticaNeueLTStdBdCn';
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.header .header-col {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.header a .icon {
+  position: relative;
+  top: 10px;
+  margin-right: 10px;
+}
+
+/* Global Footer Styles (Shared) */
+.footer {
+  display: grid;
+  background: #3b1892;
+  width: 100%;
+  padding: 80px 0px;
+}
+
+.footer .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.footer .col {
+  width: 390px;
+}
+
+.footer p {
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.footer ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 0px 2px;
+}
+
+.footer ul li .fa {
+  background: rgba(62, 25, 156, 1);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.footer ul li:hover .fa {
+  background: #fff;
+  color: #401e95;
+}
+
+.footer ul li a {
+  font-size: 18px;
+  color: #fff;
+}
