@@ -20,4 +20,3 @@ document.addEventListener('DOMContentLoaded', () => {
     hostingSection.style.display = 'none';
   }
 });
-
