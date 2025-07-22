@@ -1,0 +1,26 @@
+{
+  "startup": {
+    "title": "Welcome to the Startup Package",
+    "steps": [
+      "Book your onboarding call",
+      "Fill out the project brief form",
+      "We'll begin the initial design"
+    ]
+  },
+  "pro": {
+    "title": "Pro Package Onboarding",
+    "steps": [
+      "Upload your brand assets",
+      "Schedule your first design review",
+      "Track your progress on the dashboard"
+    ]
+  },
+  "logo": {
+    "title": "Logo Design Package",
+    "steps": [
+      "Send logo references or ideas",
+      "Approve the concept sketch",
+      "Receive your final logo files"
+    ]
+  }
+}

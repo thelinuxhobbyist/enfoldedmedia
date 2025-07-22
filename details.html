@@ -6,7 +6,6 @@
   <title>Package Details | Enfolded Media</title>
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="css/details.css">
-
 </head>
 <body>
   <header>
@@ -21,9 +20,13 @@
         <h3>Package Description</h3>
         <p id="long-description"></p>
 
-        <h3>Hosting</h3>
-        <p id="hosting-info">N/A</p>
+        <!-- Wrapped hosting info for conditional display -->
+        <div id="hosting-section">
+          <h3>Hosting</h3>
+          <p id="hosting-info">N/A</p>
+        </div>
       </div>
+
       <div class="package-price">
         <h2 id="price"></h2>
         <a id="buy-link" class="buy-now-btn" target="_blank">Buy Now</a>
@@ -38,3 +41,4 @@
   <script src="js/details.js"></script>
 </body>
 </html>
+

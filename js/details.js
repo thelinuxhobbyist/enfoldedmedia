@@ -11,7 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('price').textContent = pkg.price;
   document.getElementById('buy-link').href = pkg.stripeLink;
 
-  const hostingEl = document.getElementById('hosting-info');
-  hostingEl.textContent = pkg.hosting || 'Not included';
+  const hostingSection = document.getElementById('hosting-section');
+  const hostingInfo = document.getElementById('hosting-info');
+
+  if (pkg.hosting) {
+    hostingInfo.textContent = pkg.hosting;
+  } else {
+    hostingSection.style.display = 'none';
+  }
 });
 
