@@ -1,43 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Package Details | Enfolded Media</title>
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="css/details.css">
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <meta name="description" content="Detailed information about our design packages for multilingual businesses.">
+  
+  <!-- Modern CSS -->
+  <link rel="stylesheet" href="css/modern.css">
 </head>
 <body>
-  <header>
-    <img src="images/logo.png" alt="Logo" class="logo" />
-    <nav><a href="packages.html">Back to Packages</a></nav>
-  </header>
-
-  <main>
-    <div id="package-title" class="event-header"></div>
-    <div class="details-container">
-      <div class="package-description">
-        <h3>Package Description</h3>
-        <p id="long-description"></p>
-
-        <!-- Wrapped hosting info for conditional display -->
-        <div id="hosting-section">
-          <h3>Hosting</h3>
-          <p id="hosting-info">N/A</p>
-        </div>
-      </div>
-
-      <div class="package-price">
-        <h2 id="price"></h2>
-        <a id="buy-link" class="buy-now-btn" target="_blank">Buy Now</a>
-        <p>Delivery Time: 3–5 business days after purchase</p>
+  <!-- Modern Header -->
+  <header class="modern-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo-link">
+          <img src="https://cdn.enfoldedmedia.com/enfolded-images/logo.png" alt="Enfolded Media" class="logo">
+        </a>
+        
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="packages.html" class="nav-link">Packages</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+          <a href="mailto:info@enfoldedmedia.com" class="btn btn-primary">Get Started</a>
+        </nav>
+        
+        <button class="mobile-menu-toggle" id="mobileToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
-  </main>
+  </header>
 
-  <footer>© 2025 Enfolded Media</footer>
+  <!-- Package Details Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 id="package-title">Package Details</h1>
+        <p>Everything you need to know about this package</p>
+        <a href="packages.html" class="btn btn-secondary">← Back to Packages</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- Package Details Content -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: start; gap: var(--space-12);">
+        <!-- Package Description -->
+        <div>
+          <div class="card" style="margin-bottom: var(--space-8);">
+            <h3>Package Description</h3>
+            <p id="long-description" style="font-size: 1.125rem; line-height: 1.75;"></p>
+          </div>
+
+          <!-- Hosting Info (conditional) -->
+          <div id="hosting-section" class="card">
+            <h3>Hosting Information</h3>
+            <p id="hosting-info"></p>
+          </div>
+        </div>
+
+        <!-- Package Purchase -->
+        <div>
+          <div class="card" style="text-align: center; position: sticky; top: 120px;">
+            <div class="package-price" id="price" style="font-size: 3rem; margin-bottom: var(--space-6);"></div>
+            
+            <ul class="package-features" style="text-align: left; margin-bottom: var(--space-8);">
+              <li>Professional design</li>
+              <li>Multiple revisions included</li>
+              <li>Fast delivery (3-5 business days)</li>
+              <li>Multilingual options available</li>
+              <li>Full commercial rights</li>
+            </ul>
+            
+            <a id="buy-link" class="btn btn-accent" style="width: 100%; justify-content: center; font-size: 1.125rem; padding: var(--space-4) var(--space-6);" target="_blank">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3H3m4 10v6a1 1 0 001 1h9a1 1 0 001-1v-6m-10 0V9a1 1 0 011-1h8a1 1 0 011 1v4.01"></path>
+              </svg>
+              Buy Now
+            </a>
+            
+            <p style="margin-top: var(--space-4); color: var(--gray-500); font-size: 0.875rem;">
+              Secure payment via Stripe<br>
+              Delivery: 3–5 business days after purchase
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Packages -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Other Packages You Might Like</h2>
+        <p class="section-subtitle">Explore our full range of design solutions</p>
+      </div>
+      
+      <div class="grid grid-3">
+        <div class="card text-center">
+          <h4>Social Media Setup</h4>
+          <p>Branded profiles for all platforms</p>
+          <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin: var(--space-4) 0;">£80</div>
+          <a href="details.html?id=social-media" class="btn btn-primary">View Details</a>
+        </div>
+        
+        <div class="card text-center">
+          <h4>Event Poster Design</h4>
+          <p>Print and digital format posters</p>
+          <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin: var(--space-4) 0;">£60</div>
+          <a href="details.html?id=event-poster" class="btn btn-primary">View Details</a>
+        </div>
+        
+        <div class="card text-center">
+          <h4>Startup Brand Pack</h4>
+          <p>Complete branding solution</p>
+          <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin: var(--space-4) 0;">£150</div>
+          <a href="details.html?id=global-pack" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Footer -->
+  <footer class="modern-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Enfolded Media</h4>
+          <p>Multilingual design solutions for modern Britain. We help businesses connect with diverse audiences through culturally aware design and inclusive branding.</p>
+          <a href="mailto:info@enfoldedmedia.com">info@enfoldedmedia.com</a>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Services</h4>
+          <a href="index.html#services">Brand Identity</a>
+          <a href="index.html#services">Web Design</a>
+          <a href="index.html#services">Multilingual Media</a>
+          <a href="index.html#services">Promotional Design</a>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>07836 319 635</p>
+          <a href="mailto:info@enfoldedmedia.com">info@enfoldedmedia.com</a>
+          <p>@enfoldedteam</p>
+          <a href="packages.html">enfoldedmedia.com</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Enfolded Media. All rights reserved.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/enfoldedteam" class="social-link">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://www.twitter.com/enfoldedteam" class="social-link">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/enfoldedteam" class="social-link">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.611-3.132-1.551-.684-.94-.684-2.08 0-3.02.684-.94 1.835-1.551 3.132-1.551s2.448.611 3.132 1.551c.684.94.684 2.08 0 3.02-.684.94-1.835 1.551-3.132 1.551zm7.518 0c-1.297 0-2.448-.611-3.132-1.551-.684-.94-.684-2.08 0-3.02.684-.94 1.835-1.551 3.132-1.551s2.448.611 3.132 1.551c.684.94.684 2.08 0 3.02-.684.94-1.835 1.551-3.132 1.551z"/>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/enfoldedteam" class="social-link">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
   <script src="js/packages.js"></script>
   <script src="js/details.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navMenu = document.getElementById('navMenu');
+      
+      mobileToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+      
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('.modern-header');
+        if (window.scrollY > 100) {
+          header.style.background = 'rgba(255, 255, 255, 0.98)';
+          header.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+        } else {
+          header.style.background = 'rgba(255, 255, 255, 0.95)';
+          header.style.boxShadow = 'none';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
