@@ -711,6 +711,35 @@ a:hover {
     grid-template-columns: 1fr;
     text-align: center;
   }
+  
+  /* Mobile-specific improvements for details page */
+  .package-card {
+    position: static !important;
+    margin-bottom: var(--space-6);
+  }
+  
+  .package-card .btn {
+    font-size: 1.25rem;
+    padding: var(--space-5) var(--space-6);
+  }
+  
+  .package-price {
+    font-size: 2.5rem !important;
+  }
+  
+  /* Better mobile spacing for feature lists */
+  .grid[style*="align-items: flex-start"] {
+    gap: var(--space-6) !important;
+  }
+  
+  .grid[style*="align-items: flex-start"] > div:first-child {
+    order: 2;
+  }
+  
+  .grid[style*="align-items: flex-start"] > div:last-child {
+    order: 1;
+    margin-bottom: var(--space-8);
+  }
 }
 
 @media (max-width: 480px) {
@@ -723,6 +752,19 @@ a:hover {
   
   .section {
     padding: var(--space-12) 0;
+  }
+  
+  /* Extra small screen improvements */
+  .package-card {
+    padding: var(--space-6);
+  }
+  
+  .package-features {
+    font-size: 0.95rem;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
   }
 }
 
