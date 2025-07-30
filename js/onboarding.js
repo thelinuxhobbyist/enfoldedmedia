@@ -1,38 +1,23 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const product = urlParams.get("product");
-
-  const titleEl = document.getElementById("title");
-  const stepsEl = document.getElementById("steps");
-
-  if (!product) {
-    titleEl.textContent = "No product specified.";
-    return;
+fetch("https://enfoldedmedia.com/send-customization", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    email: userEmail,  // User's email (from Stripe or form)
+    product: product,  // Product purchased (from onboarding.json)
+    customizationDetails: customizationDetails,  // Form data (name, text, etc.)
+  }),
+})
+.then((response) => {
+  if (response.ok) {
+    alert("Customization details submitted successfully!");
+  } else {
+    alert("Error submitting customization details.");
   }
-
-  fetch("/config/onboarding.json")
-    .then(response => {
-      if (!response.ok) throw new Error("Failed to load onboarding config.");
-      return response.json();
-    })
-    .then(data => {
-      const info = data[product];
-      if (!info) {
-        titleEl.textContent = "Invalid product name.";
-        return;
-      }
-
-      titleEl.textContent = info.title;
-      stepsEl.innerHTML = ""; // Clear existing steps
-
-      info.steps.forEach(step => {
-        const li = document.createElement("li");
-        li.textContent = step;
-        stepsEl.appendChild(li);
-      });
-    })
-    .catch(error => {
-      console.error(error);
-      titleEl.textContent = "Error loading onboarding info.";
-    });
+})
+.catch((error) => {
+  console.error("Error:", error);
+  alert("There was an error submitting your details.");
 });
+
