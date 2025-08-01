@@ -35,95 +35,55 @@
     </div>
   </header>
 
-  <!-- Package Details Hero -->
+  <!-- Package Details Header -->
   <section class="section" style="padding-top: var(--space-12); padding-bottom: var(--space-8);">
     <div class="container">
       <div style="text-align: center; margin-bottom: var(--space-8);">
         <a href="packages.html" class="btn btn-secondary" style="margin-bottom: var(--space-4);">← Back to Packages</a>
+        <h1 id="package-title" style="margin-bottom: var(--space-4);">Package Details</h1>
+        <p style="font-size: 1.25rem; color: var(--gray-600);">Everything you need to know about this package</p>
       </div>
-    </div>
-  </section>
 
-  <!-- Package Details Content -->
-  <section class="section">
-    <div class="container">
-      <!-- Single unified package details card -->
-      <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <h1 id="package-title" style="font-size: 2.5rem; margin-bottom: var(--space-4); color: var(--gray-900);">Package Details</h1>
-        
-        <div class="package-price" id="price" style="font-size: 3rem; margin-bottom: var(--space-6);"></div>
-        
-        <div style="text-align: left; margin-bottom: var(--space-6);">
-          <h3 style="margin-bottom: var(--space-3);">Package Description</h3>
-          <p id="long-description" style="font-size: 1.125rem; line-height: 1.75; color: var(--gray-600);"></p>
-        </div>
-        
-        <!-- Hosting Info (conditional) -->
-        <div id="hosting-section" style="text-align: left; margin-bottom: var(--space-6);">
-          <h3 style="margin-bottom: var(--space-3);">Hosting Information</h3>
-          <p id="hosting-info" style="color: var(--gray-600);"></p>
-        </div>
-        
-        <ul class="package-features" style="text-align: left; margin-bottom: var(--space-8);">
-          <li>Professional design</li>
-          <li>Multiple revisions included</li>
-          <li>Fast delivery (3-5 business days)</li>
-          <li>Multilingual options available</li>
-          <li>Full commercial rights</li>
-        </ul>
-        
-        <a id="buy-link" class="btn btn-accent" style="width: 100%; justify-content: center; font-size: 1.125rem; padding: var(--space-4) var(--space-6);" target="_blank">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3H3m4 10v6a1 1 0 001 1h9a1 1 0 001-1v-6m-10 0V9a1 1 0 011-1h8a1 1 0 011 1v4.01"></path>
-          </svg>
-          Buy Now
-        </a>
-        
-        <p style="margin-top: var(--space-4); color: var(--gray-500); font-size: 0.875rem;">
-          Secure payment via Stripe<br>
-          Delivery: 3–5 business days after purchase
-        </p>
-      </div>
-    </div>
-  </section>
+      <div class="grid grid-2" style="align-items: start; gap: var(--space-12);">
+        <!-- Package Description -->
+        <div>
+          <div class="card" style="margin-bottom: var(--space-8);">
+            <h3>Package Description</h3>
+            <p id="long-description" style="font-size: 1.125rem; line-height: 1.75;"></p>
+          </div>
 
-  <!-- Package Features Section -->
-  <section class="section section-gray">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">What's Included</h2>
-        <p class="section-subtitle">Everything you need for professional results</p>
-      </div>
-      
-      <div class="grid grid-3">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
+          <!-- Hosting Info (conditional) -->
+          <div id="hosting-section" class="card">
+            <h3>Hosting Information</h3>
+            <p id="hosting-info"></p>
           </div>
-          <h4>Quality Guarantee</h4>
-          <p>Professional design standards with unlimited revisions until you're satisfied</p>
         </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
+
+        <!-- Package Purchase -->
+        <div>
+          <div class="card" style="text-align: center; position: sticky; top: 120px;">
+            <div class="package-price" id="price" style="font-size: 3rem; margin-bottom: var(--space-6);"></div>
+            
+            <ul class="package-features" style="text-align: left; margin-bottom: var(--space-8);">
+              <li>Professional design</li>
+              <li>Multiple revisions included</li>
+              <li>Fast delivery (3-5 business days)</li>
+              <li>Multilingual options available</li>
+              <li>Full commercial rights</li>
+            </ul>
+            
+            <a id="buy-link" class="btn btn-accent" style="width: 100%; justify-content: center; font-size: 1.125rem; padding: var(--space-4) var(--space-6);" target="_blank">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3H3m4 10v6a1 1 0 001 1h9a1 1 0 001-1v-6m-10 0V9a1 1 0 011-1h8a1 1 0 011 1v4.01"></path>
+              </svg>
+              Buy Now
+            </a>
+            
+            <p style="margin-top: var(--space-4); color: var(--gray-500); font-size: 0.875rem;">
+              Secure payment via Stripe<br>
+              Delivery: 3–5 business days after purchase
+            </p>
           </div>
-          <h4>Fast Delivery</h4>
-          <p>Quick turnaround time of 3-5 business days for most projects</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-            </svg>
-          </div>
-          <h4>Multilingual Support</h4>
-          <p>Available in multiple languages to reach diverse audiences</p>
         </div>
       </div>
     </div>
@@ -228,7 +188,6 @@
       
       mobileToggle.addEventListener('click', function() {
         navMenu.classList.toggle('active');
-        mobileToggle.classList.toggle('active');
       });
       
       // Header scroll effect

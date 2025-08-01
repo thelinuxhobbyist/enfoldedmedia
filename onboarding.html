@@ -1,49 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Onboarding | Enfolded Media</title>
-  <script src="/js/onboarding.js" defer></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <meta name="description" content="Get started with your Enfolded Media package onboarding process.">
+  
+  <!-- Modern CSS -->
+  <link rel="stylesheet" href="css/modern.css">
 </head>
-<body class="bg-gray-50 min-h-screen flex items-center justify-center px-4">
-  <div class="bg-white shadow-lg rounded-2xl p-8 max-w-xl w-full">
-    <h1 id="title" class="text-3xl font-bold text-gray-800 mb-6 text-center">Loading...</h1>
-    <ul id="steps" class="list-decimal list-inside space-y-3 text-gray-700 text-lg"></ul>
-    
-    <!-- Customization Form -->
-    <form id="customization-form" class="mt-8 space-y-4">
-      <h3 class="text-2xl">Provide Customization Details</h3>
+<body>
+  <!-- Modern Header -->
+  <header class="modern-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo-link">
+          <img src="https://cdn.enfoldedmedia.com/enfolded-images/logo.png" alt="Enfolded Media" class="logo">
+        </a>
+        
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="packages.html" class="nav-link">Packages</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+          <a href="https://wa.me/447836319635?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20services" class="btn btn-primary">Get Started</a>
+        </nav>
+        
+        <button class="mobile-menu-toggle" id="mobileToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Onboarding Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 id="title">Welcome to Your Onboarding</h1>
+        <p>Let's get your project started with these simple steps</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onboarding Steps -->
+  <section class="section">
+    <div class="container">
+      <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <div style="margin-bottom: var(--space-8);">
+          <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-6);">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 40px; height: 40px; color: white;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h2 style="margin-bottom: var(--space-4);">Next Steps</h2>
+        </div>
+        
+        <ol id="steps" style="list-style: none; counter-reset: step-counter; text-align: left; max-width: 500px; margin: 0 auto;">
+          <!-- Steps will be populated by JavaScript -->
+        </ol>
+        
+        <div style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--gray-200);">
+          <p style="color: var(--gray-600); margin-bottom: var(--space-4);">Questions about your package?</p>
+          <a href="mailto:info@enfoldedmedia.com" class="btn btn-primary">Contact Our Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Footer -->
+  <footer class="modern-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Enfolded Media</h4>
+          <p>Multilingual design solutions for modern Britain. We help businesses connect with diverse audiences through culturally aware design and inclusive branding.</p>
+          <a href="mailto:info@enfoldedmedia.com">info@enfoldedmedia.com</a>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Services</h4>
+          <a href="index.html#services">Brand Identity</a>
+          <a href="index.html#services">Web Design</a>
+          <a href="index.html#services">Multilingual Media</a>
+          <a href="index.html#services">Promotional Design</a>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>07836 319 635</p>
+          <a href="mailto:info@enfoldedmedia.com">info@enfoldedmedia.com</a>
+          <p>@enfoldedteam</p>
+          <a href="packages.html">enfoldedmedia.com</a>
+        </div>
+      </div>
       
-      <!-- Name Field -->
-      <label for="name" class="block text-gray-600">Name:</label>
-      <input type="text" id="name" name="name" class="w-full p-2 border rounded" required><br>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Enfolded Media. All rights reserved.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/enfoldedteam" class="social-link">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://www.twitter.com/enfoldedteam" class="social-link">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/enfoldedteam" class="social-link">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.611-3.132-1.551-.684-.94-.684-2.08 0-3.02.684-.94 1.835-1.551 3.132-1.551s2.448.611 3.132 1.551c.684.94.684 2.08 0 3.02-.684.94-1.835 1.551-3.132 1.551zm7.518 0c-1.297 0-2.448-.611-3.132-1.551-.684-.94-.684-2.08 0-3.02.684-.94 1.835-1.551 3.132-1.551s2.448.611 3.132 1.551c.684.94.684 2.08 0 3.02-.684.94-1.835 1.551-3.132 1.551z"/>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/enfoldedteam" class="social-link">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/onboarding.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navMenu = document.getElementById('navMenu');
       
-      <!-- Email Field (Passed from Stripe) -->
-      <label for="email" class="block text-gray-600">Email:</label>
-      <input type="email" id="email" name="email" class="w-full p-2 border rounded" required value=""><br>
+      mobileToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
       
-      <!-- Poster Text -->
-      <label for="poster-text" class="block text-gray-600">Text for Poster:</label>
-      <input type="text" id="poster-text" name="poster-text" class="w-full p-2 border rounded" required><br>
+      // Enhanced onboarding steps styling
+      const originalOnboardingScript = document.querySelector('script[src="js/onboarding.js"]');
+      if (originalOnboardingScript) {
+        // Override the steps rendering to use modern styling
+        const urlParams = new URLSearchParams(window.location.search);
+        const product = urlParams.get("product");
+        
+        if (product) {
+          fetch("/config/onboarding.json")
+            .then(response => response.json())
+            .then(data => {
+              const info = data[product];
+              if (info) {
+                document.getElementById('title').textContent = info.title;
+                const stepsEl = document.getElementById('steps');
+                stepsEl.innerHTML = '';
+                
+                info.steps.forEach((step, index) => {
+                  const li = document.createElement('li');
+                  li.style.cssText = `
+                    counter-increment: step-counter;
+                    margin-bottom: var(--space-4);
+                    padding: var(--space-4);
+                    background: var(--gray-50);
+                    border-radius: var(--radius-lg);
+                    position: relative;
+                    padding-left: var(--space-12);
+                  `;
+                  
+                  li.innerHTML = `
+                    <div style="
+                      position: absolute;
+                      left: var(--space-4);
+                      top: 50%;
+                      transform: translateY(-50%);
+                      width: 32px;
+                      height: 32px;
+                      background: var(--gradient-primary);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: white;
+                      font-weight: 600;
+                      font-size: 0.875rem;
+                    ">${index + 1}</div>
+                    <div style="font-weight: 500; color: var(--gray-800);">${step}</div>
+                  `;
+                  
+                  stepsEl.appendChild(li);
+                });
+              }
+            })
+            .catch(error => {
+              console.error('Error loading onboarding config:', error);
+            });
+        }
+      }
       
-      <!-- Upload Image -->
-      <label for="poster-image" class="block text-gray-600">Upload Image:</label>
-      <input type="file" id="poster-image" name="poster-image" class="w-full p-2 border rounded"><br>
-      
-      <!-- Color Scheme -->
-      <label for="color-scheme" class="block text-gray-600">Color Scheme:</label>
-      <select id="color-scheme" name="color-scheme" class="w-full p-2 border rounded">
-        <option value="blue">Blue</option>
-        <option value="red">Red</option>
-        <option value="green">Green</option>
-      </select><br>
-      
-      <!-- Submit Button -->
-      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Submit Customization</button>
-    </form>
-  </div>
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('.modern-header');
+        if (window.scrollY > 100) {
+          header.style.background = 'rgba(255, 255, 255, 0.98)';
+          header.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+        } else {
+          header.style.background = 'rgba(255, 255, 255, 0.95)';
+          header.style.boxShadow = 'none';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
