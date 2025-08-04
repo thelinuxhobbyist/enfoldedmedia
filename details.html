@@ -21,21 +21,12 @@
         
         <nav class="nav-menu" id="navMenu">
           <a href="index.html" class="nav-link">
-            <svg class="nav-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-            </svg>
             Home
           </a>
           <a href="packages.html" class="nav-link">
-            <svg class="nav-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-            </svg>
             Packages
           </a>
           <a href="index.html#contact" class="nav-link">
-            <svg class="nav-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-            </svg>
             Contact
           </a>
         </nav>
@@ -114,14 +105,19 @@
   </header>
 
   <!-- Package Details Header -->
-  <section class="section" style="padding-top: var(--space-12); padding-bottom: var(--space-8);">
+  <section class="package-details-header">
     <div class="container">
       <div style="text-align: center; margin-bottom: var(--space-8);">
         <a href="packages.html" class="btn btn-secondary" style="margin-bottom: var(--space-4);">← Back to Packages</a>
         <h1 id="package-title" style="margin-bottom: var(--space-4);">Package Details</h1>
         <p style="font-size: 1.25rem; color: var(--gray-600);">Everything you need to know about this package</p>
       </div>
+    </div>
+  </section>
 
+  <!-- Desktop Layout -->
+  <section class="section package-details-desktop">
+    <div class="container">
       <div class="grid grid-2" style="align-items: start; gap: var(--space-12);">
         <!-- Package Description -->
         <div>
@@ -167,6 +163,84 @@
     </div>
   </section>
 
+  <!-- Mobile Layout -->
+  <section class="section package-details-mobile">
+    <div class="container">
+      <!-- Price Highlight at Top -->
+      <div class="price-highlight">
+        <div class="price" id="price-mobile"></div>
+        <a id="buy-link-mobile" class="btn btn-primary" style="margin-top: var(--space-3);" target="_blank">
+          Buy Now
+        </a>
+      </div>
+      
+      <!-- Mobile Accordion -->
+      <div class="mobile-accordion">
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3 class="accordion-title">Package Description</h3>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p id="long-description-mobile" style="font-size: 1rem; line-height: 1.6; margin: 0;"></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item" id="hosting-accordion">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3 class="accordion-title">Hosting Information</h3>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p id="hosting-info-mobile" style="margin: 0;"></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3 class="accordion-title">What's Included</h3>
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <ul style="list-style: none; margin: 0; padding: 0;">
+                <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
+                  <span style="color: var(--accent-emerald); font-weight: bold;">✓</span>
+                  Professional design
+                </li>
+                <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
+                  <span style="color: var(--accent-emerald); font-weight: bold;">✓</span>
+                  Multiple revisions included
+                </li>
+                <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
+                  <span style="color: var(--accent-emerald); font-weight: bold;">✓</span>
+                  Fast delivery (3-5 business days)
+                </li>
+                <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
+                  <span style="color: var(--accent-emerald); font-weight: bold;">✓</span>
+                  Multilingual options available
+                </li>
+                <li style="display: flex; align-items: center; gap: var(--space-2);">
+                  <span style="color: var(--accent-emerald); font-weight: bold;">✓</span>
+                  Full commercial rights
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- Related Packages -->
   <section class="section section-gray">
     <div class="container">
@@ -259,6 +333,24 @@
   <script src="js/packages.js"></script>
   <script src="js/details.js"></script>
   <script>
+    // Accordion functionality
+    function toggleAccordion(header) {
+      const content = header.nextElementSibling;
+      const isActive = header.classList.contains('active');
+      
+      // Close all accordions
+      document.querySelectorAll('.accordion-header').forEach(h => {
+        h.classList.remove('active');
+        h.nextElementSibling.classList.remove('active');
+      });
+      
+      // Open clicked accordion if it wasn't active
+      if (!isActive) {
+        header.classList.add('active');
+        content.classList.add('active');
+      }
+    }
+    
     document.addEventListener('DOMContentLoaded', function() {
       // Mobile menu functionality
       const mobileToggle = document.getElementById('mobileToggle');
