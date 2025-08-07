@@ -399,7 +399,6 @@ a:hover {
   gap: var(--space-4);
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: var(--space-8);
 }
 
 /* Buttons with Lighter Red Gradients */
@@ -669,6 +668,8 @@ a:hover {
   text-align: center;
   padding: var(--space-6);
   transition: all var(--transition-normal);
+  color: var(--gray-900);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .feature-icon {
@@ -904,6 +905,7 @@ a:hover {
   color: var(--gray-300);
   padding: var(--space-12) 0 var(--space-8);
   position: relative;
+  margin-bottom: 0;
 }
 
 .modern-footer::before {
@@ -949,6 +951,10 @@ a:hover {
   align-items: center;
   flex-wrap: wrap;
   gap: var(--space-4);
+}
+
+.footer-bottom .social-links {
+  display: none; /* Remove duplicate social icons */
 }
 
 .footer-tagline {
