@@ -636,6 +636,10 @@ a:hover {
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .card::before {
@@ -694,6 +698,8 @@ a:hover {
   margin-bottom: var(--space-4);
   box-shadow: var(--shadow-lg);
   transition: all var(--transition-normal);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card-icon svg,
