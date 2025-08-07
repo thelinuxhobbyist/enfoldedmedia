@@ -1080,6 +1080,7 @@ a:hover {
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: var(--space-8);
   margin-bottom: var(--space-12);
+  text-align: left;
 }
 
 .footer-section h4 {
@@ -1125,7 +1126,7 @@ a:hover {
 .social-links {
   display: flex;
   gap: var(--space-4);
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .social-link {
@@ -1399,8 +1400,7 @@ a:hover {
   }
 
   .footer-section .social-links {
-    justify-content: center;
-    margin: var(--space-4) auto 0;
+    justify-content: flex-start;
   }
   
   .footer-bottom {

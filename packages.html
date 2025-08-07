@@ -91,7 +91,7 @@
       <h2>Need Something Custom?</h2>
       <p>Every business is unique. Let's discuss your specific requirements and create a tailored solution.</p>
       <div class="cta-buttons">
-        <a href="mailto:info@enfoldedmedia.com" class="btn btn-primary">Get Custom Quote</a>
+        <a href="https://wa.me/447836319635?text=Hello%2C%20I%20would%20like%20a%20custom%20quote" class="btn btn-primary">Get Custom Quote</a>
         <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
       </div>
     </div>
@@ -102,8 +102,11 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <img src="https://cdn.enfoldedmedia.com/enfolded-images/logo-white.png" alt="Enfolded Media" class="footer-logo" style="height: 40px; margin-bottom: var(--space-4);">
-          <p>Multilingual. Impactful. Designed for your audience.</p>
+          <img src="images/logo.png" alt="Enfolded Media" class="footer-logo" style="height: 40px; margin-bottom: var(--space-4);">
+          <div class="tagline-container" style="margin-top: var(--space-4);">
+            <h3 class="tagline" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.75rem; margin-bottom: var(--space-2); letter-spacing: 0.01em; background: var(--gradient-button); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Multilingual.Impactful</h3>
+            <h4 class="tagline-sub" style="font-family: var(--font-heading); font-weight: 500; color: var(--gray-400); font-size: 1rem; letter-spacing: 0.01em;">Designed for your audience</h4>
+          </div>
         </div>
         
         <div class="footer-section">
@@ -137,12 +140,13 @@
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2025 Enfolded Media. All rights reserved.</p>
+        <p>&copy; <span id="copyright-year">2025</span> Enfolded Media. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <!-- JavaScript -->
+  <script src="js/copyright.js"></script>
   <script src="js/packages.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
