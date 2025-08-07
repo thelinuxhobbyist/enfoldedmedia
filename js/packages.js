@@ -116,57 +116,58 @@ const packages = [
     stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
     hosting: null // No hosting for this service
   },
+  // Test packages with varying content lengths
   {
-    id: 'ecommerce-complete',
-    name: 'Complete E-commerce Website with Advanced Analytics Dashboard',
-    shortDescription: 'Full e-commerce solution with payment processing, inventory management, and detailed analytics.',
-    longDescription: 'A comprehensive e-commerce platform with secure payment processing, inventory management, customer accounts, order tracking, and advanced analytics dashboard to monitor your business performance.',
-    price: '£450/month + £150 setup',
-    stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
-    hosting: 'Premium hosting with SSL and daily backups included'
-  },
-  {
-    id: 'app-design',
-    name: 'Mobile App UI/UX Design',
-    shortDescription: 'Modern app interface design.',
-    longDescription: 'Complete mobile app user interface and user experience design including wireframes, prototypes, and final designs ready for development.',
-    price: '£280',
-    stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
-    hosting: null
-  },
-  {
-    id: 'content-strategy',
-    name: 'Comprehensive Content Marketing Strategy with Social Media Management',
-    shortDescription: 'Complete content plan with social media management, blog writing, and SEO optimization.',
-    longDescription: 'A full content marketing strategy including content calendar, blog post creation, social media management, SEO optimization, and monthly performance reports.',
-    price: '£220/month',
-    stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
-    hosting: null
-  },
-  {
-    id: 'quick-logo',
+    id: 'logo',
     name: 'Logo',
     shortDescription: 'Simple logo design.',
-    longDescription: 'A clean, professional logo design with 2 revisions included.',
-    price: '£45',
+    longDescription: 'A simple logo design for your business.',
+    price: '£50',
     stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
     hosting: null
   },
   {
-    id: 'enterprise-solution',
-    name: 'Enterprise Digital Transformation Package with Custom CRM Integration',
-    shortDescription: 'Complete digital transformation solution including custom CRM, automated workflows, staff training, and ongoing support.',
-    longDescription: 'A comprehensive enterprise solution featuring custom CRM development, automated business workflows, staff training programs, data migration, and 24/7 ongoing technical support.',
-    price: '£1,200/month + £500 setup fee',
+    id: 'mobile-app-ui-ux',
+    name: 'Mobile App UI/UX Design',
+    shortDescription: 'Complete mobile app interface and user experience design with wireframes, prototypes, and design systems.',
+    longDescription: 'Comprehensive mobile application interface and user experience design service including detailed user research, wireframe creation, interactive prototypes, visual design, and complete design system development. We create intuitive and engaging mobile experiences that delight users and drive business results through thoughtful design decisions.',
+    price: '£450',
     stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
-    hosting: 'Enterprise hosting with dedicated servers and premium security'
+    hosting: null
   },
   {
-    id: 'video-editing',
-    name: 'Video Editing Service',
-    shortDescription: 'Professional video editing for marketing.',
-    longDescription: 'High-quality video editing for promotional content, social media, and marketing campaigns.',
-    price: '£95/video',
+    id: 'enterprise-package',
+    name: 'Enterprise Digital Transformation Package with Custom CRM Integration',
+    shortDescription: 'Complete digital transformation solution including custom CRM, advanced analytics, and comprehensive training.',
+    longDescription: 'Our most comprehensive enterprise solution featuring complete digital transformation services including custom CRM development, advanced data analytics implementation, automated workflow systems, comprehensive staff training programs, ongoing technical support, and strategic digital consulting services designed to revolutionize your business operations.',
+    price: '£2,500',
+    stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
+    hosting: 'Enterprise hosting included'
+  },
+  {
+    id: 'business-card-design',
+    name: 'Business Card Design',
+    shortDescription: 'Professional business card design with print files.',
+    longDescription: 'Professional business card design service with multiple concepts and print-ready files.',
+    price: '£40',
+    stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
+    hosting: null
+  },
+  {
+    id: 'comprehensive-marketing',
+    name: 'Comprehensive Marketing Strategy Development and Implementation Package',
+    shortDescription: 'Full marketing strategy including brand development, digital marketing, content creation, and performance analytics.',
+    longDescription: 'Complete marketing strategy development and implementation including comprehensive brand identity development, multi-channel digital marketing campaigns, content creation and management, social media strategy, email marketing automation, search engine optimization, paid advertising management, and detailed performance analytics and reporting.',
+    price: '£850',
+    stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
+    hosting: 'Marketing platform hosting included'
+  },
+  {
+    id: 'flyer',
+    name: 'Flyer',
+    shortDescription: 'Basic flyer design.',
+    longDescription: 'A basic flyer design for your promotional needs.',
+    price: '£30',
     stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
     hosting: null
   }
