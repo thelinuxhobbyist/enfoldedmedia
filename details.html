@@ -48,7 +48,11 @@
   <nav class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-content">
       <div class="mobile-menu-header">
-        <img src="https://cdn.enfoldedmedia.com/enfolded-images/logo.png" alt="Enfolded Media" class="mobile-menu-logo">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
       
       <div class="mobile-nav-links">
@@ -121,76 +125,62 @@
   <!-- Mobile Layout -->
   <section class="section package-details-mobile">
     <div class="container">
-      <!-- Price Highlight at Top -->
-      <div class="price-highlight">
-        <div class="price" id="price-mobile"></div>
-        <a id="buy-link-mobile" class="btn btn-primary" style="margin-top: var(--space-3);" target="_blank">
-          Buy Now
-        </a>
-      </div>
-      
-      <!-- Mobile Accordion -->
-      <div class="mobile-accordion">
-        <div class="accordion-item">
-          <div class="accordion-header" onclick="toggleAccordion(this)">
-            <h3 class="accordion-title">Package Description</h3>
-            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
+      <div class="mobile-package-layout">
+        <!-- Package Description First -->
+        <div class="mobile-description-first">
+          <div class="card" style="margin-bottom: var(--space-6);">
+            <h3>Package Description</h3>
+            <p id="long-description-mobile" style="font-size: 1.125rem; line-height: 1.75; margin: 0;"></p>
           </div>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <p id="long-description-mobile" style="font-size: 1rem; line-height: 1.6; margin: 0;"></p>
-            </div>
+          
+          <!-- Hosting Info (conditional) -->
+          <div id="hosting-section-mobile" class="card" style="margin-bottom: var(--space-6);">
+            <h3>Hosting Information</h3>
+            <p id="hosting-info-mobile" style="margin: 0;"></p>
+          </div>
+          
+          <!-- What's Included -->
+          <div class="card">
+            <h3>What's Included</h3>
+            <ul style="list-style: none; margin: 0; padding: 0;">
+              <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
+                <span style="color: var(--primary-red); font-weight: bold;">✓</span>
+                Professional design
+              </li>
+              <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
+                <span style="color: var(--primary-red); font-weight: bold;">✓</span>
+                Multiple revisions included
+              </li>
+              <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
+                <span style="color: var(--primary-red); font-weight: bold;">✓</span>
+                Fast delivery (3-5 business days)
+              </li>
+              <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
+                <span style="color: var(--primary-red); font-weight: bold;">✓</span>
+                Multilingual options available
+              </li>
+              <li style="display: flex; align-items: center; gap: var(--space-2);">
+                <span style="color: var(--primary-red); font-weight: bold;">✓</span>
+                Full commercial rights
+              </li>
+            </ul>
           </div>
         </div>
         
-        <div class="accordion-item" id="hosting-accordion">
-          <div class="accordion-header" onclick="toggleAccordion(this)">
-            <h3 class="accordion-title">Hosting Information</h3>
-            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </div>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <p id="hosting-info-mobile" style="margin: 0;"></p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="accordion-item">
-          <div class="accordion-header" onclick="toggleAccordion(this)">
-            <h3 class="accordion-title">What's Included</h3>
-            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </div>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <ul style="list-style: none; margin: 0; padding: 0;">
-                <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
-                  <span style="color: var(--accent-emerald); font-weight: bold;">✓</span>
-                  Professional design
-                </li>
-                <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
-                  <span style="color: var(--accent-emerald); font-weight: bold;">✓</span>
-                  Multiple revisions included
-                </li>
-                <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
-                  <span style="color: var(--accent-emerald); font-weight: bold;">✓</span>
-                  Fast delivery (3-5 business days)
-                </li>
-                <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
-                  <span style="color: var(--accent-emerald); font-weight: bold;">✓</span>
-                  Multilingual options available
-                </li>
-                <li style="display: flex; align-items: center; gap: var(--space-2);">
-                  <span style="color: var(--accent-emerald); font-weight: bold;">✓</span>
-                  Full commercial rights
-                </li>
-              </ul>
-            </div>
+        <!-- Price Section Second -->
+        <div class="mobile-price-second">
+          <div class="price-highlight">
+            <div class="price" id="price-mobile"></div>
+            <a id="buy-link-mobile" class="btn btn-primary" style="margin-top: var(--space-3);" target="_blank">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3H3m4 10v6a1 1 0 001 1h9a1 1 0 001-1v-6m-10 0V9a1 1 0 011-1h8a1 1 0 011 1v4.01"></path>
+              </svg>
+              Buy Now
+            </a>
+            <p style="margin-top: var(--space-4); color: rgba(255, 255, 255, 0.8); font-size: 0.875rem;">
+              Secure payment via Stripe<br>
+              Delivery: 3–5 business days after purchase
+            </p>
           </div>
         </div>
       </div>
@@ -279,24 +269,6 @@
   <script src="js/packages.js"></script>
   <script src="js/details.js"></script>
   <script>
-    // Accordion functionality
-    function toggleAccordion(header) {
-      const content = header.nextElementSibling;
-      const isActive = header.classList.contains('active');
-      
-      // Close all accordions
-      document.querySelectorAll('.accordion-header').forEach(h => {
-        h.classList.remove('active');
-        h.nextElementSibling.classList.remove('active');
-      });
-      
-      // Open clicked accordion if it wasn't active
-      if (!isActive) {
-        header.classList.add('active');
-        content.classList.add('active');
-      }
-    }
-    
     document.addEventListener('DOMContentLoaded', function() {
       // Header scroll effect
       window.addEventListener('scroll', function() {
@@ -314,6 +286,7 @@
       const mobileMenuToggle = document.getElementById('mobileMenuToggle');
       const mobileMenu = document.getElementById('mobileMenu');
       const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
       const body = document.body;
       
       function toggleMobileMenu() {
@@ -338,6 +311,10 @@
       
       if (mobileMenuOverlay) {
         mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+      }
+      
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', toggleMobileMenu);
       }
       
       // Close menu when clicking on a link

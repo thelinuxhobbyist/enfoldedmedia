@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const hostingSection = document.getElementById('hosting-section');
   const hostingInfo = document.getElementById('hosting-info');
-  const hostingAccordion = document.getElementById('hosting-accordion');
+  const hostingSectionMobile = document.getElementById('hosting-section-mobile');
   const hostingInfoMobile = document.getElementById('hosting-info-mobile');
 
   if (pkg.hosting) {
@@ -26,6 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     hostingInfoMobile.textContent = pkg.hosting;
   } else {
     hostingSection.style.display = 'none';
-    hostingAccordion.style.display = 'none';
+    hostingSectionMobile.style.display = 'none';
   }
 });

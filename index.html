@@ -57,11 +57,8 @@
   <nav class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-content">
       <div class="mobile-menu-header">
-        <img src="https://cdn.enfoldedmedia.com/enfolded-images/logo.png" alt="Enfolded Media" class="mobile-menu-logo">
-        
-        <!-- Close Button -->
         <button class="mobile-menu-close" id="mobileMenuClose">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
@@ -401,6 +398,12 @@
       mobileMenuToggle.addEventListener('click', toggleMobileMenu);
       mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
       
+      // Close menu when clicking on the close button
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', toggleMobileMenu);
+      }
+      
       // Close menu when clicking on a link
       document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', function() {
@@ -409,9 +412,6 @@
           }
         });
       });
-      
-      // Close menu when clicking on the close button
-      document.getElementById('mobileMenuClose').addEventListener('click', toggleMobileMenu);
       
       // Update active states based on current page
       function updateActiveStates() {
