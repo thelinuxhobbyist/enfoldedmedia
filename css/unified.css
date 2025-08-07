@@ -973,6 +973,14 @@ a:hover {
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--gray-200);
   transition: all var(--transition-normal);
+  word-break: break-word;
+}
+
+.contact-item h4 {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .contact-item:hover {
@@ -1476,6 +1484,14 @@ a:hover {
 @media (max-width: 480px) {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.75rem; }
+  
+  .contact-item {
+    padding: var(--space-6);
+  }
+
+  .contact-grid {
+    gap: var(--space-4);
+  }
   
   .hero-redesigned {
     padding: var(--space-12) 0;
