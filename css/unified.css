@@ -174,7 +174,7 @@ a:hover {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   font-size: 1rem;
 }
 
@@ -263,7 +263,7 @@ a:hover {
   width: 280px;
   max-width: 85vw;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   border-left: 1px solid var(--gray-200);
   z-index: 55;
@@ -335,7 +335,7 @@ a:hover {
   padding: var(--space-4);
   color: var(--gray-700);
   text-decoration: none;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   transition: all var(--transition-normal);
   font-size: 1.125rem;
   font-weight: 500;
@@ -351,10 +351,10 @@ a:hover {
 }
 
 .mobile-nav-link.active {
-  background: var(--gradient-button);
-  color: var(--white);
+  color: var(--black);
+  background: linear-gradient(135deg, var(--primary-red-light) 0%, var(--gray-50) 100%);
   font-weight: 600;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Hero Section */
@@ -433,8 +433,8 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-4) var(--space-8);
-  border-radius: var(--radius-xl);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
   font-weight: 600;
   text-decoration: none;
   transition: all var(--transition-normal);
@@ -631,6 +631,16 @@ a:hover {
   background: var(--gradient-button);
   transform: scaleX(0);
   transition: transform var(--transition-normal);
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .card:hover {
@@ -640,6 +650,8 @@ a:hover {
 
 .card:hover::before {
   transform: scaleX(1);
+  opacity: 1;
+  animation: none;
 }
 
 .section-gradient .card {
@@ -783,6 +795,18 @@ a:hover {
   right: 0;
   height: 6px;
   background: var(--gradient-button);
+  animation: packageBorderGlow 4s ease-in-out infinite;
+}
+
+@keyframes packageBorderGlow {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+  }
 }
 
 .package-card:hover {
