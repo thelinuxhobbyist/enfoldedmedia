@@ -11,6 +11,12 @@ Beautifully designed, eloquently written, error-free graphic materials and web s
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link type="text/css" rel="stylesheet" href="css/font-awesome.css" />
 <link href="css/media.css" type="text/css" rel="stylesheet" />
+
+<!-- Unified Modern CSS for Footer -->
+<link rel="stylesheet" href="css/unified.css">
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 <div class="grid-container header">
@@ -298,26 +304,57 @@ Beautifully designed, eloquently written, error-free graphic materials and web s
 		</div>	
 	</div>
 </div>
-<div class="footer">
-	<div class="wrapper">
-		<div class="grid-container">
-			<div class="col">
-				<p>&copy; <script>document.write(new Date().getFullYear())</script> Enfolded Media</p>
-			</div>
-			<div class="col text-center">
-				<a href="index.html"><img src="images/footer-logo.png" alt=""/></a>
-			</div>
-			<div class="col text-right">
-				<ul>
-					<li><a href="https://www.facebook.com/enfoldedmedia"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-					<li><a href="https://www.twitter.com/mediaenfolded"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-					<li><a href="https://www.instagram.com/enfolded.media"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-					<li><a href="https://www.youtube.com/enfoldedmedia"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-				</ul>
-			</div>
-		</div>	
-	</div>
-</div>
+
+  <!-- Modern Footer -->
+  <footer class="modern-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <img src="images/logo.png" alt="Enfolded Media" class="footer-logo" style="height: 40px; margin-bottom: var(--space-4);">
+          <div class="tagline-container" style="margin-top: var(--space-4);">
+            <h3 class="tagline" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.75rem; margin-bottom: var(--space-2); letter-spacing: 0.01em; background: var(--gradient-button); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Multilingual.Impactful</h3>
+            <h4 class="tagline-sub" style="font-family: var(--font-heading); font-weight: 500; color: var(--gray-400); font-size: 1rem; letter-spacing: 0.01em;">Designed for your audience</h4>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="https://www.instagram.com/enfoldedteam" class="social-link" title="Follow us on Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.twitter.com/enfoldedteam" class="social-link" title="Follow us on X (Twitter)">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="copyright-year">2025</span> Enfolded Media. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/copyright.js"></script>
 <script src="js/fontawesome.min.js"></script>
 </body>
 </html>

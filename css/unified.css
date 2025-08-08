@@ -1400,7 +1400,7 @@ a:hover {
   }
 
   .footer-section .social-links {
-    justify-content: flex-start;
+    justify-content: center;
   }
   
   .footer-bottom {

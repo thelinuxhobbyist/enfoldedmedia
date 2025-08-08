@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Packages | Enfolded Media</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="css/unified.css">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <header>
@@ -17,7 +20,57 @@
       <!-- Packages will be dynamically rendered here -->
     </div>
   </main>
-  <footer>© 2025 Enfolded Media</footer>
+  
+  <!-- Modern Footer -->
+  <footer class="modern-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <img src="images/logo.png" alt="Enfolded Media" class="footer-logo" style="height: 40px; margin-bottom: var(--space-4);">
+          <div class="tagline-container" style="margin-top: var(--space-4);">
+            <h3 class="tagline" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.75rem; margin-bottom: var(--space-2); letter-spacing: 0.01em; background: var(--gradient-button); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Multilingual.Impactful</h3>
+            <h4 class="tagline-sub" style="font-family: var(--font-heading); font-weight: 500; color: var(--gray-400); font-size: 1rem; letter-spacing: 0.01em;">Designed for your audience</h4>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="https://www.instagram.com/enfoldedteam" class="social-link" title="Follow us on Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.twitter.com/enfoldedteam" class="social-link" title="Follow us on X (Twitter)">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="copyright-year">2025</span> Enfolded Media. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/copyright.js"></script>
   <script src="js/packages.js"></script>
   <script src="js/render.js"></script>
 </body>
