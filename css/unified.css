@@ -1288,10 +1288,8 @@ a:hover {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: var(--space-4);
-  background: var(--gradient-button);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Mobile Accordion */
