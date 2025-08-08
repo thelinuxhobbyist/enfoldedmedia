@@ -1288,8 +1288,18 @@ a:hover {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: var(--space-4);
-  color: var(--white);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: var(--white) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific override for mobile price on details page */
+#price-mobile {
+  color: var(--white) !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: var(--white) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Mobile Accordion */
