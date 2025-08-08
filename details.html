@@ -5,7 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Package Details | Enfolded Media</title>
   <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-  <meta name="description" content="Multilingual. Impactful. Designed for your audience. We help businesses connect with diverse audiences through multilingual design, enhancing reach in multicultural Britain.">
+  <meta name="descriptio      // Close menu when clicking on a link
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+          if (this.getAttribute('href').startsWith('#')) {
+            toggleMobileMenu();
+          }
+        });
+      });
+    });
+
+    // Toggle functionality for collapsible sections
+    function toggleCollapsible(contentId) {
+      const content = document.getElementById(contentId);
+      const button = content.previousElementSibling;
+      const icon = button.querySelector('.toggle-icon');
+      
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        button.classList.remove('active');
+      } else {
+        content.classList.add('active');
+        button.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>Multilingual. Impactful. Designed for your audience. We help businesses connect with diverse audiences through multilingual design, enhancing reach in multicultural Britain.">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -125,42 +151,60 @@
   <section class="section package-details-mobile">
     <div class="container">
       <div class="mobile-package-layout">
-        <!-- Package Description First -->
-        <div class="mobile-description-first">
-          <div class="card" style="margin-bottom: var(--space-6);">
+        <!-- Package Description and Price - Above the fold -->
+        <div class="mobile-above-fold">
+          <!-- Package Description -->
+          <div class="card mobile-description-card">
             <h3>Package Description</h3>
-            <p id="long-description-mobile" style="font-size: 1.125rem; line-height: 1.75; margin: 0;"></p>
+            <p id="long-description-mobile"></p>
           </div>
           
-          <!-- Hosting Info (conditional) -->
-          <div id="hosting-section-mobile" class="card" style="margin-bottom: var(--space-6);">
-            <h3>Hosting Information</h3>
-            <p id="hosting-info-mobile" style="margin: 0;"></p>
-          </div>
-          
-          <!-- What's Included -->
-          <div class="card">
-            <h3>What's Included</h3>
-            <ul id="mobile-features" style="list-style: none; margin: 0; padding: 0;">
-              <!-- Features will be dynamically populated here -->
-            </ul>
+          <!-- Price Section -->
+          <div class="mobile-price-compact">
+            <div class="price-highlight">
+              <div class="price" id="price-mobile"></div>
+              <a id="buy-link-mobile" class="btn btn-primary" target="_blank">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 18px; height: 18px;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3H3m4 10v6a1 1 0 001 1h9a1 1 0 001-1v-6m-10 0V9a1 1 0 011-1h8a1 1 0 011 1v4.01"></path>
+                </svg>
+                Buy Now
+              </a>
+              <p style="margin-top: var(--space-3); color: rgba(255, 255, 255, 0.8); font-size: 0.75rem;">
+                Secure payment via Stripe<br>
+                Delivery: 3–5 business days
+              </p>
+            </div>
           </div>
         </div>
         
-        <!-- Price Section Second -->
-        <div class="mobile-price-second">
-          <div class="price-highlight">
-            <div class="price" id="price-mobile" style="font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-4); background: var(--gradient-button); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"></div>
-            <a id="buy-link-mobile" class="btn btn-primary" style="margin-top: var(--space-3);" target="_blank">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3H3m4 10v6a1 1 0 001 1h9a1 1 0 001-1v-6m-10 0V9a1 1 0 011-1h8a1 1 0 011 1v4.01"></path>
-              </svg>
-              Buy Now
-            </a>
-            <p style="margin-top: var(--space-4); color: rgba(255, 255, 255, 0.8); font-size: 0.875rem;">
-              Secure payment via Stripe<br>
-              Delivery: 3–5 business days after purchase
-            </p>
+        <!-- Collapsible Sections - Below the fold -->
+        <div class="mobile-collapsible-sections">
+          <!-- Hosting Info (conditional collapsible) -->
+          <div id="hosting-section-mobile" class="mobile-collapsible">
+            <button class="collapsible-toggle" onclick="toggleCollapsible('hosting-toggle')">
+              <span>Hosting Information</span>
+              <i class="fas fa-chevron-down toggle-icon" id="hosting-icon"></i>
+            </button>
+            <div class="collapsible-content" id="hosting-toggle">
+              <div class="card">
+                <p id="hosting-info-mobile"></p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- What's Included (collapsible) -->
+          <div class="mobile-collapsible">
+            <button class="collapsible-toggle" onclick="toggleCollapsible('features-toggle')">
+              <span>What's Included</span>
+              <i class="fas fa-chevron-down toggle-icon" id="features-icon"></i>
+            </button>
+            <div class="collapsible-content" id="features-toggle">
+              <div class="card">
+                <ul id="mobile-features">
+                  <!-- Features will be dynamically populated here -->
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -273,6 +317,21 @@
         });
       });
     });
+
+    // Toggle functionality for collapsible sections
+    function toggleCollapsible(contentId) {
+      const content = document.getElementById(contentId);
+      const button = content.previousElementSibling;
+      const icon = button.querySelector('.toggle-icon');
+      
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        button.classList.remove('active');
+      } else {
+        content.classList.add('active');
+        button.classList.add('active');
+      }
+    }
   </script>
 </body>
 </html>

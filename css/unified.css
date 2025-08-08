@@ -1366,6 +1366,135 @@ a:hover {
   background: var(--gray-50);
 }
 
+/* Mobile Details Page Layout */
+.mobile-above-fold {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.mobile-description-card {
+  flex: 1;
+  margin-bottom: 0 !important;
+}
+
+.mobile-price-compact {
+  margin-top: auto;
+}
+
+.mobile-price-compact .price-highlight {
+  padding: var(--space-4);
+  margin: 0;
+}
+
+.mobile-collapsible-sections {
+  margin-top: var(--space-6);
+}
+
+.mobile-collapsible {
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.collapsible-toggle {
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  transition: all var(--transition-fast);
+}
+
+.collapsible-toggle:hover {
+  background: var(--gray-50);
+}
+
+.collapsible-toggle:active {
+  background: var(--gray-100);
+}
+
+.toggle-icon {
+  transition: transform var(--transition-fast);
+  color: var(--primary-red);
+}
+
+.collapsible-toggle.active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.collapsible-content.active {
+  max-height: 1000px;
+}
+
+.collapsible-content .card {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: var(--white);
+  padding: var(--space-6);
+  text-align: left;
+  box-shadow: none;
+}
+
+.collapsible-content .card h3 {
+  color: var(--gray-900);
+  margin-bottom: var(--space-4);
+}
+
+.collapsible-content .card p {
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+.collapsible-content #mobile-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.collapsible-content #mobile-features li {
+  padding: var(--space-2) 0;
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.collapsible-content #mobile-features li:last-child {
+  border-bottom: none;
+}
+
+/* Mobile description card - ensure it uses site fonts */
+.mobile-description-card {
+  background: var(--white);
+  text-align: left;
+}
+
+.mobile-description-card h3 {
+  color: var(--gray-900);
+  font-family: var(--font-heading);
+  margin-bottom: var(--space-4);
+}
+
+.mobile-description-card p {
+  color: var(--gray-700);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+}
+
 /* Form Styles */
 .form-group {
   margin-bottom: var(--space-6);

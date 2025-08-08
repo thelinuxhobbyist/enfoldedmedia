@@ -183,6 +183,16 @@ h3 {
     padding: 10px;
 }
 
+/* Mobile Details Page - Above the fold optimization */
+.mobile-above-fold {
+  min-height: 75vh !important;
+  padding: var(--space-4) 0;
+}
+
+.mobile-description-card {
+  padding: var(--space-3) !important;
+}
+
 }
 
 
