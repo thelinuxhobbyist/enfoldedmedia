@@ -483,7 +483,7 @@ p.title-head-p {
   font-size: 50px;
   font-family: 'HelveticaNeueLTStdBdCn', sans-serif;
   color: transparent;
-  background: linear-gradient(90deg, #e43a45, #7d2e93);
+  background: linear-gradient(135deg, #E53935, #FF6E6E);
   -webkit-background-clip: text;
   background-clip: text;
   font-weight: bold;
@@ -520,7 +520,7 @@ p.title-head-p {
 
 .buy-now-btn {
   display: block;
-  background: linear-gradient(90deg, #e43a45, #7d2e93);
+  background: linear-gradient(135deg, #E53935, #FF6E6E);
   padding: 10px 20px;
   color: white;
   border: none;
@@ -533,7 +533,7 @@ p.title-head-p {
 }
 
 .buy-now-btn:hover {
-  background: linear-gradient(90deg, #7d2e93, #e43a45);
+  background: linear-gradient(135deg, #C62828, #E53935);
 }
 
 

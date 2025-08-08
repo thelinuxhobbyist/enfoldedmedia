@@ -100,11 +100,8 @@
           <div class="card" style="text-align: center; position: sticky; top: 120px;">
             <div class="package-price" id="price" style="font-size: 3rem; margin-bottom: var(--space-6);"></div>
             
-            <ul class="package-features">
-              <li>Multiple revisions included</li>
-              <li>Fast delivery (3-5 business days)</li>
-              <li>Multilingual options available</li>
-              <li>Full commercial rights</li>
+            <ul class="package-features" id="desktop-features">
+              <!-- Features will be dynamically populated here -->
             </ul>
             
             <a id="buy-link" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 1.125rem; padding: var(--space-4) var(--space-6);" target="_blank">
@@ -144,27 +141,8 @@
           <!-- What's Included -->
           <div class="card">
             <h3>What's Included</h3>
-            <ul style="list-style: none; margin: 0; padding: 0;">
-              <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
-                <span style="color: var(--primary-red); font-weight: bold;">✓</span>
-                Professional design
-              </li>
-              <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
-                <span style="color: var(--primary-red); font-weight: bold;">✓</span>
-                Multiple revisions included
-              </li>
-              <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
-                <span style="color: var(--primary-red); font-weight: bold;">✓</span>
-                Fast delivery (3-5 business days)
-              </li>
-              <li style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
-                <span style="color: var(--primary-red); font-weight: bold;">✓</span>
-                Multilingual options available
-              </li>
-              <li style="display: flex; align-items: center; gap: var(--space-2);">
-                <span style="color: var(--primary-red); font-weight: bold;">✓</span>
-                Full commercial rights
-              </li>
+            <ul id="mobile-features" style="list-style: none; margin: 0; padding: 0;">
+              <!-- Features will be dynamically populated here -->
             </ul>
           </div>
         </div>
@@ -172,7 +150,7 @@
         <!-- Price Section Second -->
         <div class="mobile-price-second">
           <div class="price-highlight">
-            <div class="price" id="price-mobile"></div>
+            <div class="price" id="price-mobile" style="font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-4); background: var(--gradient-button); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"></div>
             <a id="buy-link-mobile" class="btn btn-primary" style="margin-top: var(--space-3);" target="_blank">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3H3m4 10v6a1 1 0 001 1h9a1 1 0 001-1v-6m-10 0V9a1 1 0 011-1h8a1 1 0 011 1v4.01"></path>

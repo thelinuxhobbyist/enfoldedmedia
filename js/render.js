@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     div.innerHTML = `
       <h2>${pkg.name}</h2>
       <p>${pkg.shortDescription}</p>
-      <p class="price">${pkg.price}</p>
+      <p class="price package-price">${pkg.price}</p>
       <a class="btn" href="details.html?id=${pkg.id}">Details</a>
     `;
     container.appendChild(div);
