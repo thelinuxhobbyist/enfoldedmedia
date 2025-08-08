@@ -211,14 +211,14 @@ a:hover {
 }
 
 .mobile-menu-toggle:hover {
-  background: var(--gray-100);
+  background: rgba(229, 57, 53, 0.1);
 }
 
 .mobile-menu-toggle span {
   display: block;
   width: 20px;
   height: 2px;
-  background: var(--gray-700);
+  background: var(--primary-red);
   transition: all var(--transition-normal);
   transform-origin: center;
   margin: 2px 0;
@@ -264,14 +264,14 @@ a:hover {
   width: 280px;
   max-width: 85vw;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  border-left: 1px solid var(--gray-200);
+  border-left: 1px solid rgba(229, 57, 53, 0.2);
   z-index: 55;
   transform: translateX(100%);
   transition: transform var(--transition-slow);
   overflow-y: auto;
-  box-shadow: -10px 0 25px rgba(0, 0, 0, 0.15);
+  box-shadow: -10px 0 25px rgba(229, 57, 53, 0.15);
 }
 
 .mobile-menu.active {
