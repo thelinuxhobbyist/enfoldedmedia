@@ -7,19 +7,18 @@
 
 :root {
   /* Red Color Palette */
-  --primary-red: #E53935;
-  --primary-red-light: #FF6E6E;
-  --primary-red-dark: #C62828;
+  --primary-blue: #1a237e;
+  --primary-blue-light: #5c6bc0;
+  --primary-blue-dark: #111a4e;
   --primary-purple: #9C88FF;
-  --primary-blue: #4DABF7;
   --accent-cyan: #22D3EE;
   --accent-pink: #F783AC;
-  
-  /* Brand Gradients - Using Lighter Red Theme for Headers/Heroes */
-  --gradient-primary: linear-gradient(135deg, rgba(229, 57, 53, 0.8) 0%, rgba(255, 110, 110, 0.9) 50%, rgba(156, 136, 255, 0.8) 100%);
-  --gradient-secondary: linear-gradient(135deg, rgba(229, 57, 53, 0.7) 0%, rgba(255, 110, 110, 0.8) 100%);
-  --gradient-hero: linear-gradient(135deg, rgba(229, 57, 53, 0.85) 0%, rgba(255, 110, 110, 0.9) 50%, rgba(156, 136, 255, 0.8) 100%);
-  --gradient-button: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-light) 100%);
+
+  /* Brand Gradients - Using Lighter Blue Theme for Headers/Heroes */
+  --gradient-primary: linear-gradient(135deg, rgba(26,35,126,0.95) 0%, rgba(92,107,192,0.9) 100%);
+  --gradient-secondary: linear-gradient(135deg, rgba(26,35,126,0.7) 0%, rgba(92,107,192,0.8) 100%);
+  --gradient-hero: linear-gradient(135deg, rgba(26,35,126,0.85) 0%, rgba(92,107,192,0.9) 100%);
+  --gradient-button: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
   
   /* Neutral Colors */
   --white: #FFFFFF;
@@ -112,14 +111,14 @@ p {
 }
 
 /* Links */
+/* Links */
 a {
-  color: var(--primary-red);
+  color: var(--primary-blue);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
-
 a:hover {
-  color: var(--primary-red-dark);
+  color: var(--primary-blue-dark);
 }
 
 /* Container System */
@@ -462,88 +461,58 @@ a:hover {
   left: 100%;
 }
 
-.btn-hero-primary {
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--primary-red);
-  box-shadow: var(--shadow-xl);
-  backdrop-filter: blur(10px);
-}
 
-.btn-hero-primary:hover {
-  background: var(--white);
+/* Blue Buttons */
+.btn-hero-primary, .btn-primary, .btn-accent {
+  background: var(--gradient-button);
+  color: #fff;
+  box-shadow: var(--shadow-xl);
+  border: none;
+}
+.btn-hero-primary:hover, .btn-primary:hover, .btn-accent:hover {
+  background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
+  color: #fff;
   transform: translateY(-3px);
   box-shadow: var(--shadow-2xl);
-  color: var(--primary-red-dark);
 }
-
-.btn-primary {
-  background: var(--gradient-button);
-  color: var(--white);
-  box-shadow: var(--shadow-lg);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-xl);
-  color: var(--white);
-  background: linear-gradient(135deg, var(--primary-red-dark) 0%, var(--primary-red) 100%);
-}
-
 .btn-secondary {
   background: transparent;
-  color: var(--gray-700);
-  border: 2px solid var(--gray-300);
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue-light);
 }
-
 .btn-secondary:hover {
-  background: var(--gray-100);
-  border-color: var(--primary-red);
-  color: var(--primary-red);
+  background: var(--primary-blue-light);
+  border-color: var(--primary-blue);
+  color: #fff;
   transform: translateY(-1px);
 }
-
 .cta-section .btn-secondary {
-  background: var(--white);
-  color: var(--primary-red);
-  border: 2px solid var(--white);
+  background: #fff;
+  color: var(--primary-blue);
+  border: 2px solid #fff;
 }
-
 .cta-section .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: var(--white);
-  color: var(--primary-red-dark);
+  background: var(--primary-blue-light);
+  border-color: #fff;
+  color: #fff;
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
-
-.btn-accent {
-  background: var(--gradient-secondary);
-  color: var(--white);
-  box-shadow: var(--shadow-lg);
-}
-
-.btn-accent:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-xl);
-  color: var(--white);
-}
-
 .btn-hero-secondary {
   background: transparent;
-  color: var(--white);
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.4);
   padding: var(--space-4) var(--space-8);
   font-size: 1.125rem;
   font-weight: 600;
   border-radius: var(--radius-xl);
   transition: all var(--transition-normal);
 }
-
 .btn-hero-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(92,107,192,0.15);
+  border-color: rgba(92,107,192,0.6);
+  color: #fff;
   transform: translateY(-2px);
-  color: var(--white);
 }
 
 /* Section Styling */
@@ -687,10 +656,11 @@ a:hover {
 }
 
 /* Card Icon Improvements for Better Visibility */
+
 .card-icon {
   width: 56px;
   height: 56px;
-  background: var(--gradient-button);
+  background: var(--primary-blue);
   border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
@@ -701,12 +671,11 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
 }
-
 .card-icon svg,
 .card-icon i {
   width: 28px;
   height: 28px;
-  color: var(--white);
+  color: #fff;
   font-size: 28px;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
@@ -737,10 +706,11 @@ a:hover {
   backdrop-filter: blur(10px);
 }
 
+
 .feature-icon {
   width: 64px;
   height: 64px;
-  background: var(--gradient-button);
+  background: var(--primary-blue);
   border-radius: var(--radius-2xl);
   display: flex;
   align-items: center;
@@ -748,12 +718,11 @@ a:hover {
   margin: 0 auto var(--space-4);
   transition: all var(--transition-normal);
 }
-
 .feature-icon svg,
 .feature-icon i {
   width: 32px;
   height: 32px;
-  color: var(--white);
+  color: #fff;
   font-size: 32px;
 }
 
