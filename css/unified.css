@@ -521,15 +521,15 @@ a:hover {
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--primary-blue);
-  border: 2px solid var(--primary-blue);
+  background: var(--gradient-button);
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+  border: none;
   transition: all var(--transition-normal);
 }
 
 .btn-secondary:hover {
-  background: var(--primary-blue);
-  border-color: var(--primary-blue);
+  background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
   color: #fff;
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(59, 24, 146, 0.4);
@@ -2072,4 +2072,25 @@ a:hover {
 .section-gradient .feature-icon,
 .section-gradient .card-icon {
   background: red !important;
+}
+
+/* Update Back to Packages button */
+.btn-secondary {
+  background: var(--gradient-button);
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+  border: none;
+  transition: all var(--transition-normal);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 24, 146, 0.4);
+}
+
+.btn-secondary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(59, 24, 146, 0.3);
 }
