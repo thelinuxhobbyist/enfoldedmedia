@@ -64,6 +64,88 @@ const packages = [
     ]
   },
   {
+  id: 'quick-amendments',
+  name: 'Quick Amendments',
+  shortDescription: 'Make fast changes to your existing designs.',
+  longDescription: 'Already have a design but need a few tweaks? Let us update or replace your images, text, or other elements quickly to meet your needs.',
+  price: '£25',
+  stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
+  hosting: null,
+  packageFeatures: [
+    'Fast design updates',
+    'Up to 2 rounds of revisions',
+    'Print-ready PDF provided'
+  ],
+  detailFeatures: [
+    'Minor image and text replacements',
+    'Quick turnaround (1-2 days)',
+    'Print-ready high resolution file',
+    'Up to two revision rounds'
+  ]
+},
+{
+  id: 'layout-design',
+  name: 'Layout Design',
+  shortDescription: 'Custom design layout for your content.',
+  longDescription: 'You provide the content, and we’ll create a custom layout to bring your vision to life, tailored to your specific needs and branding.',
+  price: '£50',
+  stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
+  hosting: null,
+  packageFeatures: [
+    'One custom layout design',
+    'Up to 3 rounds of revisions',
+    'Fast delivery (3-5 days)'
+  ],
+  detailFeatures: [
+    'Tailored layout design based on your brief',
+    'Print-ready and digital formats included',
+    'Up to three revision rounds',
+    'Quick turnaround (3-5 days)'
+  ]
+},
+{
+  id: 'recreate-design',
+  name: 'Recreate Design',
+  shortDescription: 'Recreate or redesign your existing artwork.',
+  longDescription: 'Need to give your current design a fresh look? We can help you recreate or redesign existing artwork to make it more professional or updated.',
+  price: '£75',
+  stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
+  hosting: null,
+  packageFeatures: [
+    'Recreation of existing design',
+    'Up to 4 rounds of revisions',
+    'Print and digital formats'
+  ],
+  detailFeatures: [
+    'Redesign or recreate your artwork from scratch',
+    'Print and digital versions included',
+    'Up to four rounds of revisions',
+    'Professional layout and high-quality files'
+  ]
+},
+{
+  id: 'full-design-package',
+  name: 'Full Design Package',
+  shortDescription: 'End-to-end design service for complete branding or event creation.',
+  longDescription: 'Need a full design service from start to finish? We handle everything, from concept to creation, ensuring consistency and professional quality.',
+  price: '£120',
+  stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
+  hosting: null,
+  packageFeatures: [
+    'Full design service from concept to print',
+    'Up to 3 rounds of revisions',
+    'Brand guidelines included'
+  ],
+  detailFeatures: [
+    'Senior designer consultation',
+    'Up to three design concepts',
+    'Brand style guide and asset delivery',
+    'Print and digital formats included',
+    'Up to three rounds of revisions'
+  ]
+},
+
+  {
     id: 'small-business-starter',
     name: 'Small Business Starter Package',
     shortDescription: 'A one-page static website with free hosting.',
