@@ -925,18 +925,24 @@ a:hover {
 .package-features {
   list-style: none;
   margin-bottom: var(--space-6);
+  padding-left: var(--space-4);
+  text-align: left;
 }
 
 .package-features li {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
+  position: relative;
+  padding-left: var(--space-8);
   margin-bottom: var(--space-3);
   color: var(--gray-600);
+  line-height: 1.5;
 }
 
 .package-features li::before {
   content: '✓';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   color: var(--primary-red);
   font-weight: bold;
   font-size: 1.125rem;
@@ -947,11 +953,43 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
 .package-card .btn {
   margin-top: auto;
+}
+
+/* Package Features */
+.package-features {
+  list-style: none;
+  margin-bottom: var(--space-6);
+  padding-left: 0;
+  text-align: left;
+}
+
+.package-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  color: var(--gray-600);
+  text-align: left;
+}
+
+.package-features li::before {
+  content: '✓';
+  color: var(--primary-red);
+  font-weight: bold;
+  font-size: 1.125rem;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  background: var(--gray-100);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
 }
 
 /* Contact Section */
@@ -1599,7 +1637,8 @@ a:hover {
 
 .toggle-icon {
   transition: transform var(--transition-fast);
-  color: var(--primary-red);
+  color: var(--primary-blue-light);
+  background: none !important;
 }
 
 .collapsible-toggle.active .toggle-icon {
@@ -2050,11 +2089,11 @@ a:hover {
 }
 
 /* Make all icons red */
+
 .card-icon,
 .feature-icon,
 .contact-icon,
-.accordion-icon,
-.toggle-icon {
+.accordion-icon {
   background: red !important;
 }
 
