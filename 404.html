@@ -6,22 +6,84 @@
   <title>404 Not Found | Enfolded Media</title>
   <meta name="description" content="Page not found - Enfolded Media">
   <link rel="stylesheet" href="css/unified.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Ensure social icons are visible */
+    .social-icon {
+      color: #3b1892 !important;
+      background: rgba(59, 24, 146, 0.15) !important;
+      border: 1px solid rgba(59, 24, 146, 0.2) !important;
+    }
+    .social-icon i {
+      color: #3b1892 !important;
+      font-weight: 600 !important;
+    }
+    .social-icon:hover {
+      background: #3b1892 !important;
+    }
+    .social-icon:hover i {
+      color: #fff !important;
+    }
+    
     .notfound-container { text-align: center; padding: 8rem 1rem 4rem; }
     .notfound-title { font-size: 5rem; font-weight: 900; color: var(--primary, #1a237e); margin-bottom: 1rem; }
     .notfound-message { font-size: 1.5rem; margin-bottom: 2rem; color: var(--gray-700, #333); }
-    .notfound-btn { display: inline-block; padding: 0.75rem 2rem; background: var(--primary, #1a237e); color: #fff; border-radius: 4px; text-decoration: none; font-weight: 600; transition: background 0.2s; }
-    .notfound-btn:hover { background: #111a4e; }
+    .notfound-btn { display: inline-block; padding: 0.75rem 2rem; background: var(--primary-blue, #3b1892); color: #fff !important; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 6px rgba(59, 24, 146, 0.3); }
+    .notfound-btn:hover { background: var(--primary-blue-dark, #2a1266); color: #fff !important; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(59, 24, 146, 0.4); }
   </style>
 </head>
 <body>
   <header class="modern-header">
     <div class="container">
-      <a href="index.html" class="logo-link">
-        <img src="images/logo.png" alt="Enfolded Media" class="logo">
-      </a>
+      <div class="header-content">
+        <a href="index.html" class="logo-link">
+          <img src="https://cdn.enfoldedmedia.com/enfolded-images/logo.png" alt="Enfolded Media" class="logo">
+        </a>
+        
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-link">
+            Home
+          </a>
+          <a href="packages.html" class="nav-link">
+            Packages
+          </a>
+          <a href="index.html#contact" class="nav-link">
+            Contact
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="packages.html" class="mobile-nav-link">Packages</a>
+        <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
   <main>
     <div class="notfound-container">
       <div class="notfound-title">404</div>
@@ -30,15 +92,95 @@
       <p style="margin-top:2rem; color:var(--gray-500, #888); font-size:1rem;">Recognising language as a bridge to cultural connection, we design for impact and help you reach new audiences in a multicultural Britain.</p>
     </div>
   </main>
-  <footer class="modern-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-center">
-          <img src="images/logo.png" alt="Enfolded Media" class="footer-logo">
-          <p class="footer-copyright">&copy; <span id="copyright-year">2025</span> ENFOLDED MEDIA</p>
+  <!-- Modern Minimalist Footer -->
+  <footer class="modern-minimalist-footer">
+    <div class="footer-container">
+      <!-- Main Footer Content -->
+      <div class="footer-main">
+        <!-- Brand Section (Center) -->
+        <div class="footer-brand">
+          <img src="https://cdn.enfoldedmedia.com/enfolded-images/logo.png" alt="Enfolded Media" class="footer-brand-logo">
+          <p class="footer-motto">multilingual. impactful. designed for your audience.</p>
+          <!-- Navigation Links -->
+          <nav class="footer-nav">
+            <a href="privacy.html" class="footer-nav-link">Privacy Policy</a>
+            <a href="packages.html" class="footer-nav-link">Packages</a>
+            <a href="index.html#contact" class="footer-nav-link">Contact</a>
+            <a href="multilingual" class="footer-nav-link">Multilingual.click</a>
+          </nav>
+        </div>
+        
+        <!-- Social Media Section (Right) -->
+        <div class="footer-social">
+          <div class="social-icons">
+            <a href="https://www.facebook.com/enfoldedteam" class="social-icon" title="Follow us on Facebook" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.twitter.com/enfoldedteam" class="social-icon" title="Follow us on X (Twitter)" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/enfoldedteam" class="social-icon" title="Follow us on Instagram" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@enfoldedteam" class="social-icon" title="Follow us on YouTube" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
         </div>
       </div>
+      
+      <!-- Copyright -->
+      <div class="footer-copyright">
+        <p>&copy; <span id="copyright-year">2025</span> Enfolded Media. All rights reserved.</p>
+      </div>
     </div>
+    
+    <!-- Gradient Effect -->
+    <div class="footer-gradient"></div>
   </footer>
+
+  <!-- JavaScript for Mobile Menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      const body = document.body;
+      
+      function toggleMobileMenu() {
+        const isOpen = mobileMenu.classList.contains('active');
+        
+        if (isOpen) {
+          mobileMenu.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          mobileMenuToggle.classList.remove('active');
+          body.classList.remove('menu-open');
+        } else {
+          mobileMenu.classList.add('active');
+          mobileMenuOverlay.classList.add('active');
+          mobileMenuToggle.classList.add('active');
+          body.classList.add('menu-open');
+        }
+      }
+      
+      mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+      mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+      
+      // Close menu when clicking on the close button
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', toggleMobileMenu);
+      }
+      
+      // Close menu when clicking on a link
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+          if (this.getAttribute('href').startsWith('#')) {
+            toggleMobileMenu();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

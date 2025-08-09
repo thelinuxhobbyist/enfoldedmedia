@@ -1,0 +1,12 @@
+/* Price color overrides - This file should be included last */
+.price, 
+.package-price, 
+.price-highlight .price,
+.mobile-price-compact .price,
+#price-mobile,
+.package-price h2,
+.price * {
+  color: red !important;
+  background: none !important;
+  -webkit-text-fill-color: red !important;
+}

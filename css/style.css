@@ -1,3 +1,5 @@
+/* --- FORCE ALL PRICES RED: This must be last to override everything --- */
+
 body {
 	background:#fff;
 	padding:0px;
@@ -6,39 +8,39 @@ body {
 }
 
 @font-face {
-    font-family: 'HelveticaNeueLTStdBdCn';
-    src: url('../fonts/HelveticaNeueLTStdBdCn.eot');
-    src: url('../fonts/HelveticaNeueLTStdBdCn.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/HelveticaNeueLTStdBdCn.woff2') format('woff2'),
-         url('../fonts/HelveticaNeueLTStdBdCn.woff') format('woff'),
-         url('../fonts/HelveticaNeueLTStdBdCn.ttf') format('truetype'),
-         url('../fonts/HelveticaNeueLTStdBdCn.svg#HelveticaNeueLTStdBdCn') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'HelveticaNeueLTStdBdCn';
+	src: url('../fonts/HelveticaNeueLTStdBdCn.eot');
+	src: url('../fonts/HelveticaNeueLTStdBdCn.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/HelveticaNeueLTStdBdCn.woff2') format('woff2'),
+		 url('../fonts/HelveticaNeueLTStdBdCn.woff') format('woff'),
+		 url('../fonts/HelveticaNeueLTStdBdCn.ttf') format('truetype'),
+		 url('../fonts/HelveticaNeueLTStdBdCn.svg#HelveticaNeueLTStdBdCn') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'HelveticaNeueLTStdLtCn';
-    src: url('../fonts/HelveticaNeueLTStdLtCn.eot');
-    src: url('../fonts/HelveticaNeueLTStdLtCn.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/HelveticaNeueLTStdLtCn.woff2') format('woff2'),
-         url('../fonts/HelveticaNeueLTStdLtCn.woff') format('woff'),
-         url('../fonts/HelveticaNeueLTStdLtCn.ttf') format('truetype'),
-         url('../fonts/HelveticaNeueLTStdLtCn.svg#HelveticaNeueLTStdLtCn') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'HelveticaNeueLTStdLtCn';
+	src: url('../fonts/HelveticaNeueLTStdLtCn.eot');
+	src: url('../fonts/HelveticaNeueLTStdLtCn.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/HelveticaNeueLTStdLtCn.woff2') format('woff2'),
+		 url('../fonts/HelveticaNeueLTStdLtCn.woff') format('woff'),
+		 url('../fonts/HelveticaNeueLTStdLtCn.ttf') format('truetype'),
+		 url('../fonts/HelveticaNeueLTStdLtCn.svg#HelveticaNeueLTStdLtCn') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'fontawesome-webfont';
-    src: url('../fonts/fontawesome-webfont.eot');
-    src: url('../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/fontawesome-webfont.woff2') format('woff2'),
-         url('../fonts/fontawesome-webfont.woff') format('woff'),
-         url('../fonts/fontawesome-webfont.ttf') format('truetype'),
-         url('../fonts/fontawesome-webfont.svg#fontawesome-webfont') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'fontawesome-webfont';
+	src: url('../fonts/fontawesome-webfont.eot');
+	src: url('../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/fontawesome-webfont.woff2') format('woff2'),
+		 url('../fonts/fontawesome-webfont.woff') format('woff'),
+		 url('../fonts/fontawesome-webfont.ttf') format('truetype'),
+		 url('../fonts/fontawesome-webfont.svg#fontawesome-webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -81,8 +83,8 @@ p,label {
 
 
 .header .header-col {
-    display: grid;
-    grid-template-columns: auto auto;
+	display: grid;
+	grid-template-columns: auto auto;
 }
 
 .header a .icon {
@@ -99,8 +101,8 @@ p,label {
 }
 
 .about-us .about-us-col {
-    display: grid;
-    grid-template-columns: auto auto;
+	display: grid;
+	grid-template-columns: auto auto;
 }
 
 .banner {
@@ -144,8 +146,8 @@ h2 {
 }
 
 .about-us .about-us-col {
-    display: grid;
-    grid-template-columns: auto auto;
+	display: grid;
+	grid-template-columns: auto auto;
 }
 
 .about-us .col-2 {
@@ -182,11 +184,11 @@ img.full-width {
 
 .clients {
 	background: #b90a33;
-    position: absolute;
-    bottom: 35px;
-    left: 70px;
-    padding-left: 20px;
-    width: 200px;
+	position: absolute;
+	bottom: 35px;
+	left: 70px;
+	padding-left: 20px;
+	width: 200px;
 }
 
 .clients h4 {
