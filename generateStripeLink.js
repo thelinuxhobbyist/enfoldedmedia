@@ -1,5 +1,9 @@
 const fs = require('fs');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2023-10-16',
+  maxNetworkRetries: 3,
+  timeout: 30000
+});
 
 // Check if Stripe secret key is available
 if (!process.env.STRIPE_SECRET_KEY) {
@@ -46,28 +50,47 @@ async function generateStripeLinks() {
       const priceInCents = parsePrice(pkg.price);
       console.log(`Price in cents: ${priceInCents}`);
       
-      // Create a Payment Link on Stripe
-      const paymentLink = await stripe.paymentLinks.create({
-        line_items: [
-          {
-            price_data: {
-              currency: 'gbp',
-              product_data: {
-                name: pkg.name,
-                description: pkg.shortDescription,
+      // Create a Payment Link on Stripe with retry logic
+      let paymentLink;
+      let retries = 0;
+      const maxRetries = 3;
+      
+      while (retries < maxRetries) {
+        try {
+          paymentLink = await stripe.paymentLinks.create({
+            line_items: [
+              {
+                price_data: {
+                  currency: 'gbp',
+                  product_data: {
+                    name: pkg.name,
+                    description: pkg.shortDescription,
+                  },
+                  unit_amount: priceInCents,
+                },
+                quantity: 1,
               },
-              unit_amount: priceInCents,
+            ],
+            after_completion: {
+              type: 'redirect',
+              redirect: {
+                url: 'https://enfoldedmedia.com/thank-you', // Update this to your actual thank you page
+              },
             },
-            quantity: 1,
-          },
-        ],
-        after_completion: {
-          type: 'redirect',
-          redirect: {
-            url: 'https://enfoldedmedia.com/thank-you', // Update this to your actual thank you page
-          },
-        },
-      });
+          });
+          break; // Success, exit retry loop
+        } catch (error) {
+          retries++;
+          console.log(`Attempt ${retries}/${maxRetries} failed for ${pkg.name}: ${error.message}`);
+          
+          if (retries >= maxRetries) {
+            throw error; // Re-throw if all retries failed
+          }
+          
+          // Wait before retrying (exponential backoff)
+          await new Promise(resolve => setTimeout(resolve, 1000 * retries));
+        }
+      }
 
       // Update the package with the new Stripe payment link
       pkg.stripeLink = paymentLink.url;

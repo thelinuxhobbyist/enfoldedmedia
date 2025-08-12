@@ -36,10 +36,7 @@ jobs:
             echo "STRIPE_SECRET_KEY starts with: ${STRIPE_SECRET_KEY:0:7}..."
           fi
           
-          echo "Testing Stripe connection first..."
-          node test-stripe-connection.js
-          
-          echo "Running main Stripe link generation..."
+          echo "Running Stripe link generation..."
           node generateStripeLink.js
 
       - name: Commit and push changes
