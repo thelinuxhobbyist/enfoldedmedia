@@ -306,4 +306,7 @@ const packages = [
   },
 ];
 
+const priceStr = pkg.price.replace('£', '').replace(',', '');
+const priceInCents = parseInt(priceStr) * 100;
+
 module.exports = packages;

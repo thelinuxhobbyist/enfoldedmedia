@@ -8,7 +8,8 @@ async function generateStripeLinks() {
   for (const pkg of packages) {
     try {
       // Convert price to cents (Stripe accepts the price in cents, e.g., £25 = 2500)
-      const priceInCents = parseInt(pkg.price.replace('£', '').replace(',', '')) * 100;
+    const priceStr = pkg.price.replace('£', '').replace(',', '');
+    const priceInCents = parseInt(priceStr) * 100;
 
       // Create a Payment Link on Stripe
       const paymentLink = await stripe.paymentLinks.create({
@@ -36,8 +37,6 @@ async function generateStripeLinks() {
       // Update the packages.js with the new Stripe payment link
       pkg.stripeLink = paymentLink.url;
 
-            const priceStr = pkg.price.replace('£', '').replace(',', '');
-            const priceInCents = parseInt(priceStr) * 100;
             console.log(`Processing package: ${pkg.name}, price: ${pkg.price}, priceInCents: ${priceInCents}`);
 
       // Save the updated packages.js file
