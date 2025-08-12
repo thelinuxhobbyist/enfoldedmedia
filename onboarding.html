@@ -100,8 +100,17 @@
         </form>
         
         <div id="thank-you-message" style="display: none; margin-top: var(--space-8); padding: var(--space-8); background: var(--gray-100); border-radius: var(--radius-lg); text-align: center;">
-          <h3>Thank You!</h3>
-          <p>Your information has been submitted successfully. We will be in touch shortly.</p>
+          <h3>Thank You for Your Submission!</h3>
+          <p>Your information has been successfully received. Here's what happens next:</p>
+          <div style="max-width: 500px; margin: 20px auto; text-align: left;">
+            <ol style="padding-left: 20px;">
+              <li style="margin-bottom: 10px;"><strong>Review:</strong> Our team will review your submission within 1 business day.</li>
+              <li style="margin-bottom: 10px;"><strong>Initial Contact:</strong> You'll receive an email confirmation with your project details.</li>
+              <li style="margin-bottom: 10px;"><strong>Assets Gathering:</strong> Please send any requested files to info@enfoldedmedia.com.</li>
+              <li style="margin-bottom: 10px;"><strong>Project Start:</strong> We'll begin working on your project based on the information provided.</li>
+            </ol>
+          </div>
+          <p>If you have any immediate questions, feel free to contact us via WhatsApp or email.</p>
         </div>
 
         <div style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--gray-200);">
@@ -165,74 +174,13 @@
   <script src="js/onboarding.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Enhanced onboarding steps styling
-      const originalOnboardingScript = document.querySelector('script[src="js/onboarding.js"]');
-      if (originalOnboardingScript) {
-        // Override the steps rendering to use modern styling
-        const urlParams = new URLSearchParams(window.location.search);
-        const product = urlParams.get("product");
-        
-        if (product) {
-          fetch("/config/onboarding.json")
-            .then(response => response.json())
-            .then(data => {
-              const info = data[product];
-              if (info) {
-                document.getElementById('title').textContent = info.title;
-                const stepsEl = document.getElementById('steps');
-                stepsEl.innerHTML = '';
-                
-                info.steps.forEach((step, index) => {
-                  const li = document.createElement('li');
-                  li.style.cssText = `
-                    counter-increment: step-counter;
-                    margin-bottom: var(--space-4);
-                    padding: var(--space-4);
-                    background: var(--gray-50);
-                    border-radius: var(--radius-lg);
-                    position: relative;
-                    padding-left: var(--space-12);
-                  `;
-                  
-                  li.innerHTML = `
-                    <div style="
-                      position: absolute;
-                      left: var(--space-4);
-                      top: 50%;
-                      transform: translateY(-50%);
-                      width: 32px;
-                      height: 32px;
-                      background: var(--gradient-primary);
-                      border-radius: 50%;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      color: white;
-                      font-weight: 600;
-                      font-size: 0.875rem;
-                    ">${index + 1}</div>
-                    <div style="font-weight: 500; color: var(--gray-800);">${step}</div>
-                  `;
-                  
-                  stepsEl.appendChild(li);
-                });
-              }
-            })
-            .catch(error => {
-              console.error('Error loading onboarding config:', error);
-            });
-        }
-      }
-      
-      // Mobile menu functionality
+      // Mobile menu functionality only (onboarding form rendering handled by js/onboarding.js)
       const mobileMenuToggle = document.getElementById('mobileMenuToggle');
       const mobileMenu = document.getElementById('mobileMenu');
       const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
       const body = document.body;
-      
       function toggleMobileMenu() {
         const isOpen = mobileMenu.classList.contains('active');
-        
         if (isOpen) {
           mobileMenu.classList.remove('active');
           mobileMenuOverlay.classList.remove('active');
@@ -240,36 +188,20 @@
           body.classList.remove('menu-open');
         } else {
           mobileMenu.classList.add('active');
-          mobileMenuOverlay.classList.add('active');
-          mobileMenuToggle.classList.add('active');
-          body.classList.add('menu-open');
+            mobileMenuOverlay.classList.add('active');
+            mobileMenuToggle.classList.add('active');
+            body.classList.add('menu-open');
         }
       }
-      
-      if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-      }
-      
-      if (mobileMenuOverlay) {
-        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
-      }
-      
-      // Close menu when clicking on the close button
+      if (mobileMenuToggle) mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+      if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
       const mobileMenuClose = document.getElementById('mobileMenuClose');
-      if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', toggleMobileMenu);
-      }
-      
-      // Close menu when clicking on a link
+      if (mobileMenuClose) mobileMenuClose.addEventListener('click', toggleMobileMenu);
       document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', function() {
-          if (this.getAttribute('href').startsWith('#')) {
-            toggleMobileMenu();
-          }
+          if (this.getAttribute('href').startsWith('#')) toggleMobileMenu();
         });
       });
-      
-      // Header scroll effect
       window.addEventListener('scroll', function() {
         const header = document.querySelector('.modern-header');
         if (window.scrollY > 100) {

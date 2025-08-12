@@ -1,0 +1,198 @@
+{
+  "social-media": {
+    "title": "Social Media Setup Onboarding",
+    "steps": [
+      "Choose your social media platforms (Instagram, Facebook, TikTok, LinkedIn)",
+      "Provide your brand assets (logo, color scheme, etc.)",
+      "We'll design your branded profile graphics",
+      "Review and approve your profile designs",
+      "Get your social media profiles ready for launch"
+    ]
+  },
+  "event-poster": {
+    "title": "Event Poster Design Onboarding",
+    "steps": [
+      "Provide event details (date, location, etc.)",
+      "Discuss design ideas and style preferences",
+      "Review the first draft of your poster design",
+      "Make revisions (if necessary)",
+      "Receive final print-ready and digital versions of your poster"
+    ]
+  },
+  "global-pack": {
+    "title": "Startup Brand Pack Onboarding",
+    "steps": [
+      "Fill out the brand questionnaire",
+      "Provide any existing brand assets (logos, fonts, etc.)",
+      "We'll start with logo design and initial concepts",
+      "Review and approve your logo design",
+      "Receive your full brand pack (logo, business cards, flyer, and social media templates)"
+    ]
+  },
+  "quick-amendments": {
+    "title": "Quick Amendments Onboarding",
+    "steps": [
+      "Send us the design you want amended",
+      "Specify the changes you need (text, images, etc.)",
+      "We'll make the necessary updates to your design",
+      "Review and approve the updated design",
+      "Receive your revised print-ready file"
+    ]
+  },
+  "layout-design": {
+    "title": "Custom Layout Design Onboarding",
+    "steps": [
+      "Send us your content and any layout preferences",
+      "We'll create a custom layout tailored to your needs",
+      "Review the layout design",
+      "Request any necessary changes or tweaks",
+      "Receive your final layout in both print and digital formats"
+    ]
+  },
+  "recreate-design": {
+    "title": "Recreate Design Onboarding",
+    "steps": [
+      "Send us the design you want recreated",
+      "Discuss any style or design changes you'd like",
+      "We'll recreate your design from scratch",
+      "Review and approve the recreated design",
+      "Receive the final print and digital versions of your design"
+    ]
+  },
+  "full-design-package": {
+    "title": "Full Design Package Onboarding",
+    "steps": [
+      "Provide your brand vision and any existing assets",
+      "We'll present you with initial design concepts",
+      "Review the design concepts and select your preferred one",
+      "Receive your final brand assets along with a style guide"
+    ]
+  },
+  "small-business-starter": {
+    "title": "Small Business Starter Package Onboarding",
+    "steps": [
+      "Fill out the project brief and provide your business information",
+      "We'll create your one-page responsive website",
+      "Review and approve the website layout and content",
+      "Make any final tweaks to the design",
+      "Launch your website (domain purchase required)"
+    ]
+  },
+  "branding-refresh": {
+    "title": "Branding Refresh Onboarding",
+    "steps": [
+      "Send us your current brand assets (logo, colors, etc.)",
+      "We'll propose a fresh logo design and new brand elements",
+      "Review and approve the new logo and color scheme",
+      "Receive your new logo, color palette, and brand guidelines"
+    ]
+  },
+  "email-marketing": {
+    "title": "Email Marketing Setup Onboarding",
+    "steps": [
+      "Provide your brand's email marketing objectives",
+      "Choose an email platform (Mailchimp, etc.)",
+      "We'll design your custom email template",
+      "Review the email design and approve",
+      "Receive your email template and set it up on your chosen platform"
+    ]
+  },
+  "website-maintenance": {
+    "title": "Website Maintenance & Updates Onboarding",
+    "steps": [
+      "Provide access to your website",
+      "Let us know what updates or changes you need",
+      "We'll take care of the updates and necessary maintenance",
+      "Receive regular reports on your website's performance and security"
+    ]
+  },
+  "blog-setup": {
+    "title": "Blog Setup & Content Writing Onboarding",
+    "steps": [
+      "Provide us with your blog topic ideas or niche",
+      "We'll design your SEO-friendly blog layout",
+      "Provide us with the first 3 blog post topics or we can assist in content creation",
+      "Review and approve your blog design and content",
+      "Launch your blog with your first three posts (paid hosting required)"
+    ]
+  },
+  "landing-page": {
+    "title": "Landing Page Design Onboarding",
+    "steps": [
+      "Provide your product/service information and objectives",
+      "We'll design a high-converting landing page layout",
+      "Review and approve the landing page design",
+      "Make any tweaks to optimize the layout",
+      "Launch your landing page (domain purchase required)"
+    ]
+  },
+  "portfolio": {
+    "title": "Online Portfolio for Creatives Onboarding",
+    "description": "Let's build a stunning portfolio to showcase your creative work.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Your Name/Brand Name",
+        "name": "creative_name",
+        "placeholder": "Your name or brand",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Creative Field",
+        "name": "creative_field",
+        "options": ["Photography", "Graphic Design", "Illustration", "Art", "Architecture", "Fashion", "Other"],
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "If Other Field, please specify",
+        "name": "other_field",
+        "placeholder": "Your creative discipline",
+        "required": false
+      },
+      {
+        "type": "textarea",
+        "label": "Portfolio Description",
+        "name": "portfolio_description",
+        "placeholder": "Brief description of your work and style",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Design Preferences",
+        "name": "design_preferences",
+        "placeholder": "Any specific styles, layouts, or examples you like",
+        "required": false
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourname.com",
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "Please email a selection of your portfolio pieces (5-15 works) to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "multilingual-website": {
+    "title": "Multilingual Website Setup Onboarding",
+    "steps": [
+      "Provide your website content in one language or we can translate it for you",
+      "We'll create a multilingual design that caters to diverse audiences",
+      "Review and approve the multilingual website layout and content",
+      "Make any final tweaks before launch",
+      "Launch your multilingual website (domain purchase required)"
+    ]
+  }
+}

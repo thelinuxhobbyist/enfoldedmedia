@@ -9,13 +9,12 @@ const packages = [
     hosting: 'Free hosting for the first year',
     packageFeatures: [
       'Professional design',
-      'Multiple revisions',
-      'Fast delivery (3-5 days)'
+      'Fast delivery (3-5 days)',
+      'Account setup assistance'
     ],
     detailFeatures: [
       'Professional branded graphics',
-      'Platform-optimized content', 
-      'Multiple revisions',
+      'Platform-optimized content',
       'Fast delivery (2-3 days)',
       'Account setup assistance'
     ]
@@ -23,20 +22,18 @@ const packages = [
   {
     id: 'event-poster',
     name: 'Event Poster Design',
-    shortDescription: 'Print and digital format poster design in any language.',
-    longDescription: 'Beautiful, bold posters delivered in both print-ready and digital format. Multilingual options available.',
+    shortDescription: 'Print and digital format poster design.',
+    longDescription: 'Beautiful, bold posters delivered in both print-ready and digital format. Multilingual options can be discussed directly with you.',
     price: '£60',
     stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
     hosting: null,
     packageFeatures: [
       'Print & digital formats',
-      'Multiple revisions',
       'Fast delivery (3-5 days)'
     ],
     detailFeatures: [
       'Print-ready high resolution',
       'Digital format included',
-      'Multilingual design options',
       'Up to 3 revision rounds',
       'Professional layout design'
     ]
@@ -51,7 +48,6 @@ const packages = [
     hosting: null,
     packageFeatures: [
       'Professional design',
-      'Multiple revisions',
       'Fast delivery (3-5 days)'
     ],
     detailFeatures: [
@@ -59,112 +55,103 @@ const packages = [
       'Business card design',
       'Promotional flyer design',
       '3 social media templates',
-      'Brand guideline document',
-      'Multiple revisions included'
+      'Brand guideline document'
     ]
   },
   {
-  id: 'quick-amendments',
-  name: 'Quick Amendments',
-  shortDescription: 'Make fast changes to your existing designs.',
-  longDescription: 'Already have a design but need a few tweaks? Let us update or replace your images, text, or other elements quickly to meet your needs.',
-  price: '£25',
-  stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
-  hosting: null,
-  packageFeatures: [
-    'Fast design updates',
-    'Up to 2 rounds of revisions',
-    'Print-ready PDF provided'
-  ],
-  detailFeatures: [
-    'Minor image and text replacements',
-    'Quick turnaround (1-2 days)',
-    'Print-ready high resolution file',
-    'Up to two revision rounds'
-  ]
-},
-{
-  id: 'layout-design',
-  name: 'Layout Design',
-  shortDescription: 'Custom design layout for your content.',
-  longDescription: 'You provide the content, and we’ll create a custom layout to bring your vision to life, tailored to your specific needs and branding.',
-  price: '£50',
-  stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
-  hosting: null,
-  packageFeatures: [
-    'One custom layout design',
-    'Up to 3 rounds of revisions',
-    'Fast delivery (3-5 days)'
-  ],
-  detailFeatures: [
-    'Tailored layout design based on your brief',
-    'Print-ready and digital formats included',
-    'Up to three revision rounds',
-    'Quick turnaround (3-5 days)'
-  ]
-},
-{
-  id: 'recreate-design',
-  name: 'Recreate Design',
-  shortDescription: 'Recreate or redesign your existing artwork.',
-  longDescription: 'Need to give your current design a fresh look? We can help you recreate or redesign existing artwork to make it more professional or updated.',
-  price: '£75',
-  stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
-  hosting: null,
-  packageFeatures: [
-    'Recreation of existing design',
-    'Up to 4 rounds of revisions',
-    'Print and digital formats'
-  ],
-  detailFeatures: [
-    'Redesign or recreate your artwork from scratch',
-    'Print and digital versions included',
-    'Up to four rounds of revisions',
-    'Professional layout and high-quality files'
-  ]
-},
-{
-  id: 'full-design-package',
-  name: 'Full Design Package',
-  shortDescription: 'End-to-end design service for complete branding or event creation.',
-  longDescription: 'Need a full design service from start to finish? We handle everything, from concept to creation, ensuring consistency and professional quality.',
-  price: '£120',
-  stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
-  hosting: null,
-  packageFeatures: [
-    'Full design service from concept to print',
-    'Up to 3 rounds of revisions',
-    'Brand guidelines included'
-  ],
-  detailFeatures: [
-    'Senior designer consultation',
-    'Up to three design concepts',
-    'Brand style guide and asset delivery',
-    'Print and digital formats included',
-    'Up to three rounds of revisions'
-  ]
-},
-
+    id: 'quick-amendments',
+    name: 'Quick Amendments',
+    shortDescription: 'Make fast changes to your existing designs.',
+    longDescription: 'Already have a design but need a few tweaks? Let us update or replace your images, text, or other elements quickly to meet your needs.',
+    price: '£25',
+    stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
+    hosting: null,
+    packageFeatures: [
+      'Fast design updates',
+      'Up to 2 rounds of revisions',
+      'Print-ready PDF provided'
+    ],
+    detailFeatures: [
+      'Minor image and text replacements',
+      'Quick turnaround (1-2 days)',
+      'Print-ready high resolution file',
+      'Up to two revision rounds'
+    ]
+  },
+  {
+    id: 'layout-design',
+    name: 'Layout Design',
+    shortDescription: 'Custom design layout for your content.',
+    longDescription: 'You provide the content, and we’ll create a custom layout to bring your vision to life, tailored to your specific needs and branding.',
+    price: '£50',
+    stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
+    hosting: null,
+    packageFeatures: [
+      'One custom layout design',
+      'Fast delivery (3-5 days)'
+    ],
+    detailFeatures: [
+      'Tailored layout design based on your brief',
+      'Print-ready and digital formats included',
+      'Quick turnaround (3-5 days)'
+    ]
+  },
+  {
+    id: 'recreate-design',
+    name: 'Recreate Design',
+    shortDescription: 'Recreate or redesign your existing artwork.',
+    longDescription: 'Need to give your current design a fresh look? We can help you recreate or redesign existing artwork to make it more professional or updated.',
+    price: '£75',
+    stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
+    hosting: null,
+    packageFeatures: [
+      'Recreation of existing design',
+      'Print and digital formats'
+    ],
+    detailFeatures: [
+      'Redesign or recreate your artwork from scratch',
+      'Print and digital versions included',
+      'Professional layout and high-quality files'
+    ]
+  },
+  {
+    id: 'full-design-package',
+    name: 'Full Design Package',
+    shortDescription: 'End-to-end design service for complete branding or event creation.',
+    longDescription: 'Need a full design service from start to finish? We handle everything, from concept to creation, ensuring consistency and professional quality.',
+    price: '£120',
+    stripeLink: 'https://buy.stripe.com/bJe9AS0vIe5SbAf4u91VK01',
+    hosting: null,
+    packageFeatures: [
+      'Full design service from concept to print',
+      'Brand guidelines included'
+    ],
+    detailFeatures: [
+      'Senior designer consultation',
+      'Up to three design concepts',
+      'Brand style guide and asset delivery',
+      'Print and digital formats included'
+    ]
+  },
   {
     id: 'small-business-starter',
     name: 'Small Business Starter Package',
     shortDescription: 'A one-page static website with free hosting.',
-    longDescription: 'Get your business online with a professional one-page website. Includes free hosting for the first year and a custom domain from the second year.',
+    longDescription: 'Get your business online with a professional one-page website. Includes free hosting, but you’ll need to purchase the domain.',
     price: '£100',
     stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
-    hosting: 'Free hosting for the first year',
+    hosting: 'Free hosting (Domain purchase required)',
     packageFeatures: [
       'Professional design',
-      'Multiple revisions',
       'Fast delivery (3-5 days)',
-      'Free hosting for the first year'
+      'Free hosting (Domain purchase required)'
     ],
     detailFeatures: [
       'One-page responsive website',
       'Mobile-optimized design',
       'Contact form integration',
       'SEO-friendly structure',
-      'Free hosting for first year',
+      'Domain purchase required',
       'SSL certificate included'
     ]
   },
@@ -178,7 +165,6 @@ const packages = [
     hosting: null,
     packageFeatures: [
       'Professional design',
-      'Multiple revisions',
       'Fast delivery (3-5 days)'
     ],
     detailFeatures: [
@@ -186,7 +172,6 @@ const packages = [
       'Color scheme development',
       'Font style guide',
       'Brand identity document',
-      'Multiple revision rounds',
       'Vector files provided'
     ]
   },
@@ -200,7 +185,6 @@ const packages = [
     hosting: null,
     packageFeatures: [
       'Professional design',
-      'Multiple revisions',
       'Fast delivery (3-5 days)'
     ],
     detailFeatures: [
@@ -237,16 +221,15 @@ const packages = [
   {
     id: 'blog-setup',
     name: 'Blog Setup & Content Writing',
-    shortDescription: 'Setup your blog and create 3 posts.',
-    longDescription: 'Get your blog set up with an SEO-friendly layout and 3 initial posts, to help engage visitors and improve SEO.',
+    shortDescription: 'Set up and write content for your blog.',
+    longDescription: 'We help you set up a professional blog with SEO-friendly layout and initial content creation. Great for businesses looking to start a blog or improve existing blogs.',
     price: '£150',
     stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
-    hosting: 'Free hosting for the first year',
+    hosting: 'Paid hosting (Domain purchase required)',
     packageFeatures: [
       'Professional design',
-      'Multiple revisions',
       'Fast delivery (3-5 days)',
-      'Free hosting for the first year'
+      'Paid hosting (Domain purchase required)'
     ],
     detailFeatures: [
       'Blog setup and design',
@@ -254,7 +237,7 @@ const packages = [
       'SEO optimization',
       'Comment system setup',
       'Social sharing integration',
-      'Free hosting for first year'
+      'Paid hosting (Domain purchase required)'
     ]
   },
   {
@@ -264,12 +247,11 @@ const packages = [
     longDescription: 'We design a focused landing page that drives conversions for your product, service, or promotional offer.',
     price: '£120',
     stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
-    hosting: 'Free hosting for the first year',
+    hosting: 'Free hosting (Domain purchase required)',
     packageFeatures: [
       'Professional design',
-      'Multiple revisions',
       'Fast delivery (3-5 days)',
-      'Free hosting for the first year'
+      'Free hosting (Domain purchase required)'
     ],
     detailFeatures: [
       'Conversion-optimized design',
@@ -277,7 +259,7 @@ const packages = [
       'Contact form integration',
       'Analytics setup',
       'A/B testing recommendations',
-      'Free hosting for first year'
+      'Domain purchase required'
     ]
   },
   {
@@ -290,7 +272,6 @@ const packages = [
     hosting: 'Paid hosting required',
     packageFeatures: [
       'Professional design',
-      'Multiple revisions',
       'Fast delivery (3-5 days)'
     ],
     detailFeatures: [
@@ -306,67 +287,21 @@ const packages = [
     id: 'multilingual-website',
     name: 'Multilingual Website Setup',
     shortDescription: 'Expand your reach with a multilingual website.',
-    longDescription: 'We set up a multilingual website, enabling you to reach customers across different languages and borders.',
+    longDescription: 'Reach new audiences in the UK with a multilingual website. You provide the content, or we can translate it for you.',
     price: '£250',
     stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
-    hosting: 'Free hosting for the first year',
+    hosting: 'Free hosting (Domain purchase required)',
     packageFeatures: [
       'Professional design',
-      'Multiple revisions',
       'Fast delivery (3-5 days)',
-      'Free hosting for the first year'
+      'Free hosting (Domain purchase required)'
     ],
     detailFeatures: [
       'Multi-language setup',
-      'Translation management system',
-      'Language switcher integration',
+      'You provide content or we can translate it',
       'SEO optimization for each language',
       'Cultural adaptation guidance',
-      'Free hosting for first year'
+      'Domain purchase required'
     ]
   },
-  {
-    id: 'brand-strategy',
-    name: 'Brand Strategy Session',
-    shortDescription: '1-on-1 consultation to define your brand.',
-    longDescription: 'In this session, we help you clarify your brand vision, mission, and target audience, setting a clear direction for your marketing.',
-    price: '£150',
-    stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
-    hosting: null,
-    packageFeatures: [
-      '2-hour consultation',
-      'Brand analysis',
-      'Strategy document'
-    ],
-    detailFeatures: [
-      '2-hour consultation session',
-      'Brand vision development',
-      'Target audience analysis',
-      'Competitive analysis',
-      'Brand positioning guide',
-      'Action plan document'
-    ]
-  },
-  {
-    id: 'automation',
-    name: 'Marketing Automation Setup',
-    shortDescription: 'Automate email and SMS campaigns.',
-    longDescription: 'We set up automated email or SMS sequences to engage with leads and customers, improving your marketing efficiency.',
-    price: '£180',
-    stripeLink: 'https://buy.stripe.com/eVq3cu4LY4vi33J5yd1VK00',
-    hosting: null,
-    packageFeatures: [
-      'Automation setup',
-      'Multiple campaigns',
-      'Analytics tracking'
-    ],
-    detailFeatures: [
-      'Email automation sequences',
-      'SMS campaign setup',
-      'Lead nurturing workflows',
-      'Analytics and reporting',
-      'Platform integration',
-      'Performance optimization'
-    ]
-  }
 ];

@@ -1,26 +1,789 @@
 {
-  "startup": {
-    "title": "Welcome to the Startup Package",
-    "steps": [
-      "Book your onboarding call",
-      "Fill out the project brief form",
-      "We'll begin the initial design"
+  "social-media": {
+    "title": "Social Media Setup Onboarding",
+    "description": "Please provide the following information to help us set up your social media profiles effectively.",
+    "fields": [
+      {
+        "type": "checkbox",
+        "label": "Choose your social media platforms",
+        "name": "platforms",
+        "options": ["Instagram", "Facebook", "TikTok", "LinkedIn"],
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Business/Brand Name",
+        "name": "brand_name",
+        "placeholder": "Your business or brand name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Brief description of your business/brand",
+        "name": "brand_description",
+        "placeholder": "What your business does, your target audience, etc.",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Any specific profile style preferences?",
+        "name": "style_preferences",
+        "placeholder": "Colors, tone, visual style, etc.",
+        "required": false
+      },
+      {
+        "type": "info",
+        "text": "Please email your logo, color scheme and any brand guidelines to info@enfoldedmedia.com with your order number in the subject line."
+      }
     ]
   },
-  "pro": {
-    "title": "Pro Package Onboarding",
-    "steps": [
-      "Upload your brand assets",
-      "Schedule your first design review",
-      "Track your progress on the dashboard"
+  "event-poster": {
+    "title": "Event Poster Design Onboarding",
+    "description": "Please provide details about your event poster requirements.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Event Name",
+        "name": "event_name",
+        "placeholder": "Name of your event",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Event Date & Time",
+        "name": "event_datetime",
+        "placeholder": "When your event takes place",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Event Location",
+        "name": "event_location",
+        "placeholder": "Where your event takes place",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Event Description",
+        "name": "event_description",
+        "placeholder": "Brief description of the event",
+        "required": true
+      },
+      {
+        "type": "radio",
+        "label": "Preferred Style",
+        "name": "poster_style",
+        "options": ["Minimalist", "Bold/Vibrant", "Corporate", "Artistic", "Other"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Additional Design Preferences",
+        "name": "design_preferences",
+        "placeholder": "Colors, themes, or specific elements you'd like included",
+        "required": false
+      },
+      {
+        "type": "info",
+        "text": "Please email any logos, images or brand materials to info@enfoldedmedia.com with your order number in the subject line."
+      }
     ]
   },
-  "logo": {
-    "title": "Logo Design Package",
-    "steps": [
-      "Send logo references or ideas",
-      "Approve the concept sketch",
-      "Receive your final logo files"
+  "global-pack": {
+    "title": "Startup Brand Pack Onboarding",
+    "description": "Help us create the perfect brand pack for your startup.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Business/Brand Name",
+        "name": "brand_name",
+        "placeholder": "Your business or brand name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Business Description",
+        "name": "business_description",
+        "placeholder": "What does your business do? Who is your target audience?",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Brand Vision",
+        "name": "brand_vision",
+        "placeholder": "How do you want your brand to be perceived?",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Preferred Colors",
+        "name": "color_preferences",
+        "placeholder": "Any specific colors you'd like us to use?",
+        "required": false
+      },
+      {
+        "type": "textarea",
+        "label": "Business Card Information",
+        "name": "card_info",
+        "placeholder": "Name, title, phone, email, address, etc. for your business cards",
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "Please email any existing brand assets or inspiration examples to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "quick-amendments": {
+    "title": "Quick Amendments Onboarding",
+    "description": "Tell us about the changes you need to your existing design.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Your Name",
+        "name": "client_name",
+        "placeholder": "Your name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Describe the changes needed",
+        "name": "amendment_description",
+        "placeholder": "Specific text or image changes required",
+        "required": true
+      },
+      {
+        "type": "radio",
+        "label": "Urgency Level",
+        "name": "urgency",
+        "options": ["Standard (3-5 days)", "Rush (1-2 days)"],
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "Please email your current design that needs amendments to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "layout-design": {
+    "title": "Custom Layout Design Onboarding",
+    "description": "Help us understand your layout design needs.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Your Name",
+        "name": "client_name",
+        "placeholder": "Your name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Layout Purpose",
+        "name": "layout_purpose",
+        "options": ["Flyer", "Brochure", "Menu", "Newsletter", "Magazine", "Other"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Layout Preferences",
+        "name": "layout_preferences",
+        "placeholder": "Describe your vision for the layout",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Dimensions",
+        "name": "dimensions",
+        "placeholder": "Size requirements (if any)",
+        "required": false
+      },
+      {
+        "type": "info",
+        "text": "Please email your content (text, images, logos) to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "recreate-design": {
+    "title": "Recreate Design Onboarding",
+    "description": "Help us understand what design you need recreated.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Your Name",
+        "name": "client_name",
+        "placeholder": "Your name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Design Description",
+        "name": "design_description",
+        "placeholder": "Describe the design you want recreated",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Changes Desired",
+        "name": "desired_changes",
+        "placeholder": "Any changes you'd like from the original design",
+        "required": false
+      },
+      {
+        "type": "select",
+        "label": "Final Format Needed",
+        "name": "format_needed",
+        "options": ["Print-ready PDF", "Digital (PNG/JPG)", "Both print and digital", "Source files (AI/PSD)", "Other"],
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "Please email the design you want recreated to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "full-design-package": {
+    "title": "Full Design Package Onboarding",
+    "description": "Let's get started on your comprehensive design package.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Business/Brand Name",
+        "name": "brand_name",
+        "placeholder": "Your business or brand name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Brand Vision",
+        "name": "brand_vision",
+        "placeholder": "Describe your brand vision and goals",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Target Audience",
+        "name": "target_audience",
+        "placeholder": "Who is your target audience?",
+        "required": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Design Elements Needed",
+        "name": "design_elements",
+        "options": ["Logo", "Business Cards", "Letterhead", "Social Media Templates", "Brochures", "Product Packaging", "Other"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Design Preferences",
+        "name": "design_preferences",
+        "placeholder": "Any specific styles, colors, or themes you prefer",
+        "required": false
+      },
+      {
+        "type": "info",
+        "text": "Please email any existing brand assets or inspiration examples to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "small-business-starter": {
+    "title": "Small Business Starter Package Onboarding",
+    "description": "Let's get your small business website up and running.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Business Name",
+        "name": "business_name",
+        "placeholder": "Your business name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourbusiness.com",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Business Description",
+        "name": "business_description",
+        "placeholder": "What does your business do?",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Services/Products",
+        "name": "services_products",
+        "placeholder": "List your main services or products",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Contact Information",
+        "name": "contact_info",
+        "placeholder": "Phone, address, social media links, etc.",
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "Please email your logo and any brand assets to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "branding-refresh": {
+    "title": "Branding Refresh Onboarding",
+    "description": "Help us refresh your brand with a modern look.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Business/Brand Name",
+        "name": "brand_name",
+        "placeholder": "Your business or brand name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "What do you want to keep from your current brand?",
+        "name": "keep_elements",
+        "placeholder": "Elements you want to preserve",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "What do you want to change?",
+        "name": "change_elements",
+        "placeholder": "Elements you want to update or replace",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Brand Vision",
+        "name": "brand_vision",
+        "placeholder": "How do you want your refreshed brand to be perceived?",
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "Please email your current logo and brand assets to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "email-marketing": {
+    "title": "Email Marketing Setup Onboarding",
+    "description": "Let's set up your email marketing templates and systems.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Business/Brand Name",
+        "name": "brand_name",
+        "placeholder": "Your business or brand name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Preferred Email Platform",
+        "name": "email_platform",
+        "options": ["Mailchimp", "Constant Contact", "Campaign Monitor", "SendinBlue", "Other"],
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "If Other Platform, please specify",
+        "name": "other_platform",
+        "placeholder": "Name of your preferred platform",
+        "required": false
+      },
+      {
+        "type": "textarea",
+        "label": "Email Marketing Objectives",
+        "name": "marketing_objectives",
+        "placeholder": "What do you want to achieve with email marketing?",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Target Audience",
+        "name": "target_audience",
+        "placeholder": "Who are you sending emails to?",
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "Please email your logo and any brand assets to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "website-maintenance": {
+    "title": "Website Maintenance & Updates Onboarding",
+    "description": "Let us know about your website maintenance needs.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Website URL",
+        "name": "website_url",
+        "placeholder": "Your website address",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Website Platform",
+        "name": "website_platform",
+        "options": ["WordPress", "Shopify", "Wix", "Squarespace", "Custom", "Other"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Current Issues",
+        "name": "current_issues",
+        "placeholder": "Any existing problems with your website?",
+        "required": false
+      },
+      {
+        "type": "textarea",
+        "label": "Maintenance Requirements",
+        "name": "maintenance_requirements",
+        "placeholder": "What specific maintenance do you need?",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Update Frequencies",
+        "name": "update_frequencies",
+        "placeholder": "How often do you need content updates?",
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "We'll contact you to securely arrange website access credentials."
+      }
+    ]
+  },
+  "blog-setup": {
+    "title": "Blog Setup & Content Writing Onboarding",
+    "description": "Let's set up your professional blog with great content.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Blog/Website Name",
+        "name": "blog_name",
+        "placeholder": "Your blog or website name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Preferred Platform",
+        "name": "blog_platform",
+        "options": ["WordPress", "Ghost", "Medium", "Blogger", "Custom", "Other"],
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourblog.com",
+        "required": false
+      },
+      {
+        "type": "textarea",
+        "label": "Blog Topic/Niche",
+        "name": "blog_topic",
+        "placeholder": "What will your blog focus on?",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Target Audience",
+        "name": "target_audience",
+        "placeholder": "Who are you writing for?",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "First 3 Blog Post Ideas",
+        "name": "post_ideas",
+        "placeholder": "Topic ideas for your first blog posts",
+        "required": true
+      },
+      {
+        "type": "radio",
+        "label": "Content Creation",
+        "name": "content_creation",
+        "options": ["I'll provide content", "I need content written for me"],
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "Please email any brand assets or style preferences to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "landing-page": {
+    "title": "Landing Page Design Onboarding",
+    "description": "Let's create a high-converting landing page for your product or service.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Business/Brand Name",
+        "name": "brand_name",
+        "placeholder": "Your business or brand name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Product/Service Name",
+        "name": "product_name",
+        "placeholder": "What are you promoting?",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Product/Service Description",
+        "name": "product_description",
+        "placeholder": "Describe what you're offering",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Key Benefits",
+        "name": "key_benefits",
+        "placeholder": "List the main benefits for your customers",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Call to Action",
+        "name": "call_to_action",
+        "placeholder": "e.g., Buy Now, Sign Up, Learn More",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Target Audience",
+        "name": "target_audience",
+        "placeholder": "Who are you targeting with this landing page?",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourlandingpage.com",
+        "required": false
+      },
+      {
+        "type": "info",
+        "text": "Please email your logo, product images, and any other assets to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Online Portfolio for Creatives Onboarding",
+    "description": "Let's build a stunning portfolio to showcase your creative work.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Your Name/Brand Name",
+        "name": "creative_name",
+        "placeholder": "Your name or brand",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Creative Field",
+        "name": "creative_field",
+        "options": ["Photography", "Graphic Design", "Illustration", "Art", "Architecture", "Fashion", "Other"],
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "If Other Field, please specify",
+        "name": "other_field",
+        "placeholder": "Your creative discipline",
+        "required": false
+      },
+      {
+        "type": "textarea",
+        "label": "Portfolio Description",
+        "name": "portfolio_description",
+        "placeholder": "Brief description of your work and style",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Design Preferences",
+        "name": "design_preferences",
+        "placeholder": "Any specific styles, layouts, or examples you like",
+        "required": false
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourname.com",
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "Please email a selection of your portfolio pieces (5-15 works) to info@enfoldedmedia.com with your order number in the subject line."
+      }
+    ]
+  },
+  "multilingual-website": {
+    "title": "Multilingual Website Setup Onboarding",
+    "description": "Let's create your website to reach audiences in multiple languages.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Business/Brand Name",
+        "name": "brand_name",
+        "placeholder": "Your business or brand name",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Your Email Address",
+        "name": "email",
+        "placeholder": "Where we can contact you",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Primary Language",
+        "name": "primary_language",
+        "placeholder": "e.g., English",
+        "required": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Additional Languages Required",
+        "name": "additional_languages",
+        "options": ["French", "Spanish", "German", "Italian", "Arabic", "Chinese", "Other"],
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "If Other Languages, please specify",
+        "name": "other_languages",
+        "placeholder": "List any other languages needed",
+        "required": false
+      },
+      {
+        "type": "radio",
+        "label": "Content Translation",
+        "name": "content_translation",
+        "options": ["I'll provide translated content", "I need translation services"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Website Purpose & Content",
+        "name": "website_purpose",
+        "placeholder": "What is your website for and what content will it have?",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourbusiness.com",
+        "required": true
+      },
+      {
+        "type": "info",
+        "text": "Please email your logo, brand assets, and any existing content to info@enfoldedmedia.com with your order number in the subject line."
+      }
     ]
   }
 }
