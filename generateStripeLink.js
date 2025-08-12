@@ -2,7 +2,7 @@ const fs = require('fs');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Load the secret key from environment variables
 
 // Path to your packages.js file
-const packages = require('./js/packages.js');
+const packages = JSON.parse(fs.readFileSync('./js/packages.json', 'utf8'));
 
 async function generateStripeLinks() {
   for (const pkg of packages) {
@@ -39,8 +39,8 @@ async function generateStripeLinks() {
 
             console.log(`Processing package: ${pkg.name}, price: ${pkg.price}, priceInCents: ${priceInCents}`);
 
-      // Save the updated packages.js file
-      fs.writeFileSync('./js/packages.js', JSON.stringify(packages, null, 2));
+    // Save the updated packages.json file
+    fs.writeFileSync('./js/packages.json', JSON.stringify(packages, null, 2));
 
     } catch (error) {
       console.error(`Error generating link for ${pkg.name}:`, error);

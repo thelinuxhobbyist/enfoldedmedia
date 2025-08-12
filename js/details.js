@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
-  if (!id || typeof packages === 'undefined') return;
+  if (!id || typeof window.packages === 'undefined') return;
 
   const pkg = packages.find(p => p.id === id);
   if (!pkg) return;

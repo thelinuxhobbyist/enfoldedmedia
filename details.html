@@ -274,10 +274,20 @@
   <!-- JavaScript -->
   <script src="js/copyright.js"></script>
   <script src="js/packages.js"></script>
-  <script src="js/details.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Header scroll effect
+    <script>
+      // Load packages.json and then load details.js
+      fetch('js/packages.json')
+        .then(response => response.json())
+        .then(packages => {
+          window.packages = packages;
+          var script = document.createElement('script');
+          script.src = 'js/details.js';
+          document.body.appendChild(script);
+        });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Header scroll effect
       window.addEventListener('scroll', function() {
         const header = document.querySelector('.modern-header');
         if (window.scrollY > 100) {
