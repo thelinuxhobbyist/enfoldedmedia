@@ -36,7 +36,9 @@ async function generateStripeLinks() {
       // Update the packages.js with the new Stripe payment link
       pkg.stripeLink = paymentLink.url;
 
-      console.log(`Generated link for ${pkg.name}: ${paymentLink.url}`);
+            const priceStr = pkg.price.replace('£', '').replace(',', '');
+            const priceInCents = parseInt(priceStr) * 100;
+            console.log(`Processing package: ${pkg.name}, price: ${pkg.price}, priceInCents: ${priceInCents}`);
 
       // Save the updated packages.js file
       fs.writeFileSync('./js/packages.js', JSON.stringify(packages, null, 2));

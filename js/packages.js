@@ -181,7 +181,7 @@ const packages = [
     shortDescription: 'Email template design and setup on Mailchimp or similar.',
     longDescription: 'Reach your customers effectively with a customized email template designed to match your brand, and setup on Mailchimp or another platform.',
     price: '£90',
-    stripeLink: '',  // Removed stripe link
+    stripeLink: '',  // Removed stripe lin
     hosting: null,
     packageFeatures: [
       'Professional design',
