@@ -289,7 +289,7 @@ const packages = [
     shortDescription: 'Expand your reach with a multilingual website.',
     longDescription: 'Reach new audiences in the UK with a multilingual website. You provide the content, or we can translate it for you.',
     price: '£250',
-    stripeLink: '',  // Removed stripe link
+    stripeLink: '',  
     hosting: 'Free hosting (Domain purchase required)',
     packageFeatures: [
       'Professional design',
