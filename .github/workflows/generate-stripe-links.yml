@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "18"
 
       - name: Install dependencies
         run: |
@@ -33,7 +33,13 @@ jobs:
             exit 1
           else
             echo "STRIPE_SECRET_KEY is set (length: ${#STRIPE_SECRET_KEY})"
+            echo "STRIPE_SECRET_KEY starts with: ${STRIPE_SECRET_KEY:0:7}..."
           fi
+          
+          echo "Testing Stripe connection first..."
+          node test-stripe-connection.js
+          
+          echo "Running main Stripe link generation..."
           node generateStripeLink.js
 
       - name: Commit and push changes
