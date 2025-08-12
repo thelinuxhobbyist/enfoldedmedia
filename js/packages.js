@@ -268,7 +268,7 @@ const packages = [
     shortDescription: 'A stunning portfolio website for photographers, designers, or artists.',
     longDescription: 'Showcase your creative work with a custom-designed portfolio, perfect for any artist, photographer, or designer.',
     price: '£200',
-    stripeLink: '',  // Removed stripe link
+    stripeLink: '',  // Removed str
     hosting: 'Paid hosting required',
     packageFeatures: [
       'Professional design',
