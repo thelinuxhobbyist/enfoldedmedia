@@ -148,57 +148,69 @@
   <!-- JavaScript -->
   <script src="js/copyright.js"></script>
   <script>
-    // Load packages.json and then render packages
+    // Load and render packages
     fetch('js/packages.json')
       .then(response => response.json())
       .then(packages => {
         window.packages = packages;
         
-        document.addEventListener('DOMContentLoaded', function() {
-          // Render packages
+        function renderPackages() {
           const container = document.getElementById('packages-container');
-          if (container && typeof packages !== 'undefined') {
-        packages.forEach(pkg => {
-          const div = document.createElement('div');
-          div.className = 'package-card';
-          
-          // Generate features list dynamically from packageFeatures
-          let featuresHTML = '';
-          if (pkg.packageFeatures && pkg.packageFeatures.length > 0) {
-            featuresHTML = pkg.packageFeatures.map(feature => `<li>${feature}</li>`).join('');
-            
-            // Add hosting as additional feature if it exists
-            if (pkg.hosting) {
-              featuresHTML += `<li>${pkg.hosting}</li>`;
-            }
-          } else {
-            // Fallback for packages without packageFeatures defined
-            featuresHTML = `
-              <li>Professional design</li>
-              <li>Multiple revisions</li>
-              <li>Fast delivery (3-5 days)</li>
-            `;
-            if (pkg.hosting) {
-              featuresHTML += `<li>${pkg.hosting}</li>`;
-            }
+          if (container && packages) {
+            packages.forEach(pkg => {
+              const div = document.createElement('div');
+              div.className = 'package-card';
+              
+              // Generate features list dynamically from packageFeatures
+              let featuresHTML = '';
+              if (pkg.packageFeatures && pkg.packageFeatures.length > 0) {
+                featuresHTML = pkg.packageFeatures.map(feature => `<li>${feature}</li>`).join('');
+                
+                // Add hosting as additional feature if it exists
+                if (pkg.hosting) {
+                  featuresHTML += `<li>${pkg.hosting}</li>`;
+                }
+              } else {
+                // Fallback for packages without packageFeatures defined
+                featuresHTML = `
+                  <li>Professional design</li>
+                  <li>Multiple revisions</li>
+                  <li>Fast delivery (3-5 days)</li>
+                `;
+                if (pkg.hosting) {
+                  featuresHTML += `<li>${pkg.hosting}</li>`;
+                }
+              }
+              
+              div.innerHTML = `
+                <div class="package-header">
+                  <h3 class="package-title">${pkg.name}</h3>
+                  <p class="package-description">${pkg.shortDescription}</p>
+                </div>
+                <div class="package-price">${pkg.price}</div>
+                <ul class="package-features">
+                  ${featuresHTML}
+                </ul>
+                <a class="btn btn-primary" href="details.html?id=${pkg.id}" style="width: 100%; justify-content: center;">View Details</a>
+              `;
+              container.appendChild(div);
+            });
           }
-          
-          div.innerHTML = `
-            <div class="package-header">
-              <h3 class="package-title">${pkg.name}</h3>
-              <p class="package-description">${pkg.shortDescription}</p>
-            </div>
-            <div class="package-price">${pkg.price}</div>
-            <ul class="package-features">
-              ${featuresHTML}
-            </ul>
-            <a class="btn btn-primary" href="details.html?id=${pkg.id}" style="width: 100%; justify-content: center;">View Details</a>
-          `;
-          container.appendChild(div);
-        });
-      }
-      
-      // Mobile menu functionality
+        }
+        
+        // Call renderPackages if DOM is ready, otherwise wait
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', renderPackages);
+        } else {
+          renderPackages();
+        }
+      })
+      .catch(error => {
+        console.error('Error loading packages:', error);
+      });
+    
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
       const mobileMenuToggle = document.getElementById('mobileMenuToggle');
       const mobileMenu = document.getElementById('mobileMenu');
       const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
@@ -220,8 +232,12 @@
         }
       }
       
-      mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-      mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+      }
+      if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+      }
       
       // Close menu when clicking on the close button
       const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -249,11 +265,7 @@
           header.style.boxShadow = 'none';
         }
       });
-        });
-      })
-      .catch(error => {
-        console.error('Error loading packages:', error);
-      });
+    });
   </script>
 </body>
 </html>
