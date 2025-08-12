@@ -23,16 +23,32 @@ function initializePackageDetails() {
   }
   
   console.log('Found package:', pkg.name);
+  console.log('Package data:', pkg);
 
-  document.getElementById('package-title').textContent = pkg.name;
-  document.getElementById('long-description').textContent = pkg.longDescription;
-  document.getElementById('price').textContent = pkg.price;
-  document.getElementById('buy-link').href = pkg.stripeLink;
+  // Check if DOM elements exist before setting them
+  const packageTitle = document.getElementById('package-title');
+  const longDescription = document.getElementById('long-description');
+  const price = document.getElementById('price');
+  const buyLink = document.getElementById('buy-link');
+  const longDescriptionMobile = document.getElementById('long-description-mobile');
+  const priceMobile = document.getElementById('price-mobile');
+  const buyLinkMobile = document.getElementById('buy-link-mobile');
+  
+  if (packageTitle) packageTitle.textContent = pkg.name;
+  if (longDescription) longDescription.textContent = pkg.longDescription;
+  if (price) price.textContent = pkg.price;
+  
+  // Set buy link - use Stripe link if available, otherwise use onboarding
+  const buyLinkUrl = pkg.stripeLink && pkg.stripeLink.trim() !== '' 
+    ? pkg.stripeLink 
+    : `onboarding.html?product=${pkg.id}`;
+  
+  if (buyLink) buyLink.href = buyLinkUrl;
   
   // Update mobile elements
-  document.getElementById('long-description-mobile').textContent = pkg.longDescription;
-  document.getElementById('price-mobile').textContent = pkg.price;
-  document.getElementById('buy-link-mobile').href = pkg.stripeLink;
+  if (longDescriptionMobile) longDescriptionMobile.textContent = pkg.longDescription;
+  if (priceMobile) priceMobile.textContent = pkg.price;
+  if (buyLinkMobile) buyLinkMobile.href = buyLinkUrl;
 
   // Populate features dynamically
   const desktopFeatures = document.getElementById('desktop-features');
