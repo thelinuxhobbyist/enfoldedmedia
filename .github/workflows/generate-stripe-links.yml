@@ -26,5 +26,4 @@ jobs:
       - name: Run Stripe link generation script
         env:
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
-        run: |
-          node generateStripeLink.js
+        run: node generateStripeLink.js
