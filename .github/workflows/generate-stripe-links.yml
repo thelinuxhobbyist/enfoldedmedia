@@ -26,7 +26,15 @@ jobs:
       - name: Run Stripe link generation script
         env:
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
-        run: node generateStripeLink.js
+        run: |
+          echo "Checking if STRIPE_SECRET_KEY is set..."
+          if [ -z "$STRIPE_SECRET_KEY" ]; then
+            echo "ERROR: STRIPE_SECRET_KEY is not set!"
+            exit 1
+          else
+            echo "STRIPE_SECRET_KEY is set (length: ${#STRIPE_SECRET_KEY})"
+          fi
+          node generateStripeLink.js
 
       - name: Commit and push changes
         run: |
