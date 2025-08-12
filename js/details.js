@@ -38,17 +38,36 @@ function initializePackageDetails() {
   if (longDescription) longDescription.textContent = pkg.longDescription;
   if (price) price.textContent = pkg.price;
   
-  // Set buy link - use Stripe link if available, otherwise use onboarding
-  const buyLinkUrl = pkg.stripeLink && pkg.stripeLink.trim() !== '' 
-    ? pkg.stripeLink 
-    : `onboarding.html?product=${pkg.id}`;
-  
-  if (buyLink) buyLink.href = buyLinkUrl;
+  // Set buy link - use Stripe link if available, otherwise show message
+  if (pkg.stripeLink && pkg.stripeLink.trim() !== '') {
+    // Stripe link is available
+    if (buyLink) {
+      buyLink.href = pkg.stripeLink;
+      buyLink.textContent = 'Buy Now';
+      buyLink.className = 'btn btn-primary';
+    }
+    if (buyLinkMobile) {
+      buyLinkMobile.href = pkg.stripeLink;
+      buyLinkMobile.textContent = 'Buy Now';
+      buyLinkMobile.className = 'btn btn-primary';
+    }
+  } else {
+    // Stripe link not available yet - show message and link to onboarding
+    if (buyLink) {
+      buyLink.href = `onboarding.html?product=${pkg.id}`;
+      buyLink.textContent = 'Get Started (Stripe payment coming soon)';
+      buyLink.className = 'btn btn-secondary';
+    }
+    if (buyLinkMobile) {
+      buyLinkMobile.href = `onboarding.html?product=${pkg.id}`;
+      buyLinkMobile.textContent = 'Get Started (Stripe payment coming soon)';
+      buyLinkMobile.className = 'btn btn-secondary';
+    }
+  }
   
   // Update mobile elements
   if (longDescriptionMobile) longDescriptionMobile.textContent = pkg.longDescription;
   if (priceMobile) priceMobile.textContent = pkg.price;
-  if (buyLinkMobile) buyLinkMobile.href = buyLinkUrl;
 
   // Populate features dynamically
   const desktopFeatures = document.getElementById('desktop-features');
