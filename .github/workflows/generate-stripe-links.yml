@@ -27,4 +27,4 @@ jobs:
         env:
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
         run: |
-          node js/generate-stripe-links.js
+          node generateStripeLink.js
