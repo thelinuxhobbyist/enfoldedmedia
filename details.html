@@ -279,8 +279,17 @@
       .then(response => response.json())
       .then(packages => {
         window.packages = packages;
+        console.log('Packages loaded:', packages.length, 'packages');
+        
+        // Load details.js after packages are loaded
         var script = document.createElement('script');
         script.src = 'js/details.js';
+        script.onload = function() {
+          console.log('Details.js loaded successfully');
+        };
+        script.onerror = function() {
+          console.error('Failed to load details.js');
+        };
         document.body.appendChild(script);
       })
       .catch(error => {

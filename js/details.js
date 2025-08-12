@@ -1,10 +1,28 @@
-document.addEventListener('DOMContentLoaded', () => {
+// Function to initialize package details
+function initializePackageDetails() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
-  if (!id || typeof window.packages === 'undefined') return;
+  
+  console.log('Initializing package details for ID:', id);
+  console.log('Packages available:', window.packages ? window.packages.length : 'undefined');
+  
+  if (!id) {
+    console.error('No package ID provided in URL');
+    return;
+  }
+  
+  if (typeof window.packages === 'undefined') {
+    console.error('Packages not loaded yet');
+    return;
+  }
 
-  const pkg = packages.find(p => p.id === id);
-  if (!pkg) return;
+  const pkg = window.packages.find(p => p.id === id);
+  if (!pkg) {
+    console.error('Package not found for ID:', id);
+    return;
+  }
+  
+  console.log('Found package:', pkg.name);
 
   document.getElementById('package-title').textContent = pkg.name;
   document.getElementById('long-description').textContent = pkg.longDescription;
@@ -184,4 +202,12 @@ document.addEventListener('DOMContentLoaded', () => {
       relatedPackagesContainer.appendChild(cardDiv);
     });
   }
-});
+}
+
+// Initialize when DOM is ready and packages are loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializePackageDetails);
+} else {
+  // DOM is already ready, try to initialize
+  setTimeout(initializePackageDetails, 100); // Small delay to ensure packages are loaded
+}
