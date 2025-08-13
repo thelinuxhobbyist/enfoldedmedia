@@ -1,35 +1,32 @@
 {
-  "quick-amendments": {
-    "title": "Quick Amendments Onboarding",
-    "description": "Please provide details about the changes you need.",
+  "test-package": {
+    "title": "Test Package Onboarding",
+    "description": "This is a test form to verify the onboarding system.",
     "fields": [
       {
         "type": "email",
-        "label": "Your Email Address",
+        "label": "Test Email",
         "name": "email",
-        "placeholder": "Where we can contact you",
+        "placeholder": "Enter your email for test confirmation",
         "required": true
       },
       {
-        "type": "textarea",
-        "label": "What changes do you need?",
-        "name": "amendment_details",
-        "placeholder": "Describe the changes you need in detail",
+        "type": "text",
+        "label": "Test Name",
+        "name": "test_name",
+        "placeholder": "Enter any name for testing",
         "required": true
       },
       {
         "type": "select",
-        "label": "Urgency Level",
-        "name": "urgency",
-        "options": ["Standard (2-3 days)", "Urgent (24 hours)", "Super Urgent (Same day if possible)"],
+        "label": "Test Options",
+        "name": "test_option",
+        "options": ["Option A", "Option B", "Option C"],
         "required": true
-      },
-      {
-        "type": "info",
-        "text": "Please email the files that need changes to info@enfoldedmedia.com with your order number in the subject line."
       }
     ]
   },
+
   "social-media": {
     "title": "Social Media Setup Onboarding",
     "description": "Please provide the following information to help us set up your social media profiles effectively.",

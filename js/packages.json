@@ -1,10 +1,10 @@
 [
   {
-    "id": "social-media",
-    "name": "Social Media Setup",
-    "shortDescription": "Branded profile creation for Instagram, Facebook, TikTok, or LinkedIn",
-    "longDescription": "We create social media profiles with branded graphics, bios, and startup content. Great for growing your brand on any platform.",
-    "price": "£80",
+    "id": "test-package",
+    "name": "Test Package",
+    "shortDescription": "Test package for system verification (Minimum price)",
+    "longDescription": "This is a test package to verify the payment system. It is priced at the minimum amount allowed by Stripe.",
+    "price": "£0.30",
     "stripeLink": "https://buy.stripe.com/14A14mdiu1j6cEj2m11VK0i",
     "hosting": "Free hosting for the first year",
     "packageFeatures": [
