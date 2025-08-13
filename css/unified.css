@@ -1618,8 +1618,23 @@ a:hover {
 }
 
 .mobile-price-compact .price-highlight {
+  background: var(--gradient-hero);
   padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  text-align: center;
   margin: 0;
+}
+
+.mobile-price-compact #buy-link-mobile {
+  background: var(--gradient-button);
+  color: var(--white);
+  width: 100%;
+  margin-top: var(--space-4);
+}
+
+.mobile-price-compact #buy-link-mobile:hover {
+  background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
+  transform: translateY(-2px);
 }
 
 .mobile-collapsible-sections {
@@ -1936,6 +1951,37 @@ a:hover {
     width: 100%;
     max-width: 280px;
     justify-content: center;
+  }
+
+  /* Mobile Buy Card */
+  #mobile-price-card {
+    background: var(--gradient-hero);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-6);
+    color: var(--white);
+    box-shadow: var(--shadow-lg);
+  }
+
+  #price-mobile {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-4);
+  }
+
+  #buy-link-mobile {
+    width: 100%;
+    max-width: none;
+    margin-top: var(--space-4);
+    background: var(--white);
+    color: var(--primary-blue);
+    font-weight: bold;
+  }
+
+  #buy-link-mobile:hover {
+    background: var(--gray-100);
+    color: var(--primary-blue-dark);
+    transform: translateY(-2px);
   }
   
   .package-title {
