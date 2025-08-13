@@ -11,8 +11,22 @@ if (!process.env.STRIPE_SECRET_KEY) {
   process.exit(1);
 }
 
+// Check file permissions
+try {
+  const testPath = `${process.cwd()}/js`;
+  console.log('Checking write permissions for directory:', testPath);
+  fs.accessSync(testPath, fs.constants.W_OK);
+  console.log('✅ Have write permissions to js directory');
+} catch (error) {
+  console.error('❌ No write permissions to js directory:', error);
+  process.exit(1);
+}
+
 // Path to your packages.json file
-const packages = JSON.parse(fs.readFileSync('./js/packages.json', 'utf8'));
+const packagesPath = `${process.cwd()}/js/packages.json`;
+console.log(`Reading packages from: ${packagesPath}`);
+const packages = JSON.parse(fs.readFileSync(packagesPath, 'utf8'));
+console.log(`Successfully loaded ${packages.length} packages`);
 
 function parsePrice(priceStr) {
   // Remove £ symbol and any commas
@@ -122,10 +136,19 @@ async function generateStripeLinks() {
   
   // Save the updated packages.json file
   try {
-    fs.writeFileSync('./js/packages.json', JSON.stringify(packages, null, 2));
-    console.log('✅ Successfully updated packages.json with Stripe links');
+    const updatedContent = JSON.stringify(packages, null, 2);
+    fs.writeFileSync(packagesPath, updatedContent);
+    console.log(`✅ Successfully updated ${packagesPath} with Stripe links`);
+    console.log('First few characters of saved content:', updatedContent.substring(0, 100));
+    
+    // Verify the file was saved correctly
+    const verifyContent = fs.readFileSync(packagesPath, 'utf8');
+    console.log('File exists after save:', fs.existsSync(packagesPath));
+    console.log('File size after save:', fs.statSync(packagesPath).size);
+    console.log('First few characters after re-reading:', verifyContent.substring(0, 100));
   } catch (error) {
-    console.error('❌ Error saving packages.json:', error.message);
+    console.error('❌ Error saving packages.json:', error);
+    console.error('Error stack:', error.stack);
     process.exit(1);
   }
 }
