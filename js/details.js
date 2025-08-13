@@ -38,30 +38,50 @@ function initializePackageDetails() {
   if (longDescription) longDescription.textContent = pkg.longDescription;
   if (price) price.textContent = pkg.price;
   
-  // Set buy link - use Stripe link if available, otherwise show message
+  // Set buy link - only show if Stripe link is available
   if (pkg.stripeLink && pkg.stripeLink.trim() !== '') {
-    // Stripe link is available
+    // Stripe link is available - show buy button
     if (buyLink) {
       buyLink.href = pkg.stripeLink;
       buyLink.textContent = 'Buy Now';
       buyLink.className = 'btn btn-primary';
+      buyLink.style.display = 'block';
     }
     if (buyLinkMobile) {
       buyLinkMobile.href = pkg.stripeLink;
       buyLinkMobile.textContent = 'Buy Now';
       buyLinkMobile.className = 'btn btn-primary';
+      buyLinkMobile.style.display = 'block';
     }
   } else {
-    // Stripe link not available yet - show message and link to onboarding
+    // Stripe link not available - hide buy buttons and show error
     if (buyLink) {
-      buyLink.href = `onboarding.html?product=${pkg.id}`;
-      buyLink.textContent = 'Get Started (Stripe payment coming soon)';
-      buyLink.className = 'btn btn-secondary';
+      buyLink.style.display = 'none';
     }
     if (buyLinkMobile) {
-      buyLinkMobile.href = `onboarding.html?product=${pkg.id}`;
-      buyLinkMobile.textContent = 'Get Started (Stripe payment coming soon)';
-      buyLinkMobile.className = 'btn btn-secondary';
+      buyLinkMobile.style.display = 'none';
+    }
+    
+    // Add error message
+    const errorMessage = document.createElement('div');
+    errorMessage.className = 'alert alert-error';
+    errorMessage.style.cssText = `
+      background: #fee;
+      border: 1px solid #fcc;
+      color: #c33;
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      margin: var(--space-4) 0;
+      text-align: center;
+    `;
+    errorMessage.innerHTML = `
+      <strong>⚠️ Payment System Unavailable</strong><br>
+      Stripe payment links are not configured. Please contact support.
+    `;
+    
+    // Insert error message where buy button would be
+    if (buyLink && buyLink.parentNode) {
+      buyLink.parentNode.insertBefore(errorMessage, buyLink);
     }
   }
   
