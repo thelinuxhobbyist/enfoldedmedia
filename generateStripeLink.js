@@ -1,15 +1,27 @@
 const fs = require('fs');
 
-console.log('Script started');
-console.log('Checking environment...');
+console.log('=== Script Starting ===');
+console.log('1. Checking environment...');
+
+// List all environment variables (excluding secret values)
+console.log('\nAvailable environment variables:');
+Object.keys(process.env).forEach(key => {
+  if (key.toLowerCase().includes('secret')) {
+    console.log(`${key}: <value hidden>`);
+  } else {
+    console.log(`${key}: ${process.env[key]}`);
+  }
+});
 
 // Check if Stripe secret key is available
 if (!process.env.STRIPE_SECRET_KEY) {
-  console.error('ERROR: STRIPE_SECRET_KEY environment variable is not set');
+  console.error('\n❌ ERROR: STRIPE_SECRET_KEY environment variable is not set');
+  console.error('This is required for the script to work.');
+  console.error('Please ensure the secret is properly set in GitHub repository settings.');
   process.exit(1);
 }
 
-console.log('Initializing Stripe...');
+console.log('\n2. Initializing Stripe...');
 let stripe;
 try {
   stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
