@@ -38,6 +38,20 @@
   
   <!-- Unified Modern CSS -->
   <link rel="stylesheet" href="css/unified.css">
+  
+  <!-- Load packages data -->
+  <script>
+    // Load packages data from JSON file
+    fetch('js/packages.json')
+      .then(response => response.json())
+      .then(data => {
+        window.packages = data;
+        console.log('Packages loaded:', data.length);
+        // Initialize package details after data is loaded
+        initializePackageDetails();
+      })
+      .catch(error => console.error('Error loading packages:', error));
+  </script>
 </head>
 <body>
   <!-- Modern Header -->

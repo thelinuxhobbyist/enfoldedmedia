@@ -12,11 +12,22 @@ function initializePackageDetails() {
   }
   
   if (typeof window.packages === 'undefined') {
-    console.error('Packages not loaded yet');
+    console.log('Packages not loaded yet, waiting for data...');
+    // Try again in 1 second
+    setTimeout(initializePackageDetails, 1000);
     return;
   }
 
   const pkg = window.packages.find(p => p.id === id);
+  
+  // Log the stripe link for debugging
+  if (pkg) {
+    console.log('Stripe link for package:', pkg.stripeLink);
+  }
+  
+  // Log the stripe link for debugging
+  if (pkg) {
+    console.log('Stripe link for package:', pkg.stripeLink);
   if (!pkg) {
     console.error('Package not found for ID:', id);
     return;

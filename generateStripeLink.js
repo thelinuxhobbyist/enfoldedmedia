@@ -5,16 +5,16 @@ console.log('Timestamp:', new Date().toISOString());
 console.log('\n1. Environment Check:');
 
 // Check for the specific environment variable we need
-const hasStripeKey = !!process.env.STRIPE_SECRET_KEY;
-console.log('STRIPE_SECRET_KEY present:', hasStripeKey);
+const hasStripeKey = !!process.env.SECRET_ENFOLD;
+console.log('SECRET_ENFOLD present:', hasStripeKey);
 if (hasStripeKey) {
-    console.log('Key length:', process.env.STRIPE_SECRET_KEY.length);
-    console.log('Key starts with:', process.env.STRIPE_SECRET_KEY.substring(0, 7));
+    console.log('Key length:', process.env.SECRET_ENFOLD.length);
+    console.log('Key starts with:', process.env.SECRET_ENFOLD.substring(0, 7));
 }
 
 // Check if Stripe secret key is available
-if (!process.env.STRIPE_SECRET_KEY) {
-  console.error('\n❌ ERROR: STRIPE_SECRET_KEY environment variable is not set');
+if (!process.env.SECRET_ENFOLD) {
+  console.error('\n❌ ERROR: SECRET_ENFOLD environment variable is not set');
   console.error('This is required for the script to work.');
   console.error('Please ensure the secret is properly set in GitHub repository settings.');
   process.exit(1);
@@ -23,7 +23,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
 console.log('\n2. Initializing Stripe...');
 let stripe;
 try {
-  stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
+  stripe = require('stripe')(process.env.SECRET_ENFOLD, {
     apiVersion: '2023-10-16',
     maxNetworkRetries: 3,
     timeout: 30000
