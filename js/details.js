@@ -38,50 +38,40 @@ function initializePackageDetails() {
   if (longDescription) longDescription.textContent = pkg.longDescription;
   if (price) price.textContent = pkg.price;
   
-  // Set buy link - only show if Stripe link is available
-  if (pkg.stripeLink && pkg.stripeLink.trim() !== '') {
-    // Stripe link is available - show buy button
-    if (buyLink) {
+  // Set buy link - show buy button for all packages
+  if (buyLink) {
+    buyLink.textContent = 'Buy Now';
+    buyLink.className = 'btn btn-primary';
+    buyLink.style.display = 'block';
+    
+    // Set href based on whether Stripe link is available
+    if (pkg.stripeLink && pkg.stripeLink.trim() !== '') {
       buyLink.href = pkg.stripeLink;
-      buyLink.textContent = 'Buy Now';
-      buyLink.className = 'btn btn-primary';
-      buyLink.style.display = 'block';
+    } else {
+      // Temporarily disable the button until Stripe links are generated
+      buyLink.href = '#';
+      buyLink.onclick = function(e) {
+        e.preventDefault();
+        alert('Payment system is being configured. Please try again in a few minutes.');
+      };
     }
-    if (buyLinkMobile) {
+  }
+  
+  if (buyLinkMobile) {
+    buyLinkMobile.textContent = 'Buy Now';
+    buyLinkMobile.className = 'btn btn-primary';
+    buyLinkMobile.style.display = 'block';
+    
+    // Set href based on whether Stripe link is available
+    if (pkg.stripeLink && pkg.stripeLink.trim() !== '') {
       buyLinkMobile.href = pkg.stripeLink;
-      buyLinkMobile.textContent = 'Buy Now';
-      buyLinkMobile.className = 'btn btn-primary';
-      buyLinkMobile.style.display = 'block';
-    }
-  } else {
-    // Stripe link not available - hide buy buttons and show error
-    if (buyLink) {
-      buyLink.style.display = 'none';
-    }
-    if (buyLinkMobile) {
-      buyLinkMobile.style.display = 'none';
-    }
-    
-    // Add error message
-    const errorMessage = document.createElement('div');
-    errorMessage.className = 'alert alert-error';
-    errorMessage.style.cssText = `
-      background: #fee;
-      border: 1px solid #fcc;
-      color: #c33;
-      padding: var(--space-4);
-      border-radius: var(--radius-md);
-      margin: var(--space-4) 0;
-      text-align: center;
-    `;
-    errorMessage.innerHTML = `
-      <strong>⚠️ Payment System Unavailable</strong><br>
-      Stripe payment links are not configured. Please contact support.
-    `;
-    
-    // Insert error message where buy button would be
-    if (buyLink && buyLink.parentNode) {
-      buyLink.parentNode.insertBefore(errorMessage, buyLink);
+    } else {
+      // Temporarily disable the button until Stripe links are generated
+      buyLinkMobile.href = '#';
+      buyLinkMobile.onclick = function(e) {
+        e.preventDefault();
+        alert('Payment system is being configured. Please try again in a few minutes.');
+      };
     }
   }
   

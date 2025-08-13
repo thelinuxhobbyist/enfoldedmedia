@@ -157,23 +157,7 @@
         function renderPackages() {
           const container = document.getElementById('packages-container');
           if (container && packages) {
-            // Filter packages to only show those with Stripe links
-            const packagesWithStripe = packages.filter(pkg => pkg.stripeLink && pkg.stripeLink.trim() !== '');
-            
-            if (packagesWithStripe.length === 0) {
-              // No packages with Stripe links - show error message
-              container.innerHTML = `
-                <div style="text-align: center; padding: var(--space-8); grid-column: 1 / -1;">
-                  <div style="background: #fee; border: 1px solid #fcc; color: #c33; padding: var(--space-6); border-radius: var(--radius-md); margin: var(--space-4) 0;">
-                    <h3>⚠️ Payment System Unavailable</h3>
-                    <p>Stripe payment links are not configured. Please contact support to enable payments.</p>
-                  </div>
-                </div>
-              `;
-              return;
-            }
-            
-            packagesWithStripe.forEach(pkg => {
+            packages.forEach(pkg => {
               const div = document.createElement('div');
               div.className = 'package-card';
               

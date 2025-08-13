@@ -35,14 +35,20 @@ function parsePrice(priceStr) {
 
 async function generateStripeLinks() {
   console.log('Starting Stripe payment link generation...');
+  console.log(`Total packages to process: ${packages.length}`);
+  
+  let successCount = 0;
+  let errorCount = 0;
   
   for (const pkg of packages) {
     try {
-      console.log(`Processing package: ${pkg.name} with price: ${pkg.price}`);
+      console.log(`\n--- Processing package: ${pkg.name} ---`);
+      console.log(`Price: ${pkg.price}`);
       
-      // Skip if already has a Stripe link (uncomment the lines below if you want to regenerate all links)
+      // Skip if already has a Stripe link
       if (pkg.stripeLink && pkg.stripeLink.trim() !== '') {
-        console.log(`Skipping ${pkg.name} - already has a Stripe link: ${pkg.stripeLink}`);
+        console.log(`✅ Skipping ${pkg.name} - already has a Stripe link`);
+        successCount++;
         continue;
       }
       
@@ -94,20 +100,32 @@ async function generateStripeLinks() {
 
       // Update the package with the new Stripe payment link
       pkg.stripeLink = paymentLink.url;
-      console.log(`Generated Stripe link for ${pkg.name}: ${paymentLink.url}`);
+      console.log(`✅ Generated Stripe link for ${pkg.name}: ${paymentLink.url}`);
+      successCount++;
 
     } catch (error) {
-      console.error(`Error generating link for ${pkg.name}:`, error.message);
+      console.error(`❌ Error generating link for ${pkg.name}:`);
+      console.error(`   Error type: ${error.type}`);
+      console.error(`   Error message: ${error.message}`);
+      console.error(`   Error code: ${error.code}`);
+      errorCount++;
+      
       // Continue with other packages even if one fails
     }
   }
   
+  // Summary
+  console.log(`\n=== SUMMARY ===`);
+  console.log(`Total packages: ${packages.length}`);
+  console.log(`Successful: ${successCount}`);
+  console.log(`Errors: ${errorCount}`);
+  
   // Save the updated packages.json file
   try {
     fs.writeFileSync('./js/packages.json', JSON.stringify(packages, null, 2));
-    console.log('Successfully updated packages.json with Stripe links');
+    console.log('✅ Successfully updated packages.json with Stripe links');
   } catch (error) {
-    console.error('Error saving packages.json:', error.message);
+    console.error('❌ Error saving packages.json:', error.message);
     process.exit(1);
   }
 }
