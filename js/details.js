@@ -25,15 +25,14 @@ function initializePackageDetails() {
     console.log('Stripe link for package:', pkg.stripeLink);
   }
   
-  // Log the stripe link for debugging
-  if (pkg) {
-    console.log('Stripe link for package:', pkg.stripeLink);
   if (!pkg) {
     console.error('Package not found for ID:', id);
     return;
   }
   
+  // Log the stripe link for debugging
   console.log('Found package:', pkg.name);
+  console.log('Stripe link for package:', pkg.stripeLink);
   console.log('Package data:', pkg);
 
   // Check if DOM elements exist before setting them
@@ -48,6 +47,22 @@ function initializePackageDetails() {
   if (packageTitle) packageTitle.textContent = pkg.name;
   if (longDescription) longDescription.textContent = pkg.longDescription;
   if (price) price.textContent = pkg.price;
+  
+  // Handle buy buttons
+  if (buyLink && pkg.stripeLink) {
+    buyLink.href = pkg.stripeLink;
+    buyLink.classList.remove('disabled');
+  }
+  if (buyLinkMobile && pkg.stripeLink) {
+    buyLinkMobile.href = pkg.stripeLink;
+    buyLinkMobile.classList.remove('disabled');
+  }
+  
+  // Log button states
+  console.log('Buy button setup:', {
+    desktop: buyLink ? { href: buyLink.href, disabled: buyLink.classList.contains('disabled') } : 'not found',
+    mobile: buyLinkMobile ? { href: buyLinkMobile.href, disabled: buyLinkMobile.classList.contains('disabled') } : 'not found'
+  });
   
   // Set buy link - show buy button for all packages
   if (buyLink) {

@@ -43,11 +43,21 @@
   <script>
     // Load packages data from JSON file
     fetch('js/packages.json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+      })
       .then(data => {
         window.packages = data;
         console.log('Packages loaded:', data.length);
         // Initialize package details after data is loaded
+        initializePackageDetails();
+      })
+      .catch(error => {
+        console.error('Error loading packages:', error);
+      });
         initializePackageDetails();
       })
       .catch(error => console.error('Error loading packages:', error));
