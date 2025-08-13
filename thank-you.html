@@ -5,24 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You | Enfolded Media</title>
   <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-  <meta name="description" content="Thank you for your submission">
-  
-  <!-- Unified Modern CSS -->
-  <link rel="stylesheet" href="css/unified.css">
+  <meta name="description" content="Multilingual. Impactful. Designed for your audience. We help businesses connect with diverse audiences through multilingual design, enhancing reach in multicultural Britain.">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBBJT18TLT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-BBBJT18TLT');
-  </script>
+  <!-- Unified Modern CSS -->
+  <link rel="stylesheet" href="css/unified.css">
 </head>
-<body>
+<body class="confirmation-page">
   <!-- Modern Header -->
   <header class="modern-header">
     <div class="container">
@@ -53,60 +44,83 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Hero Section -->
-    <section class="hero-banner">
-      <div class="container">
-        <div class="banner-content text-center">
-          <h1>Thank You!</h1>
-          <p class="lead-text">Your information has been successfully submitted.</p>
-        </div>
-      </div>
-    </section>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
-    <!-- Message Section -->
-    <section class="content-section">
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="section-hero">
       <div class="container">
-        <div class="content-box text-center">
-          <div class="info-message">
+        <div class="section-content text-center">
+          <h1>Thank You!</h1>
+          <p class="hero-text">Your information has been successfully submitted.</p>
+          <div class="message-box">
             <p>We will review your submission and get back to you shortly.</p>
-            <p class="email-info">If you need to send any files, please email them to <a href="mailto:info@enfoldedmedia.com">info@enfoldedmedia.com</a></p>
+            <p>If you need to send any files, please email them to <a href="mailto:info@enfoldedmedia.com">info@enfoldedmedia.com</a></p>
           </div>
-          <div class="action-buttons">
-            <a href="packages.html" class="button button-secondary">View Other Packages</a>
-            <a href="index.html" class="button button-primary">Return to Home</a>
+          <div class="cta-group">
+            <a href="packages.html" class="btn-primary">Back to Packages</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <!-- Modern Footer -->
+  <footer class="modern-footer">
     <div class="container">
-      <div class="footer-brand">
-        <img src="images/footer-logo.png" alt="Enfolded Media" class="footer-logo">
-      </div>
       <div class="footer-content">
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="packages.html">Services</a>
-          <a href="#contact">Contact</a>
+        <div class="footer-branding">
+          <img src="https://cdn.enfoldedmedia.com/enfolded-images/footer-logo.png" alt="Enfolded Media" class="footer-logo">
         </div>
-        <div class="copyright">
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="packages.html">Packages</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+        <div class="footer-legal">
           <p>&copy; 2025 Enfolded Media. All rights reserved.</p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Mobile Menu Script -->
+  <!-- Scripts -->
   <script>
-    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
-      document.getElementById('navMenu').classList.toggle('active');
-      this.classList.toggle('active');
+    document.addEventListener('DOMContentLoaded', function() {
+      const body = document.body;
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      const navMenu = document.getElementById('navMenu');
+
+      function toggleMobileMenu() {
+        navMenu.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
+        body.classList.toggle('menu-open');
+      }
+      
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+      }
+      if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+      }
+
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('.modern-header');
+        if (window.scrollY > 100) {
+          header.style.background = 'rgba(255, 255, 255, 0.98)';
+          header.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+        } else {
+          header.style.background = 'rgba(255, 255, 255, 0.95)';
+          header.style.boxShadow = 'none';
+        }
+      });
     });
   </script>
+</body>
+</html>
 </body>
 </html>
