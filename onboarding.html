@@ -12,6 +12,150 @@
   
   <!-- Unified Modern CSS -->
   <link rel="stylesheet" href="css/unified.css">
+  
+  <!-- Load onboarding config -->
+  <script>
+    // Load onboarding configuration
+    let onboardingConfig;
+    fetch('config/onboarding.json')
+      .then(response => response.json())
+      .then(data => {
+        onboardingConfig = data;
+        initializeOnboarding();
+      })
+      .catch(error => console.error('Error loading onboarding config:', error));
+
+    // Load packages data to get package details
+    let packages;
+    fetch('js/packages.json')
+      .then(response => response.json())
+      .then(data => {
+        packages = data;
+        initializeOnboarding();
+      })
+      .catch(error => console.error('Error loading packages:', error));
+
+    function initializeOnboarding() {
+      // Wait until both configs are loaded
+      if (!onboardingConfig || !packages) return;
+
+      // Get package ID from URL
+      const params = new URLSearchParams(window.location.search);
+      const packageId = params.get('package');
+
+      if (!packageId) {
+        showError('No package specified. Please contact support.');
+        return;
+      }
+
+      // Find the package
+      const pkg = packages.find(p => p.id === packageId);
+      if (!pkg) {
+        showError('Package not found. Please contact support.');
+        return;
+      }
+
+      // Get the corresponding onboarding form
+      const formConfig = onboardingConfig[packageId];
+      if (!formConfig) {
+        showError('No onboarding form found for this package. Please contact support.');
+        return;
+      }
+
+      // Update page title and description
+      document.getElementById('onboarding-title').textContent = formConfig.title;
+      document.getElementById('onboarding-description').textContent = formConfig.description;
+
+      // Build the form
+      const form = document.getElementById('onboarding-form');
+      buildForm(form, formConfig.fields);
+    }
+
+    function buildForm(form, fields) {
+      fields.forEach(field => {
+        const fieldContainer = document.createElement('div');
+        fieldContainer.className = 'form-field';
+
+        if (field.type === 'info') {
+          // Info message
+          const info = document.createElement('div');
+          info.className = 'info-message';
+          info.innerHTML = field.text;
+          fieldContainer.appendChild(info);
+        } else {
+          // Label
+          const label = document.createElement('label');
+          label.textContent = field.label;
+          if (field.required) label.innerHTML += ' <span class="required">*</span>';
+          fieldContainer.appendChild(label);
+
+          // Input field
+          let input;
+          switch (field.type) {
+            case 'checkbox':
+              const checkboxContainer = document.createElement('div');
+              checkboxContainer.className = 'checkbox-group';
+              field.options.forEach(option => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'checkbox-option';
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.name = field.name;
+                checkbox.value = option;
+                checkbox.id = `${field.name}-${option}`;
+                
+                const optionLabel = document.createElement('label');
+                optionLabel.htmlFor = checkbox.id;
+                optionLabel.textContent = option;
+                
+                wrapper.appendChild(checkbox);
+                wrapper.appendChild(optionLabel);
+                checkboxContainer.appendChild(wrapper);
+              });
+              fieldContainer.appendChild(checkboxContainer);
+              break;
+
+            case 'textarea':
+              input = document.createElement('textarea');
+              input.name = field.name;
+              input.placeholder = field.placeholder;
+              input.required = field.required;
+              fieldContainer.appendChild(input);
+              break;
+
+            default:
+              input = document.createElement('input');
+              input.type = field.type;
+              input.name = field.name;
+              input.placeholder = field.placeholder;
+              input.required = field.required;
+              fieldContainer.appendChild(input);
+          }
+        }
+
+        form.appendChild(fieldContainer);
+      });
+
+      // Add submit button
+      const submitButton = document.createElement('button');
+      submitButton.type = 'submit';
+      submitButton.className = 'btn btn-primary';
+      submitButton.textContent = 'Submit';
+      form.appendChild(submitButton);
+    }
+
+    function showError(message) {
+      const container = document.getElementById('onboarding-container');
+      container.innerHTML = `
+        <div class="error-message">
+          <h2>Oops!</h2>
+          <p>${message}</p>
+          <p>For assistance, please email <a href="mailto:info@enfoldedmedia.com">info@enfoldedmedia.com</a></p>
+        </div>
+      `;
+    }
+  </script>
 </head>
 <body>
   <!-- Modern Header -->
@@ -48,6 +192,37 @@
   <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
   
   <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="packages.html" class="mobile-nav-link">Packages</a>
+        <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Onboarding Section -->
+  <section class="section">
+    <div class="container" id="onboarding-container">
+      <div class="onboarding-content">
+        <h1 id="onboarding-title">Loading...</h1>
+        <p id="onboarding-description" class="section-subtitle"></p>
+        
+        <form id="onboarding-form" class="onboarding-form" onsubmit="handleSubmit(event)">
+          <!-- Form fields will be dynamically inserted here -->
+        </form>
+      </div>
+    </div>
+  </section>
   <nav class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-content">
       <div class="mobile-menu-header">

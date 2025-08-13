@@ -159,12 +159,8 @@ async function generateStripeLinks() {
       console.log(`\n--- Processing package: ${pkg.name} ---`);
       console.log(`Price: ${pkg.price}`);
       
-      // Skip if already has a Stripe link
-      if (pkg.stripeLink && pkg.stripeLink.trim() !== '') {
-        console.log(`✅ Skipping ${pkg.name} - already has a Stripe link`);
-        successCount++;
-        continue;
-      }
+      // Force regenerate all links
+      console.log(`Generating new payment link for ${pkg.name}...`);
       
       // Parse price to cents
       const priceInCents = parsePrice(pkg.price);
@@ -202,7 +198,7 @@ async function generateStripeLinks() {
             after_completion: {
               type: 'redirect',
               redirect: {
-                url: 'https://enfoldedmedia.com/thank-you', // Update this to your actual thank you page
+                url: `https://enfoldedmedia.com/onboarding.html?package=${pkg.id}`,
               },
             },
           });
