@@ -1,13 +1,26 @@
 const fs = require('fs');
-const stripe = require('stripe')(process.env.SECRET_ENFOLD, {
-  apiVersion: '2023-10-16',
-  maxNetworkRetries: 3,
-  timeout: 30000
-});
+
+console.log('Script started');
+console.log('Checking environment...');
 
 // Check if Stripe secret key is available
 if (!process.env.SECRET_ENFOLD) {
-  console.error('SECRET_ENFOLD environment variable is not set');
+  console.error('ERROR: SECRET_ENFOLD environment variable is not set');
+  process.exit(1);
+}
+
+console.log('Initializing Stripe...');
+let stripe;
+try {
+  stripe = require('stripe')(process.env.SECRET_ENFOLD, {
+    apiVersion: '2023-10-16',
+    maxNetworkRetries: 3,
+    timeout: 30000
+  });
+  console.log('Stripe initialized successfully');
+} catch (error) {
+  console.error('ERROR initializing Stripe:', error.message);
+  console.error('Full error:', error);
   process.exit(1);
 }
 
