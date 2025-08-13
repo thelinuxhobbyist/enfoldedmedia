@@ -1,0 +1,80 @@
+name: Generate Stripe Payment Links
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'js/packages.json'
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  generate-links:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          echo "Installing dependencies..."
+          npm install stripe
+          echo "Stripe package installed successfully"
+
+      - name: Debug Environment
+        run: |
+          echo "Node version:"
+          node --version
+          echo "NPM version:"
+          npm --version
+          echo "Current directory:"
+          pwd
+          echo "Directory contents:"
+          ls -la
+
+      - name: List available secrets (safely)
+        run: |
+          echo "Available secret names:"
+          env | grep -o '^[^=]*' | grep -i secret || echo "No secrets found in env"
+
+      - name: Run Stripe link generation script
+        env:
+          SECRET_ENFOLD: ${{ secrets.SECRET_ENFOLD }}
+        run: |
+          echo "Starting Stripe link generation script..."
+          echo "Secret validation:"
+          echo "Is SECRET_ENFOLD set? $(if [ -n "$SECRET_ENFOLD" ]; then echo "YES"; else echo "NO"; fi)"
+          echo "Length of secret: ${#SECRET_ENFOLD}"
+          if [[ -n "$SECRET_ENFOLD" ]]; then
+            echo "✓ SECRET_ENFOLD is set"
+            echo "✓ Length: ${#SECRET_ENFOLD} characters"
+            echo "✓ Starts with: ${SECRET_ENFOLD:0:7}..."
+          else
+            echo "✗ SECRET_ENFOLD is NOT set"
+            echo "Available environment variables:"
+            env | cut -d= -f1
+          fi
+
+          echo "Running script with debug mode..."
+          node --trace-warnings generateStripeLink.js
+
+      - name: Commit and push if there are changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add js/packages.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Stripe payment links [skip ci]" && git push)
