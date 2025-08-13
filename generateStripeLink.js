@@ -1,13 +1,13 @@
 const fs = require('fs');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
+const stripe = require('stripe')(process.env.SECRET_ENFOLD, {
   apiVersion: '2023-10-16',
   maxNetworkRetries: 3,
   timeout: 30000
 });
 
 // Check if Stripe secret key is available
-if (!process.env.STRIPE_SECRET_KEY) {
-  console.error('STRIPE_SECRET_KEY environment variable is not set');
+if (!process.env.SECRET_ENFOLD) {
+  console.error('SECRET_ENFOLD environment variable is not set');
   process.exit(1);
 }
 
