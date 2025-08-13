@@ -1,17 +1,16 @@
 const fs = require('fs');
 
-console.log('=== Script Starting ===');
-console.log('1. Checking environment...');
+console.log('=== Stripe Link Generator Starting ===');
+console.log('Timestamp:', new Date().toISOString());
+console.log('\n1. Environment Check:');
 
-// List all environment variables (excluding secret values)
-console.log('\nAvailable environment variables:');
-Object.keys(process.env).forEach(key => {
-  if (key.toLowerCase().includes('secret')) {
-    console.log(`${key}: <value hidden>`);
-  } else {
-    console.log(`${key}: ${process.env[key]}`);
-  }
-});
+// Check for the specific environment variable we need
+const hasStripeKey = !!process.env.STRIPE_SECRET_KEY;
+console.log('STRIPE_SECRET_KEY present:', hasStripeKey);
+if (hasStripeKey) {
+    console.log('Key length:', process.env.STRIPE_SECRET_KEY.length);
+    console.log('Key starts with:', process.env.STRIPE_SECRET_KEY.substring(0, 7));
+}
 
 // Check if Stripe secret key is available
 if (!process.env.STRIPE_SECRET_KEY) {
