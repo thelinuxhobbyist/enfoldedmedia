@@ -7,58 +7,95 @@
   <link rel="shortcut icon" type="image/png" href="images/favicon.png">
   <meta name="description" content="Thank you for your submission">
   
-  <!-- All Stylesheets -->
-  <link rel="stylesheet" href="css/font-awesome.css">
+  <!-- Unified Modern CSS -->
   <link rel="stylesheet" href="css/unified.css">
-  <link rel="stylesheet" href="css/modern.css">
-  <link rel="stylesheet" href="css/media.css">
-  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBBJT18TLT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BBBJT18TLT');
+  </script>
 </head>
 <body>
-  <!-- Header -->
-  <header>
+  <!-- Modern Header -->
+  <header class="modern-header">
     <div class="container">
-      <nav>
-        <div class="logo">
-          <a href="index.html">
-            <img src="images/logo.png" alt="Enfolded Media Logo">
+      <div class="header-content">
+        <a href="index.html" class="logo-link">
+          <img src="https://cdn.enfoldedmedia.com/enfolded-images/logo.png" alt="Enfolded Media" class="logo">
+        </a>
+        
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-link">
+            Home
           </a>
-        </div>
-      </nav>
+          <a href="packages.html" class="nav-link">
+            Packages
+          </a>
+          <a href="index.html#contact" class="nav-link">
+            Contact
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <!-- Thank You Section -->
-  <section class="hero">
+  <section class="hero-section">
     <div class="container">
-      <div class="hero-content">
-        <div class="text-box">
-          <h1>Thank You!</h1>
-          <p class="hero-description">Your information has been successfully submitted.</p>
-          <div class="info-box">
-            <p>We will review your submission and get back to you shortly.</p>
-            <p>If you need to send any files, please email them to <a href="mailto:info@enfoldedmedia.com">info@enfoldedmedia.com</a></p>
-          </div>
-          <div class="cta-buttons">
-            <a href="index.html" class="btn-primary">Return to Home</a>
-          </div>
+      <div class="hero-content text-center">
+        <h1 class="hero-title">Thank You!</h1>
+        <p class="hero-subtitle">Your information has been successfully submitted.</p>
+        <div class="message-box">
+          <p>We will review your submission and get back to you shortly.</p>
+          <p class="mt-3">If you need to send any files, please email them to <a href="mailto:info@enfoldedmedia.com" class="text-link">info@enfoldedmedia.com</a></p>
+        </div>
+        <div class="hero-cta">
+          <a href="packages.html" class="btn-secondary">View Other Packages</a>
+          <a href="index.html" class="btn-primary">Return to Home</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
+  <!-- Modern Footer -->
+  <footer class="modern-footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-logo">
-          <img src="images/footer-logo.png" alt="Enfolded Media Footer Logo">
+        <div class="footer-branding">
+          <img src="https://cdn.enfoldedmedia.com/enfolded-images/footer-logo.png" alt="Enfolded Media" class="footer-logo">
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Enfolded Media. All rights reserved.</p>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="packages.html">Packages</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+        <div class="footer-legal">
+          <p>&copy; 2025 Enfolded Media. All rights reserved.</p>
+        </div>
       </div>
     </div>
   </footer>
+  
+  <!-- Mobile Menu Script -->
+  <script>
+    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('active');
+      this.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
