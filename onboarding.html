@@ -39,9 +39,9 @@
       // Wait until both configs are loaded
       if (!onboardingConfig || !packages) return;
 
-      // Get package ID from URL
+      // Get package ID from URL or hidden field
       const params = new URLSearchParams(window.location.search);
-      const packageId = params.get('package');
+      const packageId = params.get('package') || document.querySelector('input[name="package_id"]')?.value;
 
       if (!packageId) {
         showError('No package specified. Please contact support.');
@@ -68,6 +68,15 @@
 
       // Build the form
       const form = document.getElementById('onboarding-form');
+      form.innerHTML = ''; // Clear existing fields
+      
+      // Add hidden package ID field
+      const hiddenField = document.createElement('input');
+      hiddenField.type = 'hidden';
+      hiddenField.name = 'package_id';
+      hiddenField.value = packageId;
+      form.appendChild(hiddenField);
+      
       buildForm(form, formConfig.fields);
     }
 
@@ -220,6 +229,33 @@
         <form id="onboarding-form" class="onboarding-form" onsubmit="handleSubmit(event)">
           <!-- Form fields will be dynamically inserted here -->
         </form>
+
+        <script>
+          function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Get package ID
+            const packageId = data.package_id;
+            if (!packageId) {
+              alert('Error: Package ID is missing. Please refresh the page and try again.');
+              return;
+            }
+
+            // For now, just show success message and email the data
+            const message = `Thank you! Your onboarding information has been received.\n\nWe will process your request within the specified timeframe.\n\nIf you need to send any files, please email them to info@enfoldedmedia.com with your package ID: ${packageId}`;
+            alert(message);
+
+            // Here you would typically send the data to your server
+            console.log('Form submitted with data:', data);
+
+            // Redirect to thank you page
+            window.location.href = 'thank-you.html';
+          }
+        </script>
       </div>
     </div>
   </section>
