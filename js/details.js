@@ -73,30 +73,36 @@ function initializePackageDetails() {
     // Set href based on whether Stripe link is available
     if (pkg.stripeLink && pkg.stripeLink.trim() !== '') {
       buyLink.href = pkg.stripeLink;
+      buyLink.textContent = 'Buy Now';
+      buyLink.classList.remove('disabled');
     } else {
-      // Temporarily disable the button until Stripe links are generated
+      // Show loading state
       buyLink.href = '#';
+      buyLink.textContent = 'Coming Soon...';
+      buyLink.classList.add('disabled');
       buyLink.onclick = function(e) {
         e.preventDefault();
-        alert('Payment system is being configured. Please try again in a few minutes.');
+        alert('We are currently updating our payment system. The buy button will be available in a few minutes. Please check back shortly.');
       };
     }
   }
   
   if (buyLinkMobile) {
-    buyLinkMobile.textContent = 'Buy Now';
-    buyLinkMobile.className = 'btn btn-primary';
     buyLinkMobile.style.display = 'block';
     
     // Set href based on whether Stripe link is available
     if (pkg.stripeLink && pkg.stripeLink.trim() !== '') {
       buyLinkMobile.href = pkg.stripeLink;
+      buyLinkMobile.textContent = 'Buy Now';
+      buyLinkMobile.classList.remove('disabled');
     } else {
-      // Temporarily disable the button until Stripe links are generated
+      // Show loading state
       buyLinkMobile.href = '#';
+      buyLinkMobile.textContent = 'Coming Soon...';
+      buyLinkMobile.classList.add('disabled');
       buyLinkMobile.onclick = function(e) {
         e.preventDefault();
-        alert('Payment system is being configured. Please try again in a few minutes.');
+        alert('We are currently updating our payment system. The buy button will be available in a few minutes. Please check back shortly.');
       };
     }
   }
