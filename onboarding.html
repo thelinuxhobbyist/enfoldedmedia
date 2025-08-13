@@ -245,13 +245,9 @@
               return;
             }
 
-            // For now, just show success message and email the data
-            const message = `Thank you! Your onboarding information has been received.\n\nWe will process your request within the specified timeframe.\n\nIf you need to send any files, please email them to info@enfoldedmedia.com with your package ID: ${packageId}`;
-            alert(message);
-
-            // Here you would typically send the data to your server
+            // Log the form data and redirect
             console.log('Form submitted with data:', data);
-
+            
             // Redirect to thank you page
             window.location.href = 'thank-you.html';
           }
