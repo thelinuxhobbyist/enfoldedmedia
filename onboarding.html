@@ -76,6 +76,13 @@
       hiddenField.name = 'package_id';
       hiddenField.value = packageId;
       form.appendChild(hiddenField);
+
+      // Add redirect URL field
+      const redirectField = document.createElement('input');
+      redirectField.type = 'hidden';
+      redirectField.name = '_next';
+      redirectField.value = window.location.origin + '/thank-you.html';
+      form.appendChild(redirectField);
       
       buildForm(form, formConfig.fields);
     }
