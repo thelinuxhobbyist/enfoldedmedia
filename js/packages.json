@@ -1,22 +1,22 @@
 [
   {
-    "id": "test-package",
-    "name": "Test Package",
-    "shortDescription": "Test package for system verification (Minimum price)",
-    "longDescription": "This is a test package to verify the payment system. It is priced at the minimum amount allowed by Stripe.",
+    "id": "quick-starter",
+    "name": "Quick Starter Package",
+    "shortDescription": "Basic starter package for testing our services",
+    "longDescription": "Perfect for trying out our services with minimal commitment. Includes a quick design consultation and basic setup assistance.",
     "price": "£0.30",
     "stripeLink": "https://buy.stripe.com/5kQ14m6U66Dq6fV7Gl1VK0x",
-    "hosting": "Free hosting for the first year",
+    "hosting": "Free hosting for 1 month",
     "packageFeatures": [
-      "Professional design",
-      "Fast delivery (3-5 days)",
-      "Account setup assistance"
+      "Quick design consultation",
+      "Basic setup assistance",
+      "24-hour delivery"
     ],
     "detailFeatures": [
-      "Professional branded graphics",
-      "Platform-optimized content",
-      "Fast delivery (2-3 days)",
-      "Account setup assistance"
+      "15-minute consultation call",
+      "Basic design guidance",
+      "Next steps planning",
+      "Quick turnaround (24 hours)"
     ]
   },
   {

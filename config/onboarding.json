@@ -1,27 +1,34 @@
 {
-  "test-package": {
-    "title": "Test Package Onboarding",
-    "description": "This is a test form to verify the onboarding system.",
+  "quick-starter": {
+    "title": "Quick Starter Package Onboarding",
+    "description": "Please provide the following information to help us understand your needs.",
     "fields": [
       {
         "type": "email",
-        "label": "Test Email",
+        "label": "Your Email",
         "name": "email",
-        "placeholder": "Enter your email for test confirmation",
+        "placeholder": "Where we can reach you",
         "required": true
       },
       {
         "type": "text",
-        "label": "Test Name",
-        "name": "test_name",
-        "placeholder": "Enter any name for testing",
+        "label": "Your Name",
+        "name": "name",
+        "placeholder": "Your full name",
         "required": true
       },
       {
         "type": "select",
-        "label": "Test Options",
-        "name": "test_option",
-        "options": ["Option A", "Option B", "Option C"],
+        "label": "Preferred Contact Time",
+        "name": "contact_time",
+        "options": ["Morning (9am-12pm)", "Afternoon (12pm-5pm)", "Evening (5pm-8pm)"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Brief Project Description",
+        "name": "project_description",
+        "placeholder": "Tell us briefly what you're looking to achieve",
         "required": true
       }
     ]
