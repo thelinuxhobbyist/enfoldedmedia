@@ -5,7 +5,7 @@
     "shortDescription": "Basic starter package for testing our services",
     "longDescription": "Perfect for trying out our services with minimal commitment. Includes a quick design consultation and basic setup assistance.",
     "price": "£0.30",
-    "stripeLink": "https://pay.enfoldedmedia.com/8x2cN41zM8Ly6fV3q51VK0M",
+    "stripeLink": "https://buy.stripe.com/8x2cN41zM8Ly6fV3q51VK0M",
     "hosting": "Free hosting for 1 month",
     "packageFeatures": [
       "Quick design consultation",
@@ -25,7 +25,7 @@
     "shortDescription": "Print and digital format poster design. (Test with secret key)",
     "longDescription": "Beautiful, bold posters delivered in both print-ready and digital format. Multilingual options can be discussed directly with you.",
     "price": "£60",
-    "stripeLink": "https://pay.enfoldedmedia.com/8x28wO92ege0gUz4u91VK0N",
+    "stripeLink": "https://buy.stripe.com/8x28wO92ege0gUz4u91VK0N",
     "hosting": null,
     "packageFeatures": [
       "Print & digital formats",
@@ -44,7 +44,7 @@
     "shortDescription": "Logo, business cards, flyer, and 3 social templates.",
     "longDescription": "Get your brand ready to launch: professional logo, business cards, flyer, and matching social media templates.",
     "price": "£150",
-    "stripeLink": "https://pay.enfoldedmedia.com/cNi4gyfqC4vi7jZbWB1VK0O",
+    "stripeLink": "https://buy.stripe.com/cNi4gyfqC4vi7jZbWB1VK0O",
     "hosting": null,
     "packageFeatures": [
       "Professional design",
@@ -64,7 +64,7 @@
     "shortDescription": "Make fast changes to your existing designs.",
     "longDescription": "Already have a design but need a few tweaks? Let us update or replace your images, text, or other elements quickly to meet your needs.",
     "price": "£25",
-    "stripeLink": "https://pay.enfoldedmedia.com/cNi4gyfqC2na8o35yd1VK0P",
+    "stripeLink": "https://buy.stripe.com/cNi4gyfqC2na8o35yd1VK0P",
     "hosting": null,
     "packageFeatures": [
       "Fast design updates",
@@ -84,7 +84,7 @@
     "shortDescription": "Custom design layout for your content.",
     "longDescription": "You provide the content, and we’ll create a custom layout to bring your vision to life, tailored to your specific needs and branding.",
     "price": "£50",
-    "stripeLink": "https://pay.enfoldedmedia.com/dRmeVc0vI0f28o3e4J1VK0Q",
+    "stripeLink": "https://buy.stripe.com/dRmeVc0vI0f28o3e4J1VK0Q",
     "hosting": null,
     "packageFeatures": [
       "One custom layout design",
@@ -102,7 +102,7 @@
     "shortDescription": "Recreate or redesign your existing artwork.",
     "longDescription": "Need to give your current design a fresh look? We can help you recreate or redesign existing artwork to make it more professional or updated.",
     "price": "£75",
-    "stripeLink": "https://pay.enfoldedmedia.com/dRm8wOguG2naawb1hX1VK0R",
+    "stripeLink": "https://buy.stripe.com/dRm8wOguG2naawb1hX1VK0R",
     "hosting": null,
     "packageFeatures": [
       "Recreation of existing design",
@@ -120,7 +120,7 @@
     "shortDescription": "End-to-end design service for complete branding or event creation.",
     "longDescription": "Need a full design service from start to finish? We handle everything, from concept to creation, ensuring consistency and professional quality.",
     "price": "£120",
-    "stripeLink": "https://pay.enfoldedmedia.com/eVqcN4emy4vibAf7Gl1VK0S",
+    "stripeLink": "https://buy.stripe.com/eVqcN4emy4vibAf7Gl1VK0S",
     "hosting": null,
     "packageFeatures": [
       "Full design service from concept to print",
@@ -138,7 +138,7 @@
     "shortDescription": "A one-page static website with free hosting.",
     "longDescription": "Get your business online with a professional one-page website. Includes free hosting, but you’ll need to purchase the domain.",
     "price": "£100",
-    "stripeLink": "https://pay.enfoldedmedia.com/14A8wOguGge0dIn8Kp1VK0T",
+    "stripeLink": "https://buy.stripe.com/14A8wOguGge0dIn8Kp1VK0T",
     "hosting": "Free hosting (Domain purchase required)",
     "packageFeatures": [
       "Professional design",
@@ -160,7 +160,7 @@
     "shortDescription": "Logo redesign, color scheme, and font style guide.",
     "longDescription": "Rejuvenate your brand with a new logo, updated color palette, and a complete style guide that fits your business vision.",
     "price": "£120",
-    "stripeLink": "https://pay.enfoldedmedia.com/00w14mdiubXKfQv0dT1VK0U",
+    "stripeLink": "https://buy.stripe.com/00w14mdiubXKfQv0dT1VK0U",
     "hosting": null,
     "packageFeatures": [
       "Professional design",
@@ -180,7 +180,7 @@
     "shortDescription": "Email template design and setup on Mailchimp or similar.",
     "longDescription": "Reach your customers effectively with a customized email template designed to match your brand, and setup on Mailchimp or another platform.",
     "price": "£90",
-    "stripeLink": "https://pay.enfoldedmedia.com/dRmbJ06U64vi6fV9Ot1VK0V",
+    "stripeLink": "https://buy.stripe.com/dRmbJ06U64vi6fV9Ot1VK0V",
     "hosting": null,
     "packageFeatures": [
       "Professional design",
@@ -201,7 +201,7 @@
     "shortDescription": "Ongoing updates, backups, and security for your site.",
     "longDescription": "Ensure your website remains secure, up-to-date, and running smoothly with monthly maintenance, backups, and content updates.",
     "price": "£100/month",
-    "stripeLink": "https://pay.enfoldedmedia.com/14A28qemyge01ZF2m11VK0W",
+    "stripeLink": "https://buy.stripe.com/14A28qemyge01ZF2m11VK0W",
     "hosting": null,
     "packageFeatures": [
       "Monthly maintenance",
@@ -223,7 +223,7 @@
     "shortDescription": "Set up and write content for your blog.",
     "longDescription": "We help you set up a professional blog with SEO-friendly layout and initial content creation. Great for businesses looking to start a blog or improve existing blogs.",
     "price": "£150",
-    "stripeLink": "https://pay.enfoldedmedia.com/4gMdR83HU9PC7jZ7Gl1VK0X",
+    "stripeLink": "https://buy.stripe.com/4gMdR83HU9PC7jZ7Gl1VK0X",
     "hosting": "Paid hosting (Domain purchase required)",
     "packageFeatures": [
       "Professional design",
@@ -244,7 +244,7 @@
     "shortDescription": "High-converting landing page for your product or service.",
     "longDescription": "We design a focused landing page that drives conversions for your product, service, or promotional offer.",
     "price": "£120",
-    "stripeLink": "https://pay.enfoldedmedia.com/14A4gya6id1OeMr1hX1VK0Y",
+    "stripeLink": "https://buy.stripe.com/14A4gya6id1OeMr1hX1VK0Y",
     "hosting": "Free hosting (Domain purchase required)",
     "packageFeatures": [
       "Professional design",
@@ -265,7 +265,7 @@
     "shortDescription": "A stunning portfolio website for photographers, designers, or artists.",
     "longDescription": "Showcase your creative work with a custom-designed portfolio, perfect for any artist, photographer, or designer.",
     "price": "£200",
-    "stripeLink": "https://pay.enfoldedmedia.com/cNi14mceqf9WfQvaSx1VK0Z",
+    "stripeLink": "https://buy.stripe.com/cNi14mceqf9WfQvaSx1VK0Z",
     "hosting": "Paid hosting required",
     "packageFeatures": [
       "Professional design",
@@ -286,7 +286,7 @@
     "shortDescription": "Expand your reach with a multilingual website.",
     "longDescription": "Reach new audiences in the UK with a multilingual website. You provide the content, or we can translate it for you.",
     "price": "£250",
-    "stripeLink": "https://pay.enfoldedmedia.com/cNi14m5Q28LyfQv9Ot1VK10",
+    "stripeLink": "https://buy.stripe.com/cNi14m5Q28LyfQv9Ot1VK10",
     "hosting": "Free hosting (Domain purchase required)",
     "packageFeatures": [
       "Professional design",
