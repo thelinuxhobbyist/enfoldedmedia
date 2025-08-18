@@ -18,8 +18,8 @@ console.log('🔑 Stripe secret key is set');
 console.log('Key starts with:', process.env.STRIPE_SECRET_KEY.substring(0, 7) + '...');
 
 // Custom domain configuration
-// const CUSTOM_DOMAIN = 'pay.enfoldedmedia.com'; // Uncomment this line to use the custom domain in the future
-const CUSTOM_DOMAIN = 'buy.stripe.com'; // Default Stripe domain
+const CUSTOM_DOMAIN = 'pay.enfoldedmedia.com'; // Using custom domain for Stripe links
+// const CUSTOM_DOMAIN = 'buy.stripe.com'; // Default Stripe domain (uncomment to revert)
 
 // Load packages
 const packages = JSON.parse(fs.readFileSync('./js/packages.json', 'utf8'));
@@ -73,15 +73,15 @@ async function generateCustomDomainStripeLinks() {
         // This will generate links that can be used with your custom domain
       });
       
-      // Replace the domain in the generated URL with the default Stripe domain
+      // Replace the domain in the generated URL with the custom domain
       let customUrl = paymentLink.url;
-      // if (customUrl.includes('buy.stripe.com')) { // Uncomment this block to switch back to custom domain
-      //   customUrl = customUrl.replace('buy.stripe.com', CUSTOM_DOMAIN);
-      // }
+      if (customUrl.includes('buy.stripe.com')) {
+        customUrl = customUrl.replace('buy.stripe.com', CUSTOM_DOMAIN);
+      }
 
-      // Update package with default Stripe domain link
+      // Update package with custom domain Stripe link
       pkg.stripeLink = customUrl;
-      console.log(`✅ Generated default domain link: ${customUrl}`);
+      console.log(`✅ Generated custom domain link: ${customUrl}`);
       successCount++;
       
     } catch (error) {
@@ -124,4 +124,4 @@ async function generateCustomDomainStripeLinks() {
 
 generateCustomDomainStripeLinks();
 
-// Note: To switch back to the custom domain, uncomment the CUSTOM_DOMAIN line above and the block for replacing the domain.
+// Note: To revert to the default Stripe domain, comment the CUSTOM_DOMAIN line above and uncomment the buy.stripe.com line.
