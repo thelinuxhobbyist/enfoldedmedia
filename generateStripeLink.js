@@ -2,6 +2,7 @@ const fs = require('fs');
 
 console.log('=== Stripe Link Generator Starting ===');
 console.log('Timestamp:', new Date().toISOString());
+console.log('Generating new payment links with custom domain support...');
 
 // Validate JSON before processing
 function validatePackage(pkg) {
