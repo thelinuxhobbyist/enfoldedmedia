@@ -44,7 +44,17 @@
       const packageId = params.get('package') || document.querySelector('input[name="package_id"]')?.value;
 
       if (!packageId) {
-        showError('No package specified. Please contact support.');
+        // Show hero if no package specified
+        document.getElementById('onboarding-container').innerHTML = `
+          <section class="hero-redesigned">
+            <div class="container">
+              <div class="hero-content">
+                <h1 id="title">No Product Specified</h1>
+                <p class="hero-description">Let's get your project started with these simple steps</p>
+              </div>
+            </div>
+          </section>
+        `;
         return;
       }
 
@@ -68,8 +78,8 @@
 
       // Build the form
       const form = document.getElementById('onboarding-form');
-      form.innerHTML = ''; // Clear existing fields
-      
+      form.innerHTML = '';
+
       // Add hidden package ID field
       const hiddenField = document.createElement('input');
       hiddenField.type = 'hidden';
@@ -83,7 +93,7 @@
       redirectField.name = '_next';
       redirectField.value = window.location.origin + '/thank-you.html';
       form.appendChild(redirectField);
-      
+
       buildForm(form, formConfig.fields);
     }
 
@@ -103,49 +113,69 @@
           const label = document.createElement('label');
           label.textContent = field.label;
           if (field.required) label.innerHTML += ' <span class="required">*</span>';
+          label.className = 'styled-label';
           fieldContainer.appendChild(label);
 
           // Input field
           let input;
           switch (field.type) {
-            case 'checkbox':
+            case 'checkbox': {
               const checkboxContainer = document.createElement('div');
               checkboxContainer.className = 'checkbox-group';
               field.options.forEach(option => {
                 const wrapper = document.createElement('div');
                 wrapper.className = 'checkbox-option';
-                
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
                 checkbox.name = field.name;
                 checkbox.value = option;
                 checkbox.id = `${field.name}-${option}`;
-                
+                checkbox.className = 'styled-input';
                 const optionLabel = document.createElement('label');
                 optionLabel.htmlFor = checkbox.id;
                 optionLabel.textContent = option;
-                
                 wrapper.appendChild(checkbox);
                 wrapper.appendChild(optionLabel);
                 checkboxContainer.appendChild(wrapper);
               });
               fieldContainer.appendChild(checkboxContainer);
               break;
-
+            }
+            case 'select': {
+              input = document.createElement('select');
+              input.name = field.name;
+              input.required = field.required;
+              input.className = 'styled-input';
+              const defaultOption = document.createElement('option');
+              defaultOption.value = '';
+              defaultOption.textContent = field.placeholder || 'Select an option';
+              defaultOption.disabled = true;
+              defaultOption.selected = true;
+              input.appendChild(defaultOption);
+              field.options.forEach(option => {
+                const opt = document.createElement('option');
+                opt.value = option;
+                opt.textContent = option;
+                input.appendChild(opt);
+              });
+              fieldContainer.appendChild(input);
+              break;
+            }
             case 'textarea':
               input = document.createElement('textarea');
               input.name = field.name;
               input.placeholder = field.placeholder;
               input.required = field.required;
+              input.className = 'styled-input';
               fieldContainer.appendChild(input);
               break;
-
             default:
               input = document.createElement('input');
               input.type = field.type;
               input.name = field.name;
               input.placeholder = field.placeholder;
               input.required = field.required;
+              input.className = 'styled-input';
               fieldContainer.appendChild(input);
           }
         }
@@ -226,44 +256,14 @@
     </div>
   </nav>
 
-  <!-- Onboarding Section -->
-  <section class="section">
+  <!-- Onboarding Section (single, styled) -->
+  <section class="section section-white">
     <div class="container" id="onboarding-container">
-      <div class="onboarding-content">
-        <h1 id="onboarding-title">Loading...</h1>
+      <div class="section-header">
+        <h1 id="onboarding-title" class="section-title">Loading...</h1>
         <p id="onboarding-description" class="section-subtitle"></p>
-        
-        <form 
-  id="onboardingForm" 
-  action="https://formspree.io/f/xjkozdze" 
-  method="POST"
-  class="onboarding-form" onsubmit="handleSubmit(event)">
-          <!-- Form fields will be dynamically inserted here -->
-        </form>
-
-        <script>
-          function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Get package ID
-            const packageId = data.package_id;
-            if (!packageId) {
-              alert('Error: Package ID is missing. Please refresh the page and try again.');
-              return;
-            }
-
-            // Log the form data and redirect
-            console.log('Form submitted with data:', data);
-            
-            // Redirect to thank you page
-            window.location.href = 'thank-you.html';
-          }
-        </script>
       </div>
+      <form id="onboarding-form" class="onboarding-form" action="https://formspree.io/f/xjkozdze" method="POST"></form>
     </div>
   </section>
   <nav class="mobile-menu" id="mobileMenu">
@@ -284,15 +284,7 @@
     </div>
   </nav>
 
-  <!-- Onboarding Hero -->
-  <section class="hero-redesigned">
-    <div class="container">
-      <div class="hero-content">
-        <h1 id="title">Welcome to Your Onboarding</h1>
-        <p class="hero-description">Let's get your project started with these simple steps</p>
-      </div>
-    </div>
-  </section>
+  <!-- Onboarding Hero (will be shown by JS only if no package specified) -->
 
   <!-- Onboarding Steps -->
   <section class="section">
