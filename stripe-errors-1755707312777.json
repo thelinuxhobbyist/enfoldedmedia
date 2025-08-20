@@ -1,0 +1,129 @@
+{
+  "timestamp": "2025-08-20T16:28:32.776Z",
+  "totalPackages": 20,
+  "successCount": 15,
+  "errorCount": 5,
+  "failedPackages": [
+    {
+      "id": "quick-starter-package-v2",
+      "name": "Quick Starter Package",
+      "shortDescription": "Perfect for testing our services with minimal commitment.",
+      "longDescription": "A quick, no-frills design and setup to help you get started with a simple website. Ideal for individuals who want to try out our service without heavy commitment.",
+      "price": "£49",
+      "stripeLink": "",
+      "hosting": "Free hosting included (for simple sites)",
+      "packageFeatures": [
+        "1 Website page",
+        "Free hosting",
+        "Free SSL certificate",
+        "Basic SEO tools",
+        "Mobile optimization",
+        "Contact form"
+      ],
+      "detailFeatures": [
+        "Domain name setup and integration",
+        "Responsive design for mobile and desktop",
+        "Basic SEO setup for visibility",
+        "Basic contact form integration"
+      ]
+    },
+    {
+      "id": "standard-package-v2",
+      "name": "Standard Package",
+      "shortDescription": "Ideal for small business or personal websites.",
+      "longDescription": "For those needing more pages and basic functionality, this package includes up to 5 pages and the option for a simple blog setup. Great for small businesses or personal websites.",
+      "price": "£149",
+      "stripeLink": "",
+      "hosting": "Free hosting included (for simple sites)",
+      "packageFeatures": [
+        "Up to 5 Website pages",
+        "Free hosting",
+        "Free SSL certificate",
+        "Basic SEO tools",
+        "Mobile optimization",
+        "Custom domain name setup",
+        "Contact form and social media links"
+      ],
+      "detailFeatures": [
+        "Custom domain name setup",
+        "Responsive design for all devices",
+        "Basic SEO tools for search engine visibility",
+        "Social media integration for easy sharing"
+      ]
+    },
+    {
+      "id": "business-package-v2",
+      "name": "Business Package",
+      "shortDescription": "For growing businesses with more advanced needs.",
+      "longDescription": "This package includes up to 10 website pages with essential features like a contact form and custom design. Perfect for small businesses or personal brands. Free hosting included for simple sites.",
+      "price": "£299",
+      "stripeLink": "",
+      "hosting": "Free hosting included (for simple sites; external hosting may be required for more complex needs)",
+      "packageFeatures": [
+        "Up to 10 Website pages",
+        "Free hosting (for simple sites)",
+        "Free SSL certificate",
+        "Advanced SEO tools",
+        "Mobile optimization",
+        "Contact forms, social media links, and newsletter signup"
+      ],
+      "detailFeatures": [
+        "Custom domain name setup",
+        "Advanced SEO tools for better ranking",
+        "Responsive design for mobile and desktop",
+        "Basic contact form integration"
+      ]
+    },
+    {
+      "id": "woocommerce-package-v2",
+      "name": "E-commerce Package (WooCommerce)",
+      "shortDescription": "Fully functional online store with essential e-commerce features.",
+      "longDescription": "A complete online store with product listings, cart, checkout, and payment gateway integration, using WooCommerce. Ideal for businesses aiming to sell online.",
+      "price": "£499",
+      "stripeLink": "",
+      "hosting": "WooCommerce requires external hosting for full functionality",
+      "packageFeatures": [
+        "Up to 50 products",
+        "WooCommerce integration (product pages, cart, checkout)",
+        "Payment gateway integration (PayPal, Stripe)",
+        "Free SSL certificate",
+        "Advanced SEO tools",
+        "Mobile optimization",
+        "Shipping options, product variants, discounts",
+        "Analytics integration"
+      ],
+      "detailFeatures": [
+        "Custom domain name setup",
+        "Responsive design for mobile and desktop",
+        "Full store setup with product catalog and checkout",
+        "Payment gateway integration",
+        "Shipping and product variant setup"
+      ]
+    },
+    {
+      "id": "premium-package-v2",
+      "name": "Premium Package",
+      "shortDescription": "Custom designs and advanced features for large or complex projects.",
+      "longDescription": "Tailored for clients with specific needs, including custom design, WooCommerce integration, and advanced features like memberships or custom integrations. Hosting options will be adjusted based on requirements.",
+      "price": "£799+",
+      "stripeLink": "",
+      "hosting": "Hosting included for small to medium sites (External hosting may be required for large projects)",
+      "packageFeatures": [
+        "Custom design",
+        "Unlimited website pages",
+        "Free SSL certificate",
+        "Advanced SEO tools",
+        "Mobile optimization",
+        "Custom domain name setup",
+        "Advanced e-commerce features (WooCommerce)",
+        "Membership systems and custom integrations"
+      ],
+      "detailFeatures": [
+        "Bespoke design tailored to client needs",
+        "Full WooCommerce store setup (multiple currencies, discount codes, etc.)",
+        "Custom integrations with third-party services",
+        "Dedicated support for complex projects"
+      ]
+    }
+  ]
+}

@@ -160,7 +160,13 @@ async function generateStripeLinks() {
       console.log(`\n--- Processing package: ${pkg.name} ---`);
       console.log(`Price: ${pkg.price}`);
       
-      // Force regenerate all links
+      // Skip if already has a Stripe link
+      if (pkg.stripeLink && pkg.stripeLink.trim() !== '') {
+        console.log(`✅ Already has Stripe link: ${pkg.stripeLink}`);
+        successCount++;
+        continue;
+      }
+      
       console.log(`Generating new payment link for ${pkg.name}...`);
       
       // Parse price to cents
