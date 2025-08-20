@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Load</title>
+</head>
+<body>
+    <h1>Testing Package Load</h1>
+    <div id="status">Loading...</div>
+    <div id="packages-container"></div>
+    
+    <script>
+        console.log('Starting test...');
+        
+        fetch('js/packages.json')
+            .then(response => {
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Data loaded:', data);
+                document.getElementById('status').textContent = `Loaded ${data.length} packages successfully!`;
+                
+                const container = document.getElementById('packages-container');
+                data.slice(0, 3).forEach(pkg => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `<h3>${pkg.name}</h3><p>${pkg.shortDescription}</p>`;
+                    container.appendChild(div);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('status').textContent = 'Error: ' + error.message;
+            });
+    </script>
+</body>
+</html>

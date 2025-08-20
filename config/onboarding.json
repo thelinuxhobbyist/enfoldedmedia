@@ -820,5 +820,383 @@
         "text": "Please email your logo, brand assets, and any existing content to info@enfoldedmedia.com with your order number in the subject line."
       }
     ]
+  },
+
+  "quick-starter-package-v2": {
+    "title": "Quick Starter Package V2 Onboarding",
+    "description": "Let's get your simple website set up quickly! Please provide the following information.",
+    "fields": [
+      {
+        "type": "email",
+        "label": "Your Email",
+        "name": "email",
+        "placeholder": "Where we can reach you",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Your Name",
+        "name": "name",
+        "placeholder": "Your full name",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourwebsite.com (we'll help with setup)",
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Website Purpose",
+        "name": "website_purpose",
+        "options": ["Personal Portfolio", "Small Business", "Blog", "Landing Page", "Other"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Website Content",
+        "name": "website_content",
+        "placeholder": "Brief description of what content you want on your page (about you/business, services, etc.)",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Contact Information to Display",
+        "name": "contact_info",
+        "placeholder": "Phone, email, address you want visitors to see",
+        "required": false
+      }
+    ]
+  },
+
+  "standard-package-v2": {
+    "title": "Standard Package V2 Onboarding",
+    "description": "Perfect for small businesses! Let's build your 5-page website. Please provide the following details.",
+    "fields": [
+      {
+        "type": "email",
+        "label": "Your Email",
+        "name": "email",
+        "placeholder": "Where we can reach you",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Your Name/Business Name",
+        "name": "business_name",
+        "placeholder": "Your full name or business name",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourbusiness.com",
+        "required": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Which pages do you need? (up to 5)",
+        "name": "pages_needed",
+        "options": ["Home/About", "Services/Products", "Contact", "Blog", "Gallery/Portfolio", "Testimonials", "FAQ"],
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Industry/Business Type",
+        "name": "industry",
+        "options": ["Professional Services", "Retail/E-commerce", "Healthcare", "Education", "Real Estate", "Restaurant/Food", "Creative/Arts", "Non-profit", "Other"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Business Description",
+        "name": "business_description",
+        "placeholder": "Tell us about your business, services, and what makes you unique",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Content for Each Page",
+        "name": "page_content",
+        "placeholder": "Describe what content you want on each page you selected",
+        "required": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Do you want a blog?",
+        "name": "blog_needed",
+        "options": ["Yes, set up a blog section"],
+        "required": false
+      }
+    ]
+  },
+
+  "business-package-v2": {
+    "title": "Business Package V2 Onboarding",
+    "description": "Let's create your professional business website with up to 10 pages. Please provide comprehensive details.",
+    "fields": [
+      {
+        "type": "email",
+        "label": "Your Email",
+        "name": "email",
+        "placeholder": "Primary business email",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Business Name",
+        "name": "business_name",
+        "placeholder": "Official business name",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourbusiness.com",
+        "required": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Which pages do you need? (up to 10)",
+        "name": "pages_needed",
+        "options": ["Home", "About Us", "Services/Products", "Contact", "Blog", "Gallery/Portfolio", "Testimonials", "FAQ", "Privacy Policy", "Terms of Service", "Team/Staff", "Location/Map"],
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Industry/Business Type",
+        "name": "industry",
+        "options": ["Professional Services", "Healthcare", "Legal", "Real Estate", "Education", "Consulting", "Marketing/Advertising", "Technology", "Non-profit", "Other"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Detailed Business Description",
+        "name": "business_description",
+        "placeholder": "Comprehensive description of your business, mission, values, and unique selling points",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Services/Products Details",
+        "name": "services_products",
+        "placeholder": "List and describe your main services or products",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Business Address",
+        "name": "business_address",
+        "placeholder": "Full business address for contact page",
+        "required": false
+      },
+      {
+        "type": "text",
+        "label": "Business Phone",
+        "name": "business_phone",
+        "placeholder": "Primary business phone number",
+        "required": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Additional Features Needed",
+        "name": "additional_features",
+        "options": ["Newsletter signup", "Social media integration", "Contact forms", "Google Maps integration", "Customer testimonials section"],
+        "required": false
+      }
+    ]
+  },
+
+  "woocommerce-package-v2": {
+    "title": "E-commerce Package (WooCommerce) V2 Onboarding",
+    "description": "Let's set up your online store! Please provide detailed information about your e-commerce needs.",
+    "fields": [
+      {
+        "type": "email",
+        "label": "Your Email",
+        "name": "email",
+        "placeholder": "Primary business email",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Store/Business Name",
+        "name": "store_name",
+        "placeholder": "Your store or business name",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourstore.com",
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "What are you selling?",
+        "name": "product_type",
+        "options": ["Physical Products", "Digital Products", "Services", "Mix of Physical & Digital", "Subscriptions/Memberships"],
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Number of Products (up to 50 included)",
+        "name": "product_count",
+        "placeholder": "Approximately how many products will you start with?",
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Product Categories/Types",
+        "name": "product_categories",
+        "placeholder": "List the main categories of products you'll sell (e.g., clothing, electronics, books)",
+        "required": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Payment Methods Preferred",
+        "name": "payment_methods",
+        "options": ["PayPal", "Stripe (Credit/Debit Cards)", "Bank Transfer", "Other (specify in notes)"],
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Shipping Requirements",
+        "name": "shipping_type",
+        "options": ["UK Only", "UK + Europe", "Worldwide", "No Shipping (Digital/Local Pickup)", "Local Delivery Only"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Business/Store Description",
+        "name": "store_description",
+        "placeholder": "Describe your business, what you sell, and your brand story",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Business Address",
+        "name": "business_address",
+        "placeholder": "Required for legal compliance and returns",
+        "required": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Additional Features Needed",
+        "name": "additional_features",
+        "options": ["Product reviews", "Wishlist functionality", "Discount codes/coupons", "Inventory tracking", "Customer accounts", "Advanced analytics"],
+        "required": false
+      },
+      {
+        "type": "textarea",
+        "label": "Special Requirements",
+        "name": "special_requirements",
+        "placeholder": "Any specific features, integrations, or requirements for your store?",
+        "required": false
+      }
+    ]
+  },
+
+  "premium-package-v2": {
+    "title": "Premium Package V2 Onboarding",
+    "description": "Let's create your custom, advanced website! This comprehensive form will help us understand your unique requirements.",
+    "fields": [
+      {
+        "type": "email",
+        "label": "Your Email",
+        "name": "email",
+        "placeholder": "Primary contact email",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Business/Project Name",
+        "name": "project_name",
+        "placeholder": "Official business or project name",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Preferred Domain Name",
+        "name": "domain_name",
+        "placeholder": "e.g., yourproject.com",
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Project Type",
+        "name": "project_type",
+        "options": ["Corporate Website", "E-commerce Store", "Portfolio/Creative", "Membership Site", "Educational Platform", "Community/Forum", "Custom Web Application", "Other"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Project Overview",
+        "name": "project_overview",
+        "placeholder": "Comprehensive description of your project, goals, and vision",
+        "required": true
+      },
+      {
+        "type": "text",
+        "label": "Estimated Number of Pages",
+        "name": "page_count",
+        "placeholder": "Approximate number of pages needed",
+        "required": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Core Features Required",
+        "name": "core_features",
+        "options": ["User Registration/Login", "E-commerce/WooCommerce", "Membership System", "Forum/Community", "Advanced Search", "Multi-language Support", "Custom Forms", "API Integrations", "Advanced Analytics"],
+        "required": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Design Requirements",
+        "name": "design_requirements",
+        "options": ["Custom Design from Scratch", "Specific Brand Guidelines", "Mobile-First Design", "Accessibility Compliance", "Interactive Elements/Animations", "Video Integration", "Advanced Graphics"],
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Timeline Preference",
+        "name": "timeline",
+        "options": ["4-6 weeks", "6-8 weeks", "8-12 weeks", "3+ months", "Flexible"],
+        "required": true
+      },
+      {
+        "type": "select",
+        "label": "Budget Range",
+        "name": "budget_range",
+        "options": ["£799-£1500", "£1500-£3000", "£3000-£5000", "£5000+", "Open to Discussion"],
+        "required": true
+      },
+      {
+        "type": "textarea",
+        "label": "Technical Requirements",
+        "name": "technical_requirements",
+        "placeholder": "Any specific technical requirements, integrations, or hosting preferences",
+        "required": false
+      },
+      {
+        "type": "textarea",
+        "label": "Inspiration/References",
+        "name": "inspiration",
+        "placeholder": "Links to websites you like or specific features you want to include",
+        "required": false
+      },
+      {
+        "type": "text",
+        "label": "Preferred Contact Method",
+        "name": "contact_preference",
+        "placeholder": "Phone, email, video call, etc.",
+        "required": true
+      }
+    ]
   }
 }

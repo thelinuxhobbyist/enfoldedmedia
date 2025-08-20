@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Test</title>
+    <style>
+        .filter-btn {
+            padding: 10px 15px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            background: white;
+            cursor: pointer;
+        }
+        .filter-btn.active {
+            background: #e74c3c;
+            color: white;
+        }
+        .package {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Filter Test</h2>
+    
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="poster">Posters</button>
+        <button class="filter-btn" data-filter="website">Websites</button>
+    </div>
+    
+    <div id="packages-container"></div>
+    <div id="no-results" style="display: none;">No results found</div>
+    
+    <script>
+        const serviceTypeMap = {
+            'poster': ['poster', 'event', 'print'],
+            'website': ['website', 'web', 'site', 'online', 'blog', 'portfolio', 'starter', 'multilingual', 'landing']
+        };
+        
+        let currentFilter = 'all';
+        
+        // Simple test data
+        const packages = [
+            {
+                name: "Event Poster Design",
+                shortDescription: "Print and digital format poster design",
+                longDescription: "Beautiful posters for events"
+            },
+            {
+                name: "Small Business Starter Package", 
+                shortDescription: "A one-page static website with free hosting",
+                longDescription: "Get your business online with a professional website"
+            }
+        ];
+        
+        function matchesServiceType(pkg, serviceType) {
+            if (serviceType === 'all') return true;
+            
+            const keywords = serviceTypeMap[serviceType] || [];
+            const text = `${pkg.name} ${pkg.shortDescription} ${pkg.longDescription}`.toLowerCase();
+            
+            const matches = keywords.some(keyword => text.includes(keyword.toLowerCase()));
+            console.log(`Testing ${pkg.name} for ${serviceType}:`, matches);
+            return matches;
+        }
+        
+        function renderPackages() {
+            const container = document.getElementById('packages-container');
+            const noResults = document.getElementById('no-results');
+            
+            container.innerHTML = '';
+            
+            const filteredPackages = packages.filter(pkg => matchesServiceType(pkg, currentFilter));
+            console.log(`Found ${filteredPackages.length} packages for filter "${currentFilter}"`);
+            
+            if (filteredPackages.length === 0) {
+                noResults.style.display = 'block';
+                return;
+            } else {
+                noResults.style.display = 'none';
+            }
+            
+            filteredPackages.forEach(pkg => {
+                const div = document.createElement('div');
+                div.className = 'package';
+                div.innerHTML = `<h3>${pkg.name}</h3><p>${pkg.shortDescription}</p>`;
+                container.appendChild(div);
+            });
+        }
+        
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('Filter clicked:', this.getAttribute('data-filter'));
+                    
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    currentFilter = this.getAttribute('data-filter');
+                    renderPackages();
+                });
+            });
+        }
+        
+        // Initialize
+        renderPackages();
+        setupFilters();
+    </script>
+</body>
+</html>

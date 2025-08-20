@@ -76,11 +76,46 @@
     </div>
   </section>
 
+  <!-- Search and Filter -->
+  <section class="section" style="padding-bottom: 0;">
+    <div class="container">
+      <!-- Search Bar -->
+      <div class="search-container">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="package-search" placeholder="Search services... (e.g. logo design, website, poster)">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Packages Grid -->
   <section class="section">
     <div class="container">
+      <!-- Results Info -->
+      <div id="results-info" class="results-info">
+        <span id="results-count">Loading services...</span>
+      </div>
+      
       <div id="packages-container" class="packages-grid">
         <!-- Packages will be dynamically rendered here -->
+      </div>
+      
+      <!-- Pagination -->
+      <div id="pagination" class="pagination" style="display: none;">
+        <button id="prev-btn" class="pagination-btn" disabled>
+          <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <span id="page-info" class="page-info">Page 1 of 1</span>
+        <button id="next-btn" class="pagination-btn" disabled>
+          Next <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      
+      <div id="no-results" class="no-results" style="display: none;">
+        <i class="fas fa-search"></i>
+        <h3>No services found</h3>
+        <p>Try adjusting your search or selecting a different category.</p>
       </div>
     </div>
   </section>
@@ -148,65 +183,205 @@
   <!-- JavaScript -->
   <script src="js/copyright.js"></script>
   <script>
-    // Load and render packages
-    fetch('js/packages.json')
-      .then(response => response.json())
-      .then(packages => {
-        window.packages = packages;
+    // Global variables
+    let packages = [];
+    let currentSearch = '';
+    let currentPage = 1;
+    const packagesPerPage = 9; // 3x3 grid
+
+    function matchesSearch(pkg, searchTerm) {
+      if (!searchTerm) return true;
+      
+      const text = `${pkg.name} ${pkg.shortDescription} ${pkg.longDescription}`.toLowerCase();
+      const terms = searchTerm.toLowerCase().split(' ');
+      
+      return terms.every(term => text.includes(term));
+    }
+    
+    function updateResultsInfo(filteredCount, totalCount) {
+      const resultsInfo = document.getElementById('results-count');
+      if (resultsInfo) {
+        if (currentSearch) {
+          resultsInfo.textContent = `Found ${filteredCount} service${filteredCount !== 1 ? 's' : ''} matching "${currentSearch}"`;
+        } else {
+          resultsInfo.textContent = `Showing ${filteredCount} service${filteredCount !== 1 ? 's' : ''}`;
+        }
+      }
+    }
+    
+    function updatePagination(filteredPackages) {
+      const pagination = document.getElementById('pagination');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const pageInfo = document.getElementById('page-info');
+      
+      const totalPages = Math.ceil(filteredPackages.length / packagesPerPage);
+      
+      if (totalPages <= 1) {
+        pagination.style.display = 'none';
+        return;
+      }
+      
+      pagination.style.display = 'flex';
+      
+      // Update page info
+      pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+      
+      // Update button states
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages;
+      
+      // Remove old event listeners and add new ones
+      prevBtn.onclick = () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderPackages();
+        }
+      };
+      
+      nextBtn.onclick = () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderPackages();
+        }
+      };
+    }
+    
+    function renderPackages() {
+      console.log('renderPackages called');
+      const container = document.getElementById('packages-container');
+      const noResults = document.getElementById('no-results');
+      
+      console.log('Container:', container);
+      console.log('Packages array:', packages.length, 'items');
+      
+      if (!container) {
+        console.error('packages-container not found!');
+        return;
+      }
+      
+      if (!packages || packages.length === 0) {
+        console.error('No packages data available');
+        return;
+      }
+      
+      // Filter packages (only by search, no category filters)
+      const filteredPackages = packages.filter(pkg => 
+        matchesSearch(pkg, currentSearch)
+      );
+      
+      // Update results info
+      updateResultsInfo(filteredPackages.length, packages.length);
+      
+      // Handle no results
+      if (filteredPackages.length === 0) {
+        container.style.display = 'none';
+        noResults.style.display = 'block';
+        document.getElementById('pagination').style.display = 'none';
+        return;
+      }
+      
+      // Show container and hide no results
+      container.style.display = 'grid';
+      noResults.style.display = 'none';
+      
+      // Calculate pagination
+      const totalPages = Math.ceil(filteredPackages.length / packagesPerPage);
+      if (currentPage > totalPages) currentPage = 1;
+      
+      const startIndex = (currentPage - 1) * packagesPerPage;
+      const endIndex = startIndex + packagesPerPage;
+      const packagesToShow = filteredPackages.slice(startIndex, endIndex);
+      
+      // Clear container
+      container.innerHTML = '';
+      
+      // Render packages for current page
+      packagesToShow.forEach(pkg => {
+        const div = document.createElement('div');
+        div.className = 'package-card';
         
-        function renderPackages() {
-          const container = document.getElementById('packages-container');
-          if (container && packages) {
-            packages.forEach(pkg => {
-              const div = document.createElement('div');
-              div.className = 'package-card';
-              
-              // Generate features list dynamically from packageFeatures
-              let featuresHTML = '';
-              if (pkg.packageFeatures && pkg.packageFeatures.length > 0) {
-                featuresHTML = pkg.packageFeatures.map(feature => `<li>${feature}</li>`).join('');
-                
-                // Add hosting as additional feature if it exists
-                if (pkg.hosting) {
-                  featuresHTML += `<li>${pkg.hosting}</li>`;
-                }
-              } else {
-                // Fallback for packages without packageFeatures defined
-                featuresHTML = `
-                  <li>Professional design</li>
-                  <li>Multiple revisions</li>
-                  <li>Fast delivery (3-5 days)</li>
-                `;
-                if (pkg.hosting) {
-                  featuresHTML += `<li>${pkg.hosting}</li>`;
-                }
-              }
-              
-              div.innerHTML = `
-                <div class="package-header">
-                  <h3 class="package-title">${pkg.name}</h3>
-                  <p class="package-description">${pkg.shortDescription}</p>
-                </div>
-                <div class="package-price">${pkg.price}</div>
-                <ul class="package-features">
-                  ${featuresHTML}
-                </ul>
-                <a class="btn btn-primary" href="details.html?id=${pkg.id}" style="width: 100%; justify-content: center;">View Details</a>
-              `;
-              container.appendChild(div);
-            });
+        // Generate features list dynamically from packageFeatures
+        let featuresHTML = '';
+        if (pkg.packageFeatures && pkg.packageFeatures.length > 0) {
+          featuresHTML = pkg.packageFeatures.slice(0, 3).map(feature => `<li>${feature}</li>`).join('');
+          
+          // Add hosting as additional feature if it exists
+          if (pkg.hosting && pkg.packageFeatures.length < 3) {
+            featuresHTML += `<li>${pkg.hosting}</li>`;
           }
+        } else {
+          // Fallback for packages without packageFeatures defined
+          featuresHTML = `
+            <li>Professional design</li>
+            <li>Multiple revisions</li>
+            <li>Fast delivery (3-5 days)</li>
+          `;
         }
         
-        // Call renderPackages if DOM is ready, otherwise wait
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', renderPackages);
-        } else {
+        div.innerHTML = `
+          <div class="package-header">
+            <h3 class="package-title">${pkg.name}</h3>
+            <p class="package-description">${pkg.shortDescription}</p>
+          </div>
+          <div class="package-price">${pkg.price}</div>
+          <ul class="package-features">
+            ${featuresHTML}
+          </ul>
+          <a class="btn btn-primary" href="details.html?id=${pkg.id}" style="width: 100%; justify-content: center;">View Details</a>
+        `;
+        container.appendChild(div);
+      });
+      
+      // Update pagination
+      updatePagination(filteredPackages);
+    }
+    
+    // Setup search functionality
+    function setupSearch() {
+      const searchInput = document.getElementById('package-search');
+      
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          currentSearch = this.value;
+          currentPage = 1; // Reset to first page when searching
           renderPackages();
+        });
+      }
+    }
+
+    // Load and render packages
+    console.log('Starting to load packages...');
+    fetch('js/packages.json')
+      .then(response => {
+        console.log('Fetch response received:', response.status);
+        return response.json();
+      })
+      .then(data => {
+        console.log('Packages loaded:', data.length, 'packages');
+        packages = data;
+        
+        // Initialize everything when DOM is ready
+        if (document.readyState === 'loading') {
+          console.log('DOM still loading, waiting...');
+          document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing...');
+            renderPackages();
+            setupSearch();
+          });
+        } else {
+          console.log('DOM ready, initializing immediately...');
+          renderPackages();
+          setupSearch();
         }
       })
       .catch(error => {
         console.error('Error loading packages:', error);
+        // Show error message to user
+        const resultsInfo = document.getElementById('results-count');
+        if (resultsInfo) {
+          resultsInfo.textContent = 'Error loading services. Please refresh the page.';
+        }
       });
     
     // Mobile menu functionality
