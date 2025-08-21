@@ -1073,19 +1073,6 @@ a:hover {
   opacity: 0.6;
 }
 
-.search-hint {
-  text-align: center;
-  margin-top: var(--space-2);
-  margin-top: 0.5rem; /* Fallback */
-}
-
-.search-hint small {
-  color: var(--gray-500);
-  color: #6b7280; /* Fallback */
-  font-size: 0.875rem;
-  opacity: 0.8;
-}
-
 .service-filters {
   text-align: center;
 }
@@ -1257,15 +1244,6 @@ a:hover {
     left: var(--space-3);
     left: 0.75rem; /* Fallback */
     font-size: 1rem;
-  }
-  
-  .search-hint {
-    margin: var(--space-2) var(--space-4) 0;
-    margin: 0.5rem 1rem 0; /* Fallback */
-  }
-  
-  .search-hint small {
-    font-size: 0.8rem;
   }
   
   .filter-buttons {
