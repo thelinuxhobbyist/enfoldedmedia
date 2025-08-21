@@ -522,6 +522,26 @@ a:hover {
   margin-bottom: var(--space-8) !important;
 }
 
+/* Hero Search Bar Styling */
+.hero-search {
+  margin-top: var(--space-8);
+  margin-bottom: 0;
+}
+
+.hero-search .search-box {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.hero-search .search-box:focus-within {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2),
+              0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
 /* Base Button Styles */
 .btn {
   display: inline-flex;
@@ -1138,11 +1158,11 @@ a:hover {
 
 /* Results Info */
 .results-info {
-  margin-bottom: var(--space-8);
-  margin-bottom: 2rem; /* Fallback */
+  margin-bottom: var(--space-6);
+  margin-bottom: 1.5rem; /* Fallback */
   text-align: center;
   color: var(--gray-600);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
@@ -2577,6 +2597,29 @@ a:hover {
   
   .hero-redesigned .hero-subtitle {
     font-size: 1.5rem;
+  }
+  
+  .hero-compact {
+    min-height: 45vh !important;
+    padding: var(--space-12) 0 !important;
+  }
+  
+  .hero-compact h1 {
+    font-size: 2.2rem !important;
+  }
+  
+  .hero-compact .hero-subtitle {
+    font-size: 1.1rem !important;
+    margin-bottom: var(--space-6) !important;
+  }
+  
+  .hero-search {
+    margin-top: var(--space-6);
+  }
+  
+  .hero-search .search-box {
+    margin: 0 var(--space-4);
+    max-width: none;
   }
   
   /* Compact Hero Small Screen Adjustments */
