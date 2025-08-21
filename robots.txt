@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /index.html
+Allow: /packages.html
+Allow: /details.html
+Allow: /multilingual/
+
+# CSS and JS files
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /fonts/
+
+# Disallow private/admin files
+Disallow: /config/
+Disallow: /*.json$
+Disallow: /test-*
+Disallow: /*-test.*
+
+# Sitemap location
+Sitemap: https://enfoldedmedia.com/sitemap.xml
+
+# Crawl-delay (be respectful to servers)
+Crawl-delay: 1
