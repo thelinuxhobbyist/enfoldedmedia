@@ -101,15 +101,18 @@
         <!-- Packages will be dynamically rendered here -->
       </div>
       
-      <!-- Pagination -->
-      <div id="pagination" class="pagination" style="display: none;">
-        <button id="prev-btn" class="pagination-btn" disabled>
-          <i class="fas fa-chevron-left"></i> Previous
+      <!-- Load More Button for Infinite Scroll -->
+      <div class="load-more-container" id="load-more-container" style="display: none;">
+        <button id="load-more-btn" class="load-more-button">
+          <i class="fas fa-plus"></i>
+          Load More Services
         </button>
-        <span id="page-info" class="page-info">Page 1 of 1</span>
-        <button id="next-btn" class="pagination-btn" disabled>
-          Next <i class="fas fa-chevron-right"></i>
-        </button>
+      </div>
+      
+      <!-- Loading Indicator -->
+      <div class="loading-indicator" id="loading-indicator" style="display: none;">
+        <div class="loading-spinner"></div>
+        <span>Loading more services...</span>
       </div>
       
       <div id="no-results" class="no-results" style="display: none;">
@@ -186,10 +189,10 @@
     // Global variables
     let packages = [];
     let currentSearch = '';
-    let currentPage = 1;
-    const packagesPerPage = 9; // 3x3 grid
-
-    function matchesSearch(pkg, searchTerm) {
+    let displayedPackages = [];
+    let packagesPerLoad = 8; // Number of packages to load at once
+    let isLoading = false;
+    let allPackagesLoaded = false;    function matchesSearch(pkg, searchTerm) {
       if (!searchTerm) return true;
       
       const text = `${pkg.name} ${pkg.shortDescription} ${pkg.longDescription}`.toLowerCase();
@@ -204,53 +207,121 @@
         if (currentSearch) {
           resultsInfo.textContent = `Found ${filteredCount} service${filteredCount !== 1 ? 's' : ''} matching "${currentSearch}"`;
         } else {
-          resultsInfo.textContent = `Showing ${filteredCount} service${filteredCount !== 1 ? 's' : ''}`;
+          resultsInfo.textContent = `Showing ${displayedPackages.length} of ${filteredCount} service${filteredCount !== 1 ? 's' : ''}`;
         }
       }
     }
     
-    function updatePagination(filteredPackages) {
-      const pagination = document.getElementById('pagination');
-      const prevBtn = document.getElementById('prev-btn');
-      const nextBtn = document.getElementById('next-btn');
-      const pageInfo = document.getElementById('page-info');
+    function loadMorePackages() {
+      if (isLoading || allPackagesLoaded) return;
       
-      const totalPages = Math.ceil(filteredPackages.length / packagesPerPage);
+      isLoading = true;
+      const loadingIndicator = document.getElementById('loading-indicator');
+      const loadMoreContainer = document.getElementById('load-more-container');
       
-      if (totalPages <= 1) {
-        pagination.style.display = 'none';
-        return;
+      // Show loading indicator
+      loadingIndicator.style.display = 'flex';
+      loadMoreContainer.style.display = 'none';
+      
+      // Simulate loading delay for better UX
+      setTimeout(() => {
+        // Filter packages based on current search
+        const filteredPackages = packages.filter(pkg => 
+          matchesSearch(pkg, currentSearch)
+        );
+        
+        const nextPackages = filteredPackages.slice(
+          displayedPackages.length, 
+          displayedPackages.length + packagesPerLoad
+        );
+        
+        if (nextPackages.length > 0) {
+          nextPackages.forEach(pkg => {
+            displayedPackages.push(pkg);
+            renderPackageCard(pkg);
+          });
+          
+          // Update results info
+          updateResultsInfo(filteredPackages.length, packages.length);
+        }
+        
+        // Check if all packages are loaded
+        if (displayedPackages.length >= filteredPackages.length) {
+          allPackagesLoaded = true;
+          loadMoreContainer.style.display = 'none';
+        } else {
+          loadMoreContainer.style.display = 'flex';
+        }
+        
+        loadingIndicator.style.display = 'none';
+        isLoading = false;
+      }, 500);
+    }
+    
+    function renderPackageCard(pkg) {
+      const container = document.getElementById('packages-container');
+      const div = document.createElement('div');
+      div.className = 'package-card';
+      
+      // Generate features list dynamically from packageFeatures
+      let featuresHTML = '';
+      if (pkg.packageFeatures && pkg.packageFeatures.length > 0) {
+        featuresHTML = pkg.packageFeatures.slice(0, 3).map(feature => `<li>${feature}</li>`).join('');
+        
+        // Add hosting as additional feature if it exists
+        if (pkg.hosting && pkg.packageFeatures.length < 3) {
+          featuresHTML += `<li>${pkg.hosting}</li>`;
+        }
+      } else {
+        // Fallback for packages without packageFeatures defined
+        featuresHTML = `
+          <li>Professional design</li>
+          <li>Multiple revisions</li>
+          <li>Fast delivery (3-5 days)</li>
+        `;
       }
       
-      pagination.style.display = 'flex';
-      
-      // Update page info
-      pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-      
-      // Update button states
-      prevBtn.disabled = currentPage === 1;
-      nextBtn.disabled = currentPage === totalPages;
-      
-      // Remove old event listeners and add new ones
-      prevBtn.onclick = () => {
-        if (currentPage > 1) {
-          currentPage--;
-          renderPackages();
+      div.innerHTML = `
+        <div class="package-header">
+          <h3 class="package-title">${pkg.name}</h3>
+          <p class="package-description">${pkg.shortDescription}</p>
+        </div>
+        <div class="package-price">${pkg.price}</div>
+        <ul class="package-features">
+          ${featuresHTML}
+        </ul>
+        <a class="btn btn-primary" href="details.html?id=${pkg.id}" style="width: 100%; justify-content: center;">View Details</a>
+      `;
+      container.appendChild(div);
+    }
+    
+    function setupInfiniteScroll() {
+      // Setup scroll listener for infinite scroll
+      window.addEventListener('scroll', () => {
+        if (isLoading || allPackagesLoaded) return;
+        
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Load more when user is 300px from bottom
+        if (scrollTop + windowHeight >= documentHeight - 300) {
+          loadMorePackages();
         }
-      };
+      });
       
-      nextBtn.onclick = () => {
-        if (currentPage < totalPages) {
-          currentPage++;
-          renderPackages();
-        }
-      };
+      // Setup load more button
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', loadMorePackages);
+      }
     }
     
     function renderPackages() {
       console.log('renderPackages called');
       const container = document.getElementById('packages-container');
       const noResults = document.getElementById('no-results');
+      const loadMoreContainer = document.getElementById('load-more-container');
       
       console.log('Container:', container);
       console.log('Packages array:', packages.length, 'items');
@@ -270,14 +341,22 @@
         matchesSearch(pkg, currentSearch)
       );
       
-      // Update results info
-      updateResultsInfo(filteredPackages.length, packages.length);
+      // Clear container and reset displayed packages
+      container.innerHTML = '';
+      displayedPackages = [];
+      allPackagesLoaded = false;
+      isLoading = false;
       
       // Handle no results
       if (filteredPackages.length === 0) {
         container.style.display = 'none';
         noResults.style.display = 'block';
-        document.getElementById('pagination').style.display = 'none';
+        noResults.innerHTML = `
+          <i class="fas fa-search"></i>
+          <h3>No services found</h3>
+          <p>Try adjusting your search or clear the search to see all services.</p>
+        `;
+        loadMoreContainer.style.display = 'none';
         return;
       }
       
@@ -285,56 +364,24 @@
       container.style.display = 'grid';
       noResults.style.display = 'none';
       
-      // Calculate pagination
-      const totalPages = Math.ceil(filteredPackages.length / packagesPerPage);
-      if (currentPage > totalPages) currentPage = 1;
-      
-      const startIndex = (currentPage - 1) * packagesPerPage;
-      const endIndex = startIndex + packagesPerPage;
-      const packagesToShow = filteredPackages.slice(startIndex, endIndex);
-      
-      // Clear container
-      container.innerHTML = '';
-      
-      // Render packages for current page
-      packagesToShow.forEach(pkg => {
-        const div = document.createElement('div');
-        div.className = 'package-card';
-        
-        // Generate features list dynamically from packageFeatures
-        let featuresHTML = '';
-        if (pkg.packageFeatures && pkg.packageFeatures.length > 0) {
-          featuresHTML = pkg.packageFeatures.slice(0, 3).map(feature => `<li>${feature}</li>`).join('');
-          
-          // Add hosting as additional feature if it exists
-          if (pkg.hosting && pkg.packageFeatures.length < 3) {
-            featuresHTML += `<li>${pkg.hosting}</li>`;
-          }
-        } else {
-          // Fallback for packages without packageFeatures defined
-          featuresHTML = `
-            <li>Professional design</li>
-            <li>Multiple revisions</li>
-            <li>Fast delivery (3-5 days)</li>
-          `;
-        }
-        
-        div.innerHTML = `
-          <div class="package-header">
-            <h3 class="package-title">${pkg.name}</h3>
-            <p class="package-description">${pkg.shortDescription}</p>
-          </div>
-          <div class="package-price">${pkg.price}</div>
-          <ul class="package-features">
-            ${featuresHTML}
-          </ul>
-          <a class="btn btn-primary" href="details.html?id=${pkg.id}" style="width: 100%; justify-content: center;">View Details</a>
-        `;
-        container.appendChild(div);
+      // Load initial packages
+      const initialPackages = filteredPackages.slice(0, packagesPerLoad);
+      initialPackages.forEach(pkg => {
+        displayedPackages.push(pkg);
+        renderPackageCard(pkg);
       });
       
-      // Update pagination
-      updatePagination(filteredPackages);
+      // Update results info
+      updateResultsInfo(filteredPackages.length, packages.length);
+      
+      // Show load more button if there are more packages
+      if (filteredPackages.length > packagesPerLoad) {
+        loadMoreContainer.style.display = 'flex';
+        allPackagesLoaded = false;
+      } else {
+        loadMoreContainer.style.display = 'none';
+        allPackagesLoaded = true;
+      }
     }
     
     // Setup search functionality
@@ -344,8 +391,7 @@
       if (searchInput) {
         searchInput.addEventListener('input', function() {
           currentSearch = this.value;
-          currentPage = 1; // Reset to first page when searching
-          renderPackages();
+          renderPackages(); // Re-render with new search
         });
       }
     }
@@ -368,11 +414,13 @@
             console.log('DOM loaded, initializing...');
             renderPackages();
             setupSearch();
+            setupInfiniteScroll();
           });
         } else {
           console.log('DOM ready, initializing immediately...');
           renderPackages();
           setupSearch();
+          setupInfiniteScroll();
         }
       })
       .catch(error => {

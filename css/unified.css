@@ -667,6 +667,77 @@ a:hover {
   background: rgba(255,255,255,0.1);
 }
 
+/* Infinite Scroll Styles */
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-8) 0;
+}
+
+.load-more-button {
+  background: var(--gradient-button);
+  color: #fff;
+  border: none;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-xl, 12px);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal, 0.3s ease);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  box-shadow: 0 4px 15px rgba(59, 24, 146, 0.2);
+}
+
+.load-more-button:hover {
+  background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 24, 146, 0.4);
+}
+
+.load-more-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(59, 24, 146, 0.3);
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-8) 0;
+  color: var(--gray-600);
+  font-size: 1rem;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--gray-200);
+  border-top: 3px solid var(--primary-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile responsive for infinite scroll */
+@media (max-width: 768px) {
+  .load-more-button {
+    padding: var(--space-3) var(--space-6);
+    font-size: 0.9rem;
+  }
+  
+  .loading-indicator {
+    margin: var(--space-6) 0;
+    font-size: 0.9rem;
+  }
+}
+
 /* Section Styling */
 .section {
   padding: var(--space-20) 0;
@@ -2452,8 +2523,6 @@ a:hover {
   ul li, ol li {
     margin-bottom: var(--space-2);
     font-size: 1rem;
-  }
-    gap: var(--space-4);
   }
   
   .hero-redesigned {
