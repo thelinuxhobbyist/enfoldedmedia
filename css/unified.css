@@ -1814,56 +1814,53 @@ a:hover {
 
 .social-icons {
   display: flex;
-  gap: var(--space-4);
+  gap: var(--space-6); /* Increased gap for better spacing without containers */
 }
 
 .social-icon {
-  width: 44px;
-  height: 44px;
-  background: rgba(59, 24, 146, 0.15); /* Slightly more opaque for better visibility */
-  border-radius: var(--radius-lg);
-  display: flex;
+  /* Remove all background and container styling */
+  background: none;
+  border: none;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+  padding: var(--space-2); /* Small padding for better click area */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-blue); /* Using site's primary blue */
+  color: var(--primary-blue); /* Start with site's primary purple */
   text-decoration: none;
-  font-size: 18px;
+  font-size: 24px; /* Slightly larger for better visibility */
   transition: all var(--transition-normal);
   position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(59, 24, 146, 0.2); /* Add subtle border for better definition */
+  overflow: visible;
 }
 
 .social-icon::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--gradient-button); /* Using site's button gradient */
-  opacity: 0;
-  transition: opacity var(--transition-normal);
+  /* Remove the gradient overlay effect */
+  display: none;
 }
 
 .social-icon i {
   position: relative;
-  z-index: 2;
-  transition: color var(--transition-normal);
-  font-weight: 600; /* Make icons more bold for better visibility */
+  z-index: 1;
+  transition: all var(--transition-normal);
+  font-weight: 600;
 }
 
 .social-icon:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(59, 24, 146, 0.3); /* Using site's primary blue */
+  /* Simple, elegant hover effect */
+  transform: translateY(-2px) scale(1.1);
+  color: #e74c3c; /* Bright red to match the logo */
 }
 
 .social-icon:hover::before {
-  opacity: 1;
+  /* Remove gradient hover effect */
+  opacity: 0;
 }
 
 .social-icon:hover i {
-  color: var(--white);
+  color: #e74c3c; /* Bright red on hover to match logo */
 }
 
 /* Copyright Section */
