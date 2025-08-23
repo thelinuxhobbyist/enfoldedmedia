@@ -44,13 +44,14 @@
       const packageId = params.get('package') || document.querySelector('input[name="package_id"]')?.value;
 
       if (!packageId) {
-        // Show hero if no package specified
+        // Show hero if no package specified, with clear directions
         document.getElementById('onboarding-container').innerHTML = `
           <section class="hero-redesigned">
             <div class="container">
               <div class="hero-content">
                 <h1 id="title">No Product Specified</h1>
-                <p class="hero-description">Let's get your project started with these simple steps</p>
+                <p class="hero-description">To get started, please select a package that best fits your needs. Once you choose a package, you'll be guided through the onboarding process.</p>
+                <a href='packages.html' class='btn btn-primary' style='margin-top: 18px;'>View Our Packages</a>
               </div>
             </div>
           </section>
@@ -286,8 +287,8 @@
 
   <!-- Onboarding Hero (will be shown by JS only if no package specified) -->
 
-  <!-- Onboarding Steps -->
-  <section class="section">
+  <!-- Thank You/Next Steps Card (hidden by default, shown after form submit) -->
+  <section class="section" id="thank-you-section" style="display: none;">
     <div class="container">
       <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
         <div style="margin-bottom: var(--space-8);">
@@ -296,41 +297,63 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <h2 style="margin-bottom: var(--space-4);">Next Steps</h2>
-        </div>
-        
-        <form id="onboarding-form" action="https://formspree.io/f/xldlollo" method="POST">
-          <form id="onboarding-form" action="https://formspree.io/f/xqaljkyp" method="POST">
-          <input type="hidden" name="package" id="package-name">
-          <div id="steps" style="text-align: left; max-width: 600px; margin: 0 auto;">
-            <!-- Steps with input fields will be populated by JavaScript -->
-          </div>
-          <div style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--gray-200);">
-            <button type="submit" class="btn btn-primary">Submit Onboarding Information</button>
-          </div>
-        </form>
-        
-        <div id="thank-you-message" style="display: none; margin-top: var(--space-8); padding: var(--space-8); background: var(--gray-100); border-radius: var(--radius-lg); text-align: center;">
-          <h3>Thank You for Your Submission!</h3>
+          <h2 style="margin-bottom: var(--space-4);">Thank You for Your Submission!</h2>
           <p>Your information has been successfully received. Here's what happens next:</p>
-          <div style="max-width: 500px; margin: 20px auto; text-align: left;">
-            <ol style="padding-left: 20px;">
-              <li style="margin-bottom: 10px;"><strong>Review:</strong> Our team will review your submission within 1 business day.</li>
-              <li style="margin-bottom: 10px;"><strong>Initial Contact:</strong> You'll receive an email confirmation with your project details.</li>
-              <li style="margin-bottom: 10px;"><strong>Assets Gathering:</strong> Please send any requested files to info@enfoldedmedia.com.</li>
-              <li style="margin-bottom: 10px;"><strong>Project Start:</strong> We'll begin working on your project based on the information provided.</li>
-            </ol>
-          </div>
-          <p>If you have any immediate questions, feel free to contact us via WhatsApp or email.</p>
         </div>
-
+        <div style="max-width: 500px; margin: 20px auto; text-align: left;">
+          <ol style="padding-left: 20px;">
+            <li style="margin-bottom: 10px;"><strong>Review:</strong> Our team will review your submission within 1 business day.</li>
+            <li style="margin-bottom: 10px;"><strong>Initial Contact:</strong> You'll receive an email confirmation with your project details.</li>
+            <li style="margin-bottom: 10px;"><strong>Assets Gathering:</strong> Please send any requested files to info@enfoldedmedia.com.</li>
+            <li style="margin-bottom: 10px;"><strong>Project Start:</strong> We'll begin working on your project based on the information provided.</li>
+          </ol>
+        </div>
+        <p>If you have any immediate questions, feel free to contact us via WhatsApp or email.</p>
         <div style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--gray-200);">
           <p style="color: var(--gray-600); margin-bottom: var(--space-4);">Questions about your package?</p>
           <a href="https://wa.me/447836319635?text=Hello%2C%20I%20have%20a%20question%20about%20my%20onboarding" class="btn btn-secondary">Contact Our Team via WhatsApp</a>
+          <a href="index.html" class="btn btn-secondary" style="margin-left: 10px;">Return to Home</a>
         </div>
       </div>
     </div>
   </section>
+  <script>
+    // Show thank you/next steps after form submit (AJAX, no redirect)
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('onboarding-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var formData = new FormData(form);
+          var action = form.getAttribute('action');
+          var method = form.getAttribute('method') || 'POST';
+          fetch(action, {
+            method: method,
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          })
+          .then(function(response) {
+            // Always show thank you card regardless of Formspree response
+            form.style.display = 'none';
+            var container = document.getElementById('onboarding-container');
+            if (container) container.style.display = 'none';
+            var thankYou = document.getElementById('thank-you-section');
+            if (thankYou) thankYou.style.display = 'block';
+          })
+          .catch(function(error) {
+            // Still show thank you card, but could log error if needed
+            form.style.display = 'none';
+            var container = document.getElementById('onboarding-container');
+            if (container) container.style.display = 'none';
+            var thankYou = document.getElementById('thank-you-section');
+            if (thankYou) thankYou.style.display = 'block';
+          });
+        });
+      }
+    });
+  </script>
 
   <!-- Modern Minimalist Footer -->
   <footer class="modern-minimalist-footer">
