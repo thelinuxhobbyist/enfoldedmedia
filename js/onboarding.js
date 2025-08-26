@@ -324,8 +324,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
-          form.style.display = "none";
-          thankYouMessage.style.display = "block";
+          const data = await response.json();
+          if (data.next) {
+            window.location.href = data.next;
+          } else {
+            form.style.display = "none";
+            thankYouMessage.style.display = "block";
+          }
         } else {
           const data = await response.json();
           if (Object.hasOwn(data, 'errors')) {
