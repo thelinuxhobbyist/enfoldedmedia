@@ -1,8 +1,28 @@
 [
   {
+    "id": "quick-starter",
+    "name": "Quick Starter Package",
+    "shortDescription": "Basic starter package for testing our services",
+    "longDescription": "Perfect for trying out our services with minimal commitment. Includes a quick design consultation and basic setup assistance.",
+    "price": "£0.30",
+    "stripeLink": "https://buy.stripe.com/3cI7sKbam1j6fQv6Ch1VK24",
+    "hosting": "Free hosting for 1 month",
+    "packageFeatures": [
+      "Quick design consultation",
+      "Basic setup assistance",
+      "24-hour delivery"
+    ],
+    "detailFeatures": [
+      "15-minute consultation call",
+      "Basic design guidance",
+      "Next steps planning",
+      "Quick turnaround (24 hours)"
+    ]
+  },
+  {
     "id": "event-poster",
     "name": "Event Poster Design",
-    "shortDescription": "Print and digital format poster design",
+    "shortDescription": "Print and digital format poster design. (Test with secret key)",
     "longDescription": "Beautiful, bold posters delivered in both print-ready and digital format. Multilingual options can be discussed directly with you.",
     "price": "£60",
     "stripeLink": "https://buy.stripe.com/dRm28q0vI0f20VB0dT1VK25",
@@ -62,7 +82,7 @@
     "id": "layout-design",
     "name": "Layout Design",
     "shortDescription": "Custom design layout for your content.",
-    "longDescription": "You provide the content, and we'll create a custom layout to bring your vision to life, tailored to your specific needs and branding.",
+    "longDescription": "You provide the content, and we’ll create a custom layout to bring your vision to life, tailored to your specific needs and branding.",
     "price": "£50",
     "stripeLink": "https://buy.stripe.com/bJe3cu5Q20f25bR1hX1VK28",
     "hosting": null,
@@ -116,7 +136,7 @@
     "id": "small-business-starter",
     "name": "Small Business Starter Package",
     "shortDescription": "A one-page static website with free hosting.",
-    "longDescription": "Get your business online with a professional one-page website. Includes free hosting, but you'll need to purchase the domain.",
+    "longDescription": "Get your business online with a professional one-page website. Includes free hosting, but you’ll need to purchase the domain.",
     "price": "£100",
     "stripeLink": "https://buy.stripe.com/4gMeVc92e6Dq0VB8Kp1VK2b",
     "hosting": "Free hosting (Domain purchase required)",
@@ -278,6 +298,29 @@
       "SEO optimization for each language",
       "Cultural adaptation guidance",
       "Domain purchase required"
+    ]
+  },
+  {
+    "id": "quick-starter-package-v2",
+    "name": "Quick Starter Package",
+    "shortDescription": "Perfect for testing our services with minimal commitment.",
+    "longDescription": "A quick, no-frills design and setup to help you get started with a simple website. Ideal for individuals who want to try out our service without heavy commitment.",
+    "price": "£49",
+    "stripeLink": "https://buy.stripe.com/5kQ7sKemy5zm8o3e4J1VK2j",
+    "hosting": "Free hosting included (for simple sites)",
+    "packageFeatures": [
+      "1 Website page",
+      "Free hosting",
+      "Free SSL certificate",
+      "Basic SEO tools",
+      "Mobile optimization",
+      "Contact form"
+    ],
+    "detailFeatures": [
+      "Domain name setup and integration",
+      "Responsive design for mobile and desktop",
+      "Basic SEO setup for visibility",
+      "Basic contact form integration"
     ]
   },
   {
