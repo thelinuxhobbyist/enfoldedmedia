@@ -294,23 +294,118 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Create a toast notification
+  function showToast(message, type = 'error') {
+    const toast = document.createElement('div');
+    toast.className = `error-toast ${type}`;
+    toast.setAttribute('role', 'alert');
+    toast.innerHTML = `
+      <i class="fas fa-exclamation-circle"></i>
+      <span>${message}</span>
+      <button class="close-button" aria-label="Close notification">
+        <i class="fas fa-times"></i>
+      </button>
+    `;
+    document.body.appendChild(toast);
+
+    toast.querySelector('.close-button').addEventListener('click', () => {
+      toast.remove();
+    });
+
+    setTimeout(() => {
+      toast.remove();
+    }, 5000);
+  }
+
+  // Field validation function
+  function validateField(field) {
+    const value = field.value.trim();
+    const isValid = field.checkValidity();
+    const errorMessage = field.validationMessage || 'This field is required';
+    const formGroup = field.closest('.form-group');
+    
+    if (!isValid) {
+      formGroup.classList.add('form-field-error');
+      const errorElement = formGroup.querySelector('.form-error-message') || document.createElement('div');
+      errorElement.className = 'form-error-message';
+      errorElement.textContent = errorMessage;
+      if (!formGroup.querySelector('.form-error-message')) {
+        formGroup.appendChild(errorElement);
+      }
+      field.setAttribute('aria-invalid', 'true');
+      field.classList.remove('field-valid');
+      field.classList.add('field-error');
+    } else {
+      formGroup.classList.remove('form-field-error');
+      const errorElement = formGroup.querySelector('.form-error-message');
+      if (errorElement) {
+        errorElement.remove();
+      }
+      field.removeAttribute('aria-invalid');
+      field.classList.remove('field-error');
+      field.classList.add('field-valid');
+    }
+    return isValid;
+  }
+
   if (form) {
+    // Add ARIA attributes for accessibility
+    form.setAttribute('role', 'form');
+    form.setAttribute('aria-label', 'Onboarding Form');
+
+    // Add validation icons to form groups
+    form.querySelectorAll('.form-group').forEach(group => {
+      const validationIcon = document.createElement('i');
+      validationIcon.className = 'fas fa-check validation-icon';
+      validationIcon.setAttribute('aria-hidden', 'true');
+      group.appendChild(validationIcon);
+    });
+
+    // Add real-time validation
+    form.querySelectorAll('input, textarea, select').forEach(field => {
+      field.addEventListener('blur', () => validateField(field));
+      field.addEventListener('input', () => {
+        if (field.classList.contains('field-error')) {
+          validateField(field);
+        }
+      });
+    });
+
+    // Update submit button with loading spinner
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      const spinner = document.createElement('span');
+      spinner.className = 'spinner';
+      spinner.setAttribute('aria-hidden', 'true');
+      submitBtn.appendChild(spinner);
+    }
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       
+      // Validate all fields
+      let isValid = true;
+      form.querySelectorAll('input, textarea, select').forEach(field => {
+        if (!validateField(field)) {
+          isValid = false;
+        }
+      });
+
       // Validate checkboxes
       const validations = form.querySelectorAll('.checkbox-validation');
-      let isValid = true;
-      
       validations.forEach(validation => {
         if (validation.required && !validation.value) {
           const groupName = validation.dataset.checkboxGroup;
           isValid = false;
-          alert(`Please select at least one option for ${groupName}`);
+          showToast(`Please select at least one option for ${groupName}`);
         }
       });
       
       if (!isValid) return;
+
+      // Show loading state
+      form.classList.add('form-loading');
+      submitBtn.disabled = true;
       
       const formData = new FormData(form);
       
@@ -334,14 +429,18 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           const data = await response.json();
           if (Object.hasOwn(data, 'errors')) {
-            alert(data["errors"].map(error => error["message"]).join(", "));
+            showToast(data["errors"].map(error => error["message"]).join(", "));
           } else {
-            alert("An unexpected error occurred.");
+            showToast("An unexpected error occurred. Please try again.");
           }
         }
       } catch (error) {
         console.error("Form submission error:", error);
-        alert("There was a problem submitting your form. Please try again.");
+        showToast("There was a problem submitting your form. Please try again.");
+      } finally {
+        // Remove loading state
+        form.classList.remove('form-loading');
+        submitBtn.disabled = false;
       }
     });
   }
