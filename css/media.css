@@ -1,4 +1,50 @@
 @media only screen and (min-width:320px) and (max-width: 767px) {
+/* Package Details Mobile Styles */
+.mobile-description-card {
+    min-height: auto !important;
+    height: auto !important;
+    margin-bottom: var(--space-6) !important;
+}
+
+.mobile-above-fold {
+    margin-bottom: var(--space-6) !important;
+}
+
+.mobile-package-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-6) !important;
+}
+
+.mobile-collapsible-sections {
+    margin-top: var(--space-4) !important;
+}
+
+.card {
+    padding: var(--space-6) !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+
+.mobile-price-compact {
+    position: sticky !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10 !important;
+    background: var(--white) !important;
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    padding: var(--space-4) !important;
+    margin: 0 calc(var(--space-6) * -1) !important;
+}
+
+.price-highlight {
+    background: var(--primary-blue) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-4) !important;
+    color: var(--white) !important;
+}
+
 .wrapper {
 	width:90%;
 	margin:0px 5%;
