@@ -148,11 +148,19 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 2.5rem; font-weight: 800; }
 .hero-heading { 
-  font-size: 2rem; 
+  font-size: 1.75rem; 
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: var(--space-4);
   text-align: center;
+  user-select: none;  /* Prevents text selection */
+  cursor: default;    /* Removes text cursor */
+}
+
+/* Prevent text selection and cursor changes across the site */
+body {
+  user-select: none;
+  cursor: default;
 }
 
 .hero-content {
