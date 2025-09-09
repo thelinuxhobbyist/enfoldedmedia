@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 2.5rem; font-weight: 800; }
 .hero-heading { 
-  font-size: 1.75rem; 
+  font-size: 1.25rem; 
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: var(--space-4);
@@ -160,12 +160,12 @@ h1 { font-size: 2.5rem; font-weight: 800; }
 /* Mobile adjustments for very small screens */
 @media screen and (max-width: 400px) {
   .hero-heading {
-    font-size: 1.35rem;
-    padding: 0 var(--space-2);
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 320px;
+    font-size: 1rem;
+    padding: 0;
+    margin-left: var(--space-2);
+    margin-right: var(--space-2);
+    width: auto;
+    white-space: normal;
   }
 }
 
