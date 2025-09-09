@@ -146,13 +146,22 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: var(--space-4);
 }
 
-h1 { font-size: 3.5rem; font-weight: 800; }
+h1 { font-size: 2.5rem; font-weight: 800; }
 .hero-heading { 
-  font-size: 3rem; 
+  font-size: 1.4rem; 
   font-weight: 800;
-  white-space: nowrap;
   line-height: 1.1;
   margin-bottom: var(--space-4);
+  text-align: center;
+  max-width: 100%;
+  padding: 0 var(--space-4);
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
 }
 h2 { font-size: 2.5rem; font-weight: 700; }
 h3 { font-size: 2rem; font-weight: 600; }
