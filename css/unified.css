@@ -157,6 +157,18 @@ h1 { font-size: 2.5rem; font-weight: 800; }
   cursor: default;    /* Removes text cursor */
 }
 
+/* Mobile adjustments for very small screens */
+@media screen and (max-width: 400px) {
+  .hero-heading {
+    font-size: 1.35rem;
+    padding: 0 var(--space-2);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
 /* Prevent text selection and cursor changes across the site */
 body {
   user-select: none;
