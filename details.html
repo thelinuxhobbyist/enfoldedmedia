@@ -1,275 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Package Details | Enfolded Media</title>
-    <link rel="stylesheet" href="/css/unified.css">
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-        // Get environment variables from Cloudflare
-        const STRIPE_PUBLISHABLE_KEY = 'pk_live_51O2v6vEj0Ym5N4jVIFhC9lO8BhUZvjWE7qE5y8HBpEXyNaFZ2wsUzTEulLJb0oiHgGEdSj9dTSbCTIU9dW6HuX3800XQHKFzzF';
-        const API_URL = window.location.origin; // This will work both locally and in production
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enfolded Media | Multilingual Design</title>
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <meta name="description" content="Professional multilingual digital media services in the UK. Expert logo design, website development, and multilingual marketing materials for multicultural businesses">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Unified Modern CSS -->
+  <link rel="stylesheet" href="css/unified.css">
+  
+  <!-- Load packages data -->
+  <script>
+    // Load packages data from JSON file
+    fetch('js/packages.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        window.packages = data;
+        console.log('Packages loaded:', data.length);
+        // Initialize package details after data is loaded
+        initializePackageDetails();
+      })
+      .catch(error => {
+        console.error('Error loading packages:', error);
+      });
+  </script>
 </head>
 <body>
-    <style>
-        /* Debug panel styling */
-        #debug { 
-            padding: 20px; 
-            font-family: monospace; 
-            background: #f8f9fa; 
-            border-bottom: 1px solid #dee2e6;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-        #debug .info { color: #0c5460; }
-        #debug .error { color: #721c24; }
-        #debug .success { color: #155724; }
-        #debug:empty { display: none; }
+  <!-- Modern Header -->
+  <header class="modern-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo-link">
+          <img src="https://cdn.enfoldedmedia.com/enfolded-images/logo.png" alt="Enfolded Media" class="logo">
+        </a>
+        
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-link">
+            Home
+          </a>
+          <a href="packages.html" class="nav-link">
+            Packages
+          </a>
+          <a href="index.html#contact" class="nav-link">
+            Contact
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-        /* Package details styling */
-        .package-details {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 40px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        }
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="packages.html" class="mobile-nav-link active">Packages</a>
+        <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-        .package-title {
-            font-size: 2.5em;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+  <!-- Package Details Header -->
+  <section class="package-details-header">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: var(--space-8);">
+        <a href="packages.html" class="btn btn-secondary" style="margin-bottom: var(--space-4);">← Back to Packages</a>
+        <h1 id="package-title" style="margin-bottom: var(--space-4);">Package Details</h1>
+      </div>
+    </div>
+  </section>
 
-        .package-description {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #34495e;
-            margin-bottom: 30px;
-        }
+  <!-- Desktop Layout -->
+  <section class="section package-details-desktop">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: start; gap: var(--space-12);">
+        <!-- Package Description -->
+        <div>
+          <div class="card" style="margin-bottom: var(--space-8);">
+            <h3>Package Description</h3>
+            <p id="long-description" style="font-size: 1.125rem; line-height: 1.75;"></p>
+          </div>
 
-        .package-price {
-            font-size: 2.5em;
-            color: #27ae60;
-            margin: 30px 0;
-            font-weight: bold;
-        }
+          <!-- Hosting Info (conditional) -->
+          <div id="hosting-section" class="card">
+            <h3>Hosting Information</h3>
+            <p id="hosting-info"></p>
+          </div>
+        </div>
 
-        .features-section {
-            margin: 30px 0;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .features-title {
-            font-size: 1.5em;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-
-        .features-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .features-list li {
-            padding: 10px 0;
-            color: #34495e;
-            font-size: 1.1em;
-        }
-
-        .features-list li:before {
-            content: "✓";
-            color: #27ae60;
-            margin-right: 10px;
-        }
-
-        .buy-button {
-            background: #27ae60;
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.2em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            margin: 30px 0;
-        }
-
-        .buy-button:hover {
-            background: #219a52;
-        }
-
-        .buy-button:disabled {
-            background: #93c7ac;
-            cursor: not-allowed;
-        }
-
-        .debug-data {
-            margin-top: 40px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            font-family: monospace;
-            white-space: pre-wrap;
-            text-align: left;
-            font-size: 0.9em;
-            color: #2c3e50;
-            border: 1px solid #dee2e6;
-        }
-    </style>
-    
-    <div id="debug"></div>
-    <div id="content"></div>
-
-    <script>
-        // Enhanced debug helper
-        function debug(level, message) {
-                const debugDiv = document.getElementById('debug');
-                debugDiv.innerHTML += `<div class="${level}">[${level}] ${message}</div>`;
-            }
-
-            function displayPackage(pkg) {
-                const contentDiv = document.getElementById('content');
-                
-                const html = `
-                    <div class="package-details">
-                        <h1 class="package-title">${pkg.name}</h1>
-                        <div class="package-description">${pkg.description || ''}</div>
-                        
-                        <div class="package-price">$${pkg.price || '0.00'}</div>
-                        
-                        <div class="features-section">
-                            <h2 class="features-title">Features</h2>
-                            <ul class="features-list">
-                                ${(pkg.features || []).map(feature => `<li>${feature}</li>`).join('')}
-                            </ul>
-                        </div>
-
-                        <button class="buy-button" onclick="handlePurchase('${pkg.id}')">Buy Now</button>
-
-                        <div class="debug-data">
-                            <strong>Package Data:</strong>
-                            ${JSON.stringify(pkg, null, 2)}
-                        </div>
-                    </div>
-                `;
-                
-                contentDiv.innerHTML = html;
-            }
+        <!-- Package Purchase -->
+        <div>
+          <div class="card" style="text-align: center; position: sticky; top: 120px;">
+            <div class="package-price" id="price" style="font-size: 3rem; margin-bottom: var(--space-6);"></div>
             
-            // Initialize Stripe with the publishable key
-            const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+            <ul class="package-features" id="desktop-features">
+              <!-- Features will be dynamically populated here -->
+            </ul>
+            
+            <a id="buy-link" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 1.125rem; padding: var(--space-4) var(--space-6);" target="_blank">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3H3m4 10v6a1 1 0 001 1h9a1 1 0 001-1v-6m-10 0V9a1 1 0 011-1h8a1 1 0 011 1v4.01"></path>
+              </svg>
+              Buy Now
+            </a>
+            
+            <p style="margin-top: var(--space-4); color: var(--gray-500); font-size: 0.875rem;">
+              Secure payment via Stripe<br>
+              Delivery: 3–5 business days after purchase
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            async function handlePurchase(packageId) {
-                try {
-                    debug('info', `Initiating purchase for package: ${packageId}`);
-                    
-                    // Disable the buy button to prevent double clicks
-                    const buyButton = document.querySelector('.buy-button');
-                    if (buyButton) {
-                        buyButton.disabled = true;
-                        buyButton.textContent = 'Processing...';
-                    }
+  <!-- Mobile Layout -->
+  <section class="section package-details-mobile">
+    <div class="container">
+      <div class="mobile-package-layout">
+        <!-- Package Description and Price - Above the fold -->
+        <div class="mobile-above-fold">
+          <!-- Package Description -->
+          <div class="card mobile-description-card">
+            <h3>Package Description</h3>
+            <p id="long-description-mobile"></p>
+          </div>
+          
+          <!-- Price Section -->
+          <div class="mobile-price-compact">
+            <div class="price-highlight">
+              <div class="price" id="price-mobile"></div>
+              <a id="buy-link-mobile" class="btn btn-primary" target="_blank">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 18px; height: 18px;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3H3m4 10v6a1 1 0 001 1h9a1 1 0 001-1v-6m-10 0V9a1 1 0 011-1h8a1 1 0 011 1v4.01"></path>
+                </svg>
+                Buy Now
+              </a>
+              <p style="margin-top: var(--space-3); color: rgba(255, 255, 255, 0.8); font-size: 0.75rem;">
+                Secure payment via Stripe<br>
+                Delivery: 3–5 business days
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Collapsible Sections - Below the fold -->
+        <div class="mobile-collapsible-sections">
+          <!-- Hosting Info (conditional collapsible) -->
+          <div id="hosting-section-mobile" class="mobile-collapsible">
+            <button class="collapsible-toggle" onclick="toggleCollapsible('hosting-toggle')">
+              <span>Hosting Information</span>
+              <i class="fas fa-chevron-down toggle-icon" id="hosting-icon"></i>
+            </button>
+            <div class="collapsible-content" id="hosting-toggle">
+              <div class="card">
+                <p id="hosting-info-mobile"></p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- What's Included (collapsible) -->
+          <div class="mobile-collapsible">
+            <button class="collapsible-toggle" onclick="toggleCollapsible('features-toggle')">
+              <span>What's Included</span>
+              <i class="fas fa-chevron-down toggle-icon" id="features-icon"></i>
+            </button>
+            <div class="collapsible-content" id="features-toggle">
+              <div class="card">
+                <ul id="mobile-features">
+                  <!-- Features will be dynamically populated here -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Related Packages -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Other Packages You Might Like</h2>
+        <p class="section-subtitle">Explore our full range of design solutions</p>
+      </div>
+      
+      <div class="grid grid-3" id="related-packages-container">
+        <!-- Related packages will be dynamically generated here -->
+      </div>
+    </div>
+  </section>
 
-                    // Create a checkout session
-                    const response = await fetch(`${API_URL}/api/create-checkout-session`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            packageId: packageId
-                        })
-                    });
+  <!-- Modern Minimalist Footer -->
+  <footer class="modern-minimalist-footer">
+    <div class="footer-container">
+      <!-- Main Footer Content -->
+      <div class="footer-main">
+        <!-- Brand Section (Center) -->
+        <div class="footer-brand">
+          <img src="https://cdn.enfoldedmedia.com/enfolded-images/logo.png" alt="Enfolded Media" class="footer-brand-logo">
+          <p class="footer-motto">multilingual. impactful. designed for your audience.</p>
+          <!-- Navigation Links -->
+          <nav class="footer-nav">
+            <a href="index.html" class="footer-nav-link">Home</a>
+            <a href="privacy.html" class="footer-nav-link">Privacy Policy</a>
+            <a href="packages.html" class="footer-nav-link">Packages</a>
+            <a href="index.html#contact" class="footer-nav-link">Contact</a>
+            <a href="https://multilingual.click" class="footer-nav-link" target="_blank" rel="noopener noreferrer">Multilingual.click</a>
+          </nav>
+        </div>
+        
+        <!-- Social Media Section (Right) -->
+        <div class="footer-social">
+          <div class="social-icons">
+            <a href="https://www.facebook.com/enfoldedteam" class="social-icon" title="Follow us on Facebook" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.twitter.com/enfoldedteam" class="social-icon" title="Follow us on X" aria-label="X">
+              <i style="font-style: normal; font-weight: bold;">𝕏</i>
+            </a>
+            <a href="https://www.instagram.com/enfoldedteam" class="social-icon" title="Follow us on Instagram" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@enfoldedteam" class="social-icon" title="Follow us on YouTube" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="footer-copyright">
+        <p>&copy; <span id="copyright-year">2025</span> Enfolded Media. All rights reserved.</p>
+      </div>
+    </div>
+    
+    <!-- Gradient Effect -->
+    <div class="footer-gradient"></div>
+  </footer>
 
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
+  <!-- JavaScript -->
+  <script src="js/copyright.js"></script>
+  <script>
+    // Load packages.json and then load details.js
+    fetch('js/packages.json')
+      .then(response => response.json())
+      .then(packages => {
+        window.packages = packages;
+        console.log('Packages loaded:', packages.length, 'packages');
+        
+        // Load details.js after packages are loaded
+        var script = document.createElement('script');
+        script.src = 'js/details.js';
+        script.onload = function() {
+          console.log('Details.js loaded successfully');
+        };
+        script.onerror = function() {
+          console.error('Failed to load details.js');
+        };
+        document.body.appendChild(script);
+      })
+      .catch(error => {
+        console.error('Error loading packages:', error);
+      });
+  </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Header scroll effect
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('.modern-header');
+        if (window.scrollY > 100) {
+          header.style.background = 'rgba(255, 255, 255, 0.98)';
+          header.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+        } else {
+          header.style.background = 'rgba(255, 255, 255, 0.95)';
+          header.style.boxShadow = 'none';
+        }
+      });
+      
+      // Mobile menu functionality
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      const body = document.body;
+      
+      function toggleMobileMenu() {
+        const isOpen = mobileMenu.classList.contains('active');
+        
+        if (isOpen) {
+          mobileMenu.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          mobileMenuToggle.classList.remove('active');
+          body.classList.remove('menu-open');
+        } else {
+          mobileMenu.classList.add('active');
+          mobileMenuOverlay.classList.add('active');
+          mobileMenuToggle.classList.add('active');
+          body.classList.add('menu-open');
+        }
+      }
+      
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+      }
+      
+      if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+      }
+      
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', toggleMobileMenu);
+      }
+      
+      // Close menu when clicking on a link
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+          if (this.getAttribute('href').startsWith('#')) {
+            toggleMobileMenu();
+          }
+        });
+      });
+    });
 
-                    const session = await response.json();
-                    debug('info', 'Redirecting to Stripe checkout...');
-
-                    // Redirect to Stripe Checkout
-                    const result = await stripe.redirectToCheckout({
-                        sessionId: session.id
-                    });
-
-                    if (result.error) {
-                        throw new Error(result.error.message);
-                    }
-
-                } catch (error) {
-                    debug('error', `Purchase failed: ${error.message}`);
-                    console.error('Purchase error:', error);
-                    
-                    // Re-enable the buy button on error
-                    const buyButton = document.querySelector('.buy-button');
-                    if (buyButton) {
-                        buyButton.disabled = false;
-                        buyButton.textContent = 'Buy Now';
-                    }
-                }
-            }
-
-            document.addEventListener('DOMContentLoaded', () => {
-                debug('info', 'Page ready - will initialize when DOM loads');
-                
-                // Test data for packages
-                const packages = [
-                    {
-                        id: "event-poster",
-                        name: "Event Poster Creator",
-                        description: "Create stunning event posters with ease",
-                        price: "49.99",
-                        features: ["Professional templates", "Custom fonts", "Export in multiple formats"]
-                    },
-                    {
-                        id: "global-pack",
-                        name: "Startup Brand Pack",
-                        description: "Everything you need to establish your brand identity",
-                        price: "299.99",
-                        features: ["Logo design", "Business cards", "Social media templates", "Brand guidelines"]
-                    },
-                    {
-                        id: "quick-amendments",
-                        name: "Quick Amendments Pack",
-                        description: "Fast turnaround for small design changes",
-                        price: "29.99",
-                        features: ["24-hour turnaround", "2 revisions", "Source files included"]
-                    }
-                ];
-
-                debug('info', 'Initializing with test data...');
-                debug('info', 'Available packages: ' + packages.map(p => p.id).join(', '));
-
-                // Get the package ID from the URL
-                const params = new URLSearchParams(window.location.search);
-                const packageId = params.get('id');
-                debug('info', `Looking for package ID: ${packageId}`);
-
-                if (!packageId) {
-                    debug('error', 'No package ID specified in URL');
-                    return;
-                }
-
-                // Find the package
-                const package = packages.find(p => p.id === packageId);
-                if (package) {
-                    debug('success', `Found package: ${package.name} (${package.id})`);
-                    displayPackage(package);
-                } else {
-                    debug('error', `Package not found: ${packageId}`);
-                }
-            });
-    </script>
+    // Toggle functionality for collapsible sections
+    function toggleCollapsible(contentId) {
+      const content = document.getElementById(contentId);
+      const button = content.previousElementSibling;
+      const icon = button.querySelector('.toggle-icon');
+      
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        button.classList.remove('active');
+      } else {
+        content.classList.add('active');
+        button.classList.add('active');
+      }
+    }
+  </script>
 </body>
 </html>
